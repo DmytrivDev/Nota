@@ -78,6 +78,7 @@
 
 	&__part-main {
 		position: relative;
+		z-index: 5;
 		&::before,
 		&::after {
 			content: "";
