@@ -1,0 +1,598 @@
+{% set title = "Home" %}
+{% set bodyClass = "is-home" %}
+
+{% extends "_html/_base/_layouts/_default.html" %}
+
+{% block content %}
+
+<div class="wrapper">
+  <section class="section__main bg">
+    <div class="container">
+      <div class="main__content revers">
+        <h1 class="main__title">
+          <span style="color:#FD532E;">Revolutionize</span> your finance with nota pay
+        </h1>
+        <div class="main__phonecont">
+          <img src="assets/img/content/phone_2.png" alt="" class="contain">
+        </div>
+        <div class="main__text">
+          <p>
+            Monitoring and managing your financial operations takes a lot of time and resources. Opt for a single platform that combines all features to effectively handle your finances.
+          </p>
+        </div>
+        <div class="main__buttons flex">
+          <a href="#request" onclick="openPopup($(this))" class="button blue">
+            <span>Request a Demo</span>
+          </a>
+          <a href="#" class="button border">
+            <span>Learn More</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__serve p1 roof">
+    <div class="container">
+      <h2 class="section__title">
+        Industry-level solutions
+      </h2>
+      <div class="serve__container">
+        <div class="serve__carousel2 owl-carousel owl-theme">
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_1.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_1.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Advanced Online <br>Payments
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Opting for Nota Pay, online businesses unlock a comprehensive set of tools to manage financial operations and engage their customers on a whole new level. With our ecosystem, you’ll be able to provide clients with secure internet acquiring, a “Buy Now Pay Later” payment option, and even more valuable features.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_2.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_2.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Support of High-Risk Industries
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Are you looking for a payment gateway that can handle millions of transactions at once and accept high-risk businesses?
+                  Nota Pay is ready to become your all-in-one supporter, ensuring that setting up merchant accounts, keeping your conversion rates high, and providing a diverse range of payment options will be a simple task.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_3.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_3.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Diverse Payment <br>Methods
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  The Nota Pay ecosystem employs various payment methods, a broad technological stack, and robust infrastructure to meet the demands of all enterprises regardless of their scale. With our payment gateway, optimizing your operations, securing financial data, or expanding your payment options won’t be an issue.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_4.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_4.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Crypto Payments <br>Solutions
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Regardless of whether your business just taps into crypto or bases the whole operation on it, Nota Pay can provide a comprehensive platform for managing, storing, and transacting your crypto assets. Employ the full scope of available financial operations in one convenient and secure ecosystem.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_5.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_5.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Reliable  <br>Infrastructure
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Nota Pay provides your enterprise with a robust infrastructure that can handle even high-frequency transactions. Thus, you won’t have any drops in quality, stability,
+                  or speed, and customers will have a consistently positive experience using
+                  your platform.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<style>
+  .features__container::before {
+    display: none;
+  }
+</style>
+<section class="section__features p2">
+    <div class="container">
+      <div class="section__titlecont flex">
+        <div class="section__title">
+          NOTA PAY FEATURES
+        </div>
+        <a href="#" class="button blue">
+          <span>Learn More </span>
+        </a>
+      </div>
+      <div class="features__container flex">
+        <div class="features__left">
+          <img src="assets/img/content/features.jpg" alt="" class="features__img">
+          <div class="features__text">
+            <p>
+              Reshape your finance management with Nota Pay, a robust platform for seamless managing and expanding your financial operation of any scale in any industry.
+            </p>
+          </div>
+        </div>
+        <div class="features__line"></div>
+        <ul class="features__right">
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Internet Acquiring
+            </h3>
+            <div class="features__desc">
+              Broaden your financial outreach with our secure and diverse payment
+              <br>methods available 24/7.
+            </div>
+            <div class="features__num">
+              01
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Business Wallet
+            </h3>
+            <div class="features__desc">
+              Keep and manage all your business accounts at once through your Nota Pay ecosystem.
+            </div>
+            <div class="features__num">
+              02
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Payouts
+            </h3>
+            <div class="features__desc">
+              Have all data about bulk payments, online credits, cashback, and salaries
+              <br>at your fingertips.
+            </div>
+            <div class="features__num">
+              03
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              QR Codes
+            </h3>
+            <div class="features__desc">
+              Enable clients to quickly access your payment gateway just by scanning a QR code.
+            </div>
+            <div class="features__num">
+              04
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Statements & Invoices
+            </h3>
+            <div class="features__desc">
+              Generate official summaries of financial transactions and issue invoices from
+              <br>any device connected to the internet.
+            </div>
+            <div class="features__num">
+              05
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Online Accounting
+            </h3>
+            <div class="features__desc">
+              Manage all financial operations on one virtual platform instead of leaving a trail of papers.
+            </div>
+            <div class="features__num">
+              06
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              mPOS Terminals
+            </h3>
+            <div class="features__desc">
+              Nota Pay ensures you and your customers will be able to pay through any mPOS terminal.
+            </div>
+            <div class="features__num">
+              07
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Card Issuing
+            </h3>
+            <div class="features__desc">
+              Issue MasterCard and Visa cards to your clients, providing them with a more familiar payment option.
+            </div>
+            <div class="features__num">
+              08
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              P2P Transfers
+            </h3>
+            <div class="features__desc">
+              Offer a convenient alternative to traditional payments with Nota Pay.
+            </div>
+            <div class="features__num">
+              09
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Subscription Payments
+            </h3>
+            <div class="features__desc">
+              Automatically issue regular invoices for goods and services, focusing your attention on how to attract new clients.
+            </div>
+            <div class="features__num">
+              10
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Checkout Customization
+            </h3>
+            <div class="features__desc">
+              Align the checkout experience of customers with your unique brand identity.
+            </div>
+            <div class="features__num">
+              11
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="section__bottom">
+        <a href="#" class="button blue">
+          <span>Learn More </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+<div class="wrapper lastWrapper">
+  <section class="section__credo p2 decType2">
+    <div class="container">
+      <div class="credo__container flex">
+        <div class="credo__item long">
+          <h2 class="section__title">
+            The Entire finance <br>at your fingertips
+          </h2>
+        </div>
+        <div class="credo__item long text textB">
+          <p>
+            Nota Pay combines various tools, payment methods, and features into a comprehensive yet easy-to-navigate interface to enable enterprises from any background to effectively manage their finance. Don’t hesitate. Opt for a single platform to monitor, manage, and adjust every aspect of your financial operations.
+          </p>
+        </div>
+        <div class="credo__item long">
+          <div class="credo__img">
+            <img src="assets/img/content/fin_1.jpg" alt="" class="cover">
+          </div>
+        </div>
+        <div class="credo__item long">
+          <div class="credo__img">
+            <img src="assets/img/content/fin_2.jpg" alt="" class="cover">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section__comp compMap">
+    <div class="container">
+      <div class="comp__container reverse flex">
+        <div class="comp__infopart">
+          <h2 class="comp__title">
+            Expanding our horizons from Europe to the whole world!
+          </h2>
+          <div class="comp__infotext less">
+            <p>
+              With offices across several counties, we have already committed our efforts and resources to establish the Nota Pay presence across the whole world. Witness as our team grows and finds new ways to support enterprises in their financial operations.
+            </p>
+          </div>
+          <ul class="comp__list">
+            <li>
+              <span class="comp__sir"></span>
+              <p><span style="color: #000000;">Main office:</span> Ukraine, Portugal</p>
+            </li>
+            <li>
+              <span class="comp__sir"></span>
+              <p><span style="color: #000000;">Office:</span> UK, Poland, Kazakhstan, US, Canada, Hong Kong</p>
+            </li>
+            <li>
+              <span class="comp__sir"></span>
+              <p><span style="color: #000000;">Representation:</span> Israel, UK, Kazakhstan, Turkey, Hong Kong</p>
+            </li>
+            <li>
+              <span class="comp__sir"></span>
+              <p><span style="color: #000000;">Soon:</span> Australia, France, Brazil, Mexico, India</p>
+            </li>
+          </ul>
+        </div>
+        <div class="comp__photopart flex">
+          <img src="assets/img/content/map.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <section class="section__differs p2">
+    <div class="container">
+      <h2 class="section__title">
+        Why Nota Pay Differs
+      </h2>
+      <div class="differs__container">
+        <div class="differs__carousel owl-carousel owl-theme">
+          <div class="differs__item flex">
+            <div class="differs__img">
+              <div class="differs__imginn">
+                <img src="assets/img/content/differs.jpg" alt="" class="cover">
+              </div>
+            </div>
+            <div class="differs__main">
+              <div class="serve__icon">
+                <img src="assets/img/icons/serve_2.svg" alt="" class="contain">
+              </div>
+              <div class="differs__bottom">
+                <h3 class="differs__title">
+                  Scalable & Robust Infrastructure
+                </h3>
+                <div class="differs__text">
+                  <p>
+                    Regardless of whether your enterprise is considered large, medium, or small, Nota Pay will be able to adjust its infrastructure and handle your demands with the same efficiency. In addition, Our ecosystem features all the tools needed to effectively manage financial operations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="differs__item flex">
+            <div class="differs__img">
+              <div class="differs__imginn">
+                <img src="assets/img/content/differs.jpg" alt="" class="cover">
+              </div>
+            </div>
+            <div class="differs__main">
+              <div class="serve__icon">
+                <img src="assets/img/icons/serve_1.svg" alt="" class="contain">
+              </div>
+              <div class="differs__bottom">
+                <h3 class="differs__title">
+                  Scalable & Robust Infrastructure
+                </h3>
+                <div class="differs__text">
+                  <p>
+                    Regardless of whether your enterprise is considered large, medium, or small, Nota Pay will be able to adjust its infrastructure and handle your demands with the same efficiency. In addition, Our ecosystem features all the tools needed to effectively manage financial operations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="differs__item flex">
+            <div class="differs__img">
+              <div class="differs__imginn">
+                <img src="assets/img/content/differs.jpg" alt="" class="cover">
+              </div>
+            </div>
+            <div class="differs__main">
+              <div class="serve__icon">
+                <img src="assets/img/icons/serve_3.svg" alt="" class="contain">
+              </div>
+              <div class="differs__bottom">
+                <h3 class="differs__title">
+                  Scalable & Robust Infrastructure
+                </h3>
+                <div class="differs__text">
+                  <p>
+                    Regardless of whether your enterprise is considered large, medium, or small, Nota Pay will be able to adjust its infrastructure and handle your demands with the same efficiency. In addition, Our ecosystem features all the tools needed to effectively manage financial operations.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__getway p2">
+    <div class="container">
+      <div class="getvay__container">
+        <div class="getvay__content">
+          <h2 class="getway__title">
+            Your Universal Gateway
+            <br>for a Wide Range of Payments
+          </h2>
+          <div class="getway__text">
+            <p>
+              Leverage our all-in-one platform that can handle any type, scale,
+              or scope of transactions for your enterprise.
+            </p>
+          </div>
+          <div class="getway__img">
+            <img src="assets/img/content/getwat.png" alt="">
+          </div>
+          <a href="#request" onclick="openPopup($(this))" target="_blank" class="button blue">
+            <span>Request a Demo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__faq p2">
+    <div class="container">
+      <h2 class="section__title center">
+        frequently asked questions
+      </h2>
+      <div class="faq__content">
+        <ul class="faq__list">
+          <li class="faq__item opened">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              How do I sign up for your payment system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              Is my financial information secure when using your payment system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              What are the fees associated with your payment services?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              How long does it take to process payments with your system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              Can I integrate your payment solution into my website or app?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section__contact p1 roof">
+    <div class="container">
+      <div class="contact__container flex">
+        <div class="contact__left">
+          <h2 class="section__title">
+            Take a peek into Nota pay!
+          </h2>
+          <div class="contact__text">
+            <p>
+              Send us your contacts so we can schedule a meeting and answer all your questions about our platform.
+              Be the first to discover the Nota Pay potential of the Nota Pay platform for the finance of your enterprise.
+            </p>
+          </div>
+          <ul class="contact__list">
+            <li>
+              <a href="#">
+                <span><img src="assets/img/icons/contact_1.svg" alt=""></span>
+                Telegram Chat
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><img src="assets/img/icons/contact_2.svg" alt=""></span>
+                WhatsApp Chat
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="contact__right">
+          <form class="contact__form">
+            <input type="hidden" name="admin_email" value="dmitriw@i.ua">
+            <input type="hidden" name="form_subject" value="Request a Demo">
+            <label class="contact__label">
+              <input name="Name" type="text" class="contact__input required" placeholder="Your name">
+            </label>
+            <label class="contact__label">
+              <input name="Email" type="email" class="contact__input required" placeholder="Your email">
+            </label>
+            <label class="contact__label">
+              <input name="Phone" type="tel" class="contact__input required" placeholder="Phone number">
+            </label>
+            <label class="contact__label">
+              <textarea name="Message" class="contact__input txt scroll" placeholder="Message"></textarea>
+            </label>
+            <a href="#" onclick="sendMail($(this))" class="button blue">
+              <span>Request a Demo</span>
+            </a>
+          </form>
+        </div>
+      </div>
+      <div class="section__bottom">
+        <ul class="contact__list">
+          <li>
+            <a href="#">
+              <span><img src="assets/img/icons/contact_1.svg" alt=""></span>
+              Telegram Chat
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><img src="assets/img/icons/contact_2.svg" alt=""></span>
+              WhatsApp Chat
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+{% endblock %}

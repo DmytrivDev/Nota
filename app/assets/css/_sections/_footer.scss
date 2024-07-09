@@ -1,0 +1,179 @@
+.footer {
+  padding-top: 2em;
+  background-color: $cg;
+}
+
+.footer__top {
+  .custom-logo-link {
+    width: 10.125em;
+  }
+}
+
+.footer__middle {
+  margin-top: 1.5em;
+  justify-content: space-between;
+}
+
+.footer__left {
+  max-width: 37.438em;
+
+  .footer_nav {
+    display: none;
+  }
+}
+
+.footer__text {
+  max-width: 31.875em;
+  line-height: 1.5;
+  color: $ct;
+
+  p {
+    font-size: 0.750em;
+  }
+}
+
+.footer__icons {
+  margin-top: .5em;
+
+  li {
+    margin-right: 1.5em;
+    height: 2em;
+
+    img {
+      display: block;
+      height: 100%;
+      width: auto;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.footer__parts {
+  margin-top: 1.5em;
+}
+
+.footer__part {
+  margin-bottom: 1.5em;
+
+  h3 {
+    font-size: 0.875em;
+    line-height: 1.429;
+    color: #fff;
+    font-weight: normal;
+  }
+
+  p {
+    font-size: 0.750em;
+    margin-top: 0.667em;
+    line-height: 1.333;
+    color: $ct;
+  }
+
+  &:last-child {
+    margin: 0;
+  }
+}
+
+.footer__right {
+  width: 24em;
+}
+
+.footer_nav {
+  margin-bottom: -2em;
+
+  li {
+    width: calc(50% - 0.750em);
+    margin-bottom: 2em;
+
+    a {
+      line-height: 1.5;
+      display: inline-block;
+      color: #fff;
+    }
+  }
+}
+
+.footer__bottom {
+  margin-top: 4em;
+  padding-bottom: 1em;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
+.copyright {
+  font-size: 0.750em;
+  color: $co;
+}
+
+
+@media screen and (max-width: 960px) {
+  .footer {
+    font-size: 1.143em;
+    padding-top: 1.5em;
+  }
+  .footer__top {
+    .custom-logo-link {
+      width: 6.313em;
+    }
+  }
+  .footer__middle {
+    margin-top: 1.5em;
+  }
+  .footer__left {
+    max-width: inherit;
+    width: 100%;
+    .footer_nav {
+      display: flex;
+    }
+  }
+  .footer__icons {
+    font-size: 1em;
+    margin-top: 2em;
+    li {
+      margin-right: 3em;
+    }
+  }
+  .footer__parts {
+    margin-top: 3em;
+  }
+  .footer__right {
+    font-size: 1.143em;
+    margin-top: 3em;
+    width: 100%;
+  }
+  .footer__right {
+    display: none;
+  }
+  .footer_nav {
+    margin-top: 1.5em;
+    margin-bottom: -1.5em;
+    li {
+      width: calc(100% / 3 - 1.5em);
+      margin-bottom: 1.5em;
+
+      a {
+        font-size: 0.875em;
+      }
+    }
+  }
+  .footer__bottom {
+    font-size: 1.143em;
+    margin-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .footer_nav {
+    justify-content: space-between;
+    li {
+      min-width: 9.375em;
+      width: auto;
+    }
+  }
+}

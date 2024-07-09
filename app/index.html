@@ -1,0 +1,484 @@
+{% set title = "Home" %}
+{% set bodyClass = "is-home" %}
+
+{% extends "_html/_base/_layouts/_default.html" %}
+
+{% block content %}
+
+<div class="wrapper">
+  <section class="section__main">
+    <div class="container">
+      <div class="main__content">
+        <h1 class="main__title">
+          One payment gateway to build <span style="color:#FD532E;">the entire</span> financial framework
+        </h1>
+        <div class="main__phonecont">
+          <img src="assets/img/content/phone.png" alt="" class="contain">
+        </div>
+        <div class="main__text">
+          <p>
+            Our neobank ecosystem is tailored to enterprises that deal
+            <br>with low & high-risk transactions. Nota Pay won’t let international deals, high-volume purchases, or various industries jeopardize your financial operations.
+          </p>
+        </div>
+        <div class="main__buttons flex">
+          <a href="#request" onclick="openPopup($(this))" class="button blue">
+            <span>Request a Demo</span>
+          </a>
+          <a href="#" class="button border">
+            <span>Learn More</span>
+          </a>
+        </div>
+        <div class="main__arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__serve p1 roof">
+    <div class="container">
+      <h2 class="section__title">
+        Industries we serve
+      </h2>
+      <div class="serve__container">
+        <div class="serve__carousel owl-carousel owl-theme">
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_1.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_1.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                E-commerce
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Create a successful SaaS business from scratch with our advanced solutions for payment gateways.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_2.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_2.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Enterprise
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Create a successful SaaS business from scratch with our advanced solutions for payment gateways.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_3.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_3.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                SaaS
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Create a successful SaaS business from scratch with our advanced solutions for payment gateways.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_4.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_4.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Crypto
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Create a successful SaaS business from scratch with our advanced solutions for payment gateways.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="serve__item flex">
+            <div class="serve__icon">
+              <img src="assets/img/icons/serve_5.svg" alt="" class="contain">
+              <img src="assets/img/icons/servew_5.svg" alt="" class="contain">
+            </div>
+            <div class="serve__bottom">
+              <h3 class="serve__name">
+                Gaming
+              </h3>
+              <div class="serve__dsc">
+                <p>
+                  Create a successful SaaS business from scratch with our advanced solutions for payment gateways.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="grouped__sections">
+  <section class="section__features p2">
+    <div class="container">
+      <div class="section__titlecont flex">
+        <h2 class="section__title">
+          NOTA PAY FEATURES
+        </h2>
+        <a href="#" class="button border">
+          <span>Learn More </span>
+        </a>
+      </div>
+      <div class="features__container flex">
+        <div class="features__left">
+          <img src="assets/img/content/features.jpg" alt="" class="features__img">
+          <div class="features__text">
+            <p>
+              Reshape your finance management with Nota Pay, a robust platform for seamless managing and expanding your financial operation of any scale in any industry.
+            </p>
+          </div>
+        </div>
+        <div class="features__line"></div>
+        <ul class="features__right">
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Internet Acquiring
+            </h3>
+            <div class="features__num">
+              01
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Business Wallet
+            </h3>
+            <div class="features__num">
+              02
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Payouts
+            </h3>
+            <div class="features__num">
+              03
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              QR Codes
+            </h3>
+            <div class="features__num">
+              04
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Statements & Invoices
+            </h3>
+            <div class="features__num">
+              05
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Online Accounting
+            </h3>
+            <div class="features__num">
+              06
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              mPOS Terminals
+            </h3>
+            <div class="features__num">
+              07
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Card Issuing
+            </h3>
+            <div class="features__num">
+              08
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              P2P Transfers
+            </h3>
+            <div class="features__num">
+              09
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Subscription Payments
+            </h3>
+            <div class="features__num">
+              10
+            </div>
+          </li>
+          <li class="features__item flex">
+            <h3 class="features__name">
+              Checkout Customization
+            </h3>
+            <div class="features__num">
+              11
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="section__bottom">
+        <a href="#" class="button border">
+          <span>Learn More </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__credo p2 orange">
+    <div class="container">
+      <div class="section__titlecont flex">
+        <h2 class="section__title">
+          Our credo, Culture, and Community
+        </h2>
+        <a href="#" class="button border">
+          <span>Learn More </span>
+        </a>
+      </div>
+      <div class="credo__container flex">
+        <div class="credo__item long empty"></div>
+        <div class="credo__item text">
+          <p>
+            Driving innovation in the fintech landscape, we commit to delivering a payment gateway that can satisfy even clients that operate in various industries.
+          </p>
+        </div>
+        <div class="credo__item text">
+          <p>
+            For that purpose, at NotaPay,  we gather a diverse team of specialists and nurture an environment based on trust, competence, and commitment to our partners.
+          </p>
+        </div>
+        <div class="credo__item long">
+          <div class="credo__img">
+            <img src="assets/img/content/credo_1.jpg" alt="" class="cover">
+          </div>
+        </div>
+        <div class="credo__item">
+          <div class="credo__img">
+            <img src="assets/img/content/credo_2.jpg" alt="" class="cover">
+          </div>
+        </div>
+        <div class="credo__item">
+          <div class="credo__img">
+            <img src="assets/img/content/credo_3.jpg" alt="" class="cover">
+          </div>
+        </div>
+      </div>
+      <div class="section__bottom">
+        <a href="#" class="button border">
+          <span>Learn More </span>
+        </a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div class="wrapper lastWrapper">
+  <div class="section__infogr p1">
+    <div class="container">
+      <ul class="infogr__list flex">
+        <li class="infogr__item">
+          <div class="infogr__num">
+            5 000 000<span style="color:#FD532E;">+</span>
+          </div>
+          <div class="infogr__text">
+            <p>
+              Transactions per month
+            </p>
+          </div>
+        </li>
+        <li class="infogr__item">
+          <div class="infogr__num">
+            97<span style="color:#FD532E;">%</span>
+          </div>
+          <div class="infogr__text">
+            <p>
+              Conversion rate
+            </p>
+          </div>
+        </li>
+        <li class="infogr__item">
+          <div class="infogr__num">
+            1 200<span style="color:#FD532E;">+</span>
+          </div>
+          <div class="infogr__text">
+            <p>
+              Years in the financial industry
+            </p>
+          </div>
+        </li>
+        <li class="infogr__item">
+          <div class="infogr__num">
+            99.95<span style="color:#FD532E;">%</span>
+          </div>
+          <div class="infogr__text">
+            <p>
+              System uptime throughout its history
+            </p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="section__faq p2">
+    <div class="container">
+      <h2 class="section__title center">
+        frequently asked questions
+      </h2>
+      <div class="faq__content">
+        <ul class="faq__list">
+          <li class="faq__item opened">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              How do I sign up for your payment system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              Is my financial information secure when using your payment system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              What are the fees associated with your payment services?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              How long does it take to process payments with your system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              Can I integrate your payment solution into my website or app?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section__contact p1 roof">
+    <div class="container">
+      <div class="contact__container flex">
+        <div class="contact__left">
+          <h2 class="section__title">
+            Take a peek into Nota pay!
+          </h2>
+          <div class="contact__text">
+            <p>
+              Send us your contacts so we can schedule a meeting and answer all your questions about our platform.
+              Be the first to discover the Nota Pay potential of the Nota Pay platform for the finance of your enterprise.
+            </p>
+          </div>
+          <ul class="contact__list">
+            <li>
+              <a href="#">
+                <span><img src="assets/img/icons/contact_1.svg" alt=""></span>
+                Telegram Chat
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><img src="assets/img/icons/contact_2.svg" alt=""></span>
+                WhatsApp Chat
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="contact__right">
+          <form class="contact__form">
+            <input type="hidden" name="admin_email" value="dmitriw@i.ua">
+            <input type="hidden" name="form_subject" value="Request a Demo">
+            <label class="contact__label">
+              <input name="Name" type="text" class="contact__input required" placeholder="Your name">
+            </label>
+            <label class="contact__label">
+              <input name="Email" type="email" class="contact__input required" placeholder="Your email">
+            </label>
+            <label class="contact__label">
+              <input name="Phone" type="tel" class="contact__input required" placeholder="Phone number">
+            </label>
+            <label class="contact__label">
+              <textarea name="Message" class="contact__input txt scroll" placeholder="Message"></textarea>
+            </label>
+            <a href="#" onclick="sendMail($(this))" class="button blue">
+              <span>Request a Demo</span>
+            </a>
+          </form>
+        </div>
+      </div>
+      <div class="section__bottom">
+        <ul class="contact__list">
+          <li>
+            <a href="#">
+              <span><img src="assets/img/icons/contact_1.svg" alt=""></span>
+              Telegram Chat
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><img src="assets/img/icons/contact_2.svg" alt=""></span>
+              WhatsApp Chat
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+
+{% endblock %}

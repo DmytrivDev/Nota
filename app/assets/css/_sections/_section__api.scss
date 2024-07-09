@@ -1,0 +1,77 @@
+.api__container {
+  padding: 4em;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  background-color: $cl;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    width: 42.625em;
+    height: 20.563em;
+    right: -10.375em;
+    bottom: -7.688em;
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-image: url(../../assets/img/decor/api_dec.png);
+  }
+}
+
+.api__content {
+  max-width: 42.500em;
+  position: relative;
+  z-index: 2;
+}
+
+.api__text {
+  margin-top: 1em;
+  max-width: 32.750em;
+  color: $ct;
+}
+
+.api__lng {
+  font-size: 0.750em;
+  margin-top: 2.667em;
+  color: $cb;
+}
+
+.button__api {
+  width: 12.500em;
+}
+
+
+@media screen and (max-width: 960px) {
+  .api__container {
+    font-size: 1.143em;
+    padding: 1em;
+    &::before {
+      display: none;
+    }
+  }
+  .api__content {
+    max-width: 19.625em;
+  }
+  .api__text {
+    margin-top: 1.5em;
+    max-width: inherit;
+    * {
+      font-size: 0.750em;
+    }
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .api__content {
+    max-width: inherit;
+  }
+  .button__api {
+    margin-top: 4em;
+    width: 100%;
+  }
+}

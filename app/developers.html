@@ -1,0 +1,197 @@
+{% set title = "Home" %}
+{% set bodyClass = "is-home" %}
+
+{% extends "_html/_base/_layouts/_default.html" %}
+
+{% block content %}
+
+<div class="wrapper lastWrapper">
+  <section class="section__main">
+    <div class="container">
+      <div class="main__content biggestMar">
+        <h1 class="main__title">
+          NOTA PAY in your platform <span style="color:#FD532E;">without <br>a hitch</span>
+        </h1>
+        <div class="main__phonecont">
+          <img src="assets/img/content/phone_3.png" alt="" class="contain">
+        </div>
+        <div class="main__text">
+          <p>
+            Access the manuals and resources necessary for integrating Nota Pay into their framework without potential bugs or errors.
+          </p>
+        </div>
+        <div class="main__buttons flex">
+          <a href="#request" onclick="openPopup($(this))" class="button blue">
+            <span>Request a Demo</span>
+          </a>
+          <a href="#" class="button border">
+            <span>Learn More</span>
+          </a>
+        </div>
+        <div class="main__arrow"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__api p2">
+    <div class="container">
+      <div class="api__container flex">
+        <div class="api__content">
+          <h2 class="section__title">
+            NotaPay API ver. 1.00
+          </h2>
+          <div class="api__text">
+            <p>
+              An API key is a unique code used to access and interact with a specific software application or web service. It acts as a digital key, granting authorized users or applications permission to use the API's features securely.
+            </p>
+          </div>
+          <div class="api__lng">
+            Language: English
+          </div>
+        </div>
+        <a href="https://docs.google.com/document/d/1gHENFJq_ofoGW6_Q_KrF8q2T60GA7bBEJ9fhjqMUHTQ/edit" download="NotaPay API ver. 1.00" class="button blue button__api">
+          <span>Download</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section__faq p2">
+    <div class="container">
+      <h2 class="section__title center">
+        frequently asked questions
+      </h2>
+      <div class="faq__content">
+        <ul class="faq__list">
+          <li class="faq__item opened">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              How do I sign up for your payment system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              Is my financial information secure when using your payment system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              What are the fees associated with your payment services?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              How long does it take to process payments with your system?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+          <li class="faq__item">
+            <a href="#" onclick="faq($(this))" class="faq__quest">
+              Can I integrate your payment solution into my website or app?
+            </a>
+            <div class="faq__answer">
+              <p>
+                We support a wide range of payment methods, including credit cards, debit cards, digital wallets (such as PayPal and Apple Pay), bank transfers,
+                <br>and more. Our goal is to ensure that you can accept payments in the way that suits your business best.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section__contact p1 roof">
+    <div class="container">
+      <div class="contact__container flex">
+        <div class="contact__left">
+          <h2 class="section__title">
+            Take a peek into Nota pay!
+          </h2>
+          <div class="contact__text">
+            <p>
+              Send us your contacts so we can schedule a meeting and answer all your questions about our platform.
+              Be the first to discover the Nota Pay potential of the Nota Pay platform for the finance of your enterprise.
+            </p>
+          </div>
+          <ul class="contact__list">
+            <li>
+              <a href="#">
+                <span><img src="assets/img/icons/contact_1.svg" alt=""></span>
+                Telegram Chat
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span><img src="assets/img/icons/contact_2.svg" alt=""></span>
+                WhatsApp Chat
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="contact__right">
+          <form class="contact__form">
+            <input type="hidden" name="admin_email" value="dmitriw@i.ua">
+            <input type="hidden" name="form_subject" value="Request a Demo">
+            <label class="contact__label">
+              <input name="Name" type="text" class="contact__input required" placeholder="Your name">
+            </label>
+            <label class="contact__label">
+              <input name="Email" type="email" class="contact__input required" placeholder="Your email">
+            </label>
+            <label class="contact__label">
+              <input name="Phone" type="tel" class="contact__input required" placeholder="Phone number">
+            </label>
+            <label class="contact__label">
+              <textarea name="Message" class="contact__input txt scroll" placeholder="Message"></textarea>
+            </label>
+            <a href="#" onclick="sendMail($(this))" class="button blue">
+              <span>Request a Demo</span>
+            </a>
+          </form>
+        </div>
+      </div>
+      <div class="section__bottom">
+        <ul class="contact__list">
+          <li>
+            <a href="#">
+              <span><img src="assets/img/icons/contact_1.svg" alt=""></span>
+              Telegram Chat
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span><img src="assets/img/icons/contact_2.svg" alt=""></span>
+              WhatsApp Chat
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+{% endblock %}

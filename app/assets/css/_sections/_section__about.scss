@@ -1,0 +1,114 @@
+.section__about {
+  padding-top: 4em;
+  position: relative;
+
+  &::before {
+    width: 45.750em;
+    height: 45.750em;
+    top: .5em;
+    filter: blur(2.750em);
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.16;
+    background: linear-gradient(45deg, #111 16.47%, #FD532E 16.48%, #111 41.97%, #111 63.27%, #FD532E 82.83%);
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+  }
+}
+
+.about__content {
+  justify-content: space-between;
+  position: relative;
+
+  &::after {
+    width: 38.375em;
+    height: 8.625em;
+    bottom: -4.188em;
+    right: -11.625em;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    position: absolute;
+    content: '';
+    background-image: url(../../assets/img/decor/about_dec.png);
+  }
+}
+
+.about__part {
+  width: calc(50% - 0.750em);
+
+  & > p {
+    color: $ct;
+  }
+}
+
+.about__title {
+  font-size: 4em;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.about__img {
+  margin-top: 5em;
+  padding-top: 26.7%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  z-index: 2;
+}
+
+
+@media screen and (max-width: 960px) {
+  .section__about {
+    font-size: 1.143em;
+    padding-top: 3em;
+    &::before {
+      width: 26.286em;
+      height: 26.286em;
+      bottom: -8em;
+      top: inherit;
+      filter: blur(2.286em);
+    }
+  }
+  .about__content {
+    &::after {
+      width: 19.857em;
+      height: 4.429em;
+      bottom: -3.214em;
+      right: -9.571em;
+    }
+  }
+  .about__part {
+    p {
+      font-size: 0.875em;
+    }
+  }
+  .about__title {
+    font-size: 2em;
+  }
+  .about__img {
+    margin-top: 1.5em;
+    padding-top: 46.5%;
+    position: relative;
+    overflow: hidden;
+  }
+}
+
+@media screen and (max-width: 620px) {
+  .about__content {
+    &::after {
+      top: 3.143em;
+    }
+  }
+  .about__part {
+    width: 100%;
+    &:nth-child(2) {
+      margin-top: 1.5em;
+      order: 1;
+    }
+  }
+}

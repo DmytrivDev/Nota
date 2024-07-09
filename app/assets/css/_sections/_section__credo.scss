@@ -1,0 +1,150 @@
+.section__credo {
+  position: relative;
+
+  &::before {
+    width: 45.375em;
+    height: 45.375em;
+    top: -21.125em;
+    transform: translateX(-63.500em);
+    filter: blur(8em);
+    background: radial-gradient(78.34% 78.34% at 50% 50%, #000 0%, #FD532E 54.17%);
+    left: 50%;
+    opacity: .3;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+  }
+
+  .container {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.decType2 {
+    &::before {
+      top: 28.750em;
+    }
+    .credo__container {
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+.credo__container {
+  margin: 0 -0.750em;
+  margin-top: 2.750em;
+  margin-bottom: -1.5em;
+  justify-content: space-between;
+  position: relative;
+
+  &:first-child {
+    margin-top: 0 !important;
+  }
+
+  &::before {
+    width: 42.625em;
+    height: 20.563em;
+    top: -4.375em;
+    left: -17.375em;
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-image: url(../../assets/img/decor/credp_dec.png);
+  }
+}
+
+.credo__item {
+  margin: 0 0.750em;
+  margin-bottom: 1.5em;
+  width: calc(25% - 1.5em);
+  color: $ct;
+  position: relative;
+  z-index: 2;
+
+  &.textB {
+    font-size: 1em;
+    padding-right: 2.7em;
+    line-height: 1.333;
+
+    * {
+      font-size: 1em;
+    }
+  }
+
+  .section__title {
+    line-height: 1.167em;
+    color: #fff;
+  }
+
+  &.long {
+    width: calc(50% - 1.5em);
+
+    .credo__img {
+      padding-top: 50%;
+    }
+  }
+
+  p {
+    font-size: 0.875em;
+  }
+}
+
+.credo__img {
+  padding-top: 104%;
+  position: relative;
+  overflow: hidden;
+}
+
+
+@media screen and (max-width: 960px) {
+  .section__credo {
+    &::before {
+      display: none;
+    }
+  }
+  .credo__container {
+    margin-top: 1.5em;
+    font-size: 1.143em;
+    &::before {
+      display: none;
+    }
+  }
+  .credo__item {
+    width: calc(50% - 1.5em);
+    &.long {
+      width: calc(100% - 1.5em);
+      .credo__img {
+        padding-top: 50%;
+      }
+    }
+    &.empty {
+      display: none;
+    }
+    &.textB {
+      font-size: 0.875em;
+      padding-right: 0;
+      line-height: 1.333;
+    }
+    .section__title {
+      margin-bottom: -0.333em;
+      line-height: 1.333em;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .credo__item {
+    &.text {
+      width: calc(100% - 1.5em);
+    }
+
+    &:nth-child(3) {
+      order: 2;
+    }
+  }
+}

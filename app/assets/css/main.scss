@@ -1,0 +1,37 @@
+//Settings
+@import "_settings/variables";
+@import "_settings/default";
+@import "_settings/fonts";
+@import "_settings/general";
+
+//Sections
+@import "_sections/header";
+@import "_sections/footer";
+
+//Home page
+@import "_sections/section__main";
+@import "_sections/section__serve";
+@import "_sections/section__features";
+@import "_sections/section__credo";
+@import "_sections/section__infogr";
+@import "_sections/section__faq";
+@import "_sections/section__contact";
+@import "_sections/popup";
+
+//About
+@import "_sections/section__about";
+@import "_sections/comp__container";
+
+//Products
+@import "_sections/section__differs";
+@import "_sections/section__getway";
+
+//Developers
+@import "_sections/section__api";
+
+//Page
+@import "_sections/section__page";
+
+//404
+@import "_sections/section__error";
+

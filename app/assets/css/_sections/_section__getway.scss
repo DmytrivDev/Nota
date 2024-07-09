@@ -1,0 +1,133 @@
+.getvay__container {
+  padding: 4em;
+  min-height: 24em;
+  position: relative;
+  background: $gr1;
+  overflow: hidden;
+
+  &::before {
+    width: 56em;
+    height: 27.063em;
+    right: -4.250em;
+    top: 0;
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-image: url(../../assets/img/decor/get_bg.png);
+  }
+}
+
+.getvay__content {
+  max-width: 29em;
+
+  .button {
+    margin-top: 4em;
+    background: #fff !important;
+    color: $cb !important;
+  }
+}
+
+.getway__title {
+  font-size: 2em;
+  line-height: 1.250;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+
+.getway__text {
+  margin-top: 1.5em;
+  color: #CFCFCF;
+  position: relative;
+  z-index: 2;
+}
+
+.getway__img {
+  right: 1.750em;
+  bottom: 1em;
+  width: 31.875em;
+  position: absolute;
+
+  &::before {
+    width: 23.625em;
+    height: 23.625em;
+    top: -1.438em;
+    right: 2.250em;
+    filter: blur(3.656em);
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    background: #fff;
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  .getvay__container {
+    font-size: 1.143em;
+    padding: 1.5em 1em;
+    min-height: inherit;
+    &::before {
+      width: 64em;
+      height: 30.929em;
+      right: -33.714em;
+      bottom: -6em;
+      top: auto;
+    }
+  }
+  .getvay__content {
+    max-width: 19.500em;
+    .button {
+      margin-top: 2.5em;
+    }
+  }
+  .getway__title {
+    font-size: 1.5em;
+    line-height: 1.333;
+  }
+  .getway__text {
+    margin-top: 1em;
+    * {
+      font-size: 0.875em;
+    }
+  }
+  .getway__img {
+    right: 1em;
+    width: 19.750em;
+    &::before {
+      width: 12.375em;
+      height: 12.375em;
+      top: 40%;
+      left: 50%;
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .getvay__content {
+    max-width: 100%;
+    .button {
+      width: 100%;
+    }
+  }
+  .getway__img {
+    margin: 0 auto;
+    margin-top: 2em;
+    max-width: 26.250em;
+    width: 100%;
+    left: auto;
+    bottom: auto;
+    position: relative;
+  }
+}

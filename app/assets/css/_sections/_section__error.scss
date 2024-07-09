@@ -1,0 +1,102 @@
+.error__container {
+  min-height: calc(100vh - 16.5em);
+  padding-right: 6.125em;
+  align-items: center;
+  align-content: center;
+  justify-content: flex-end;
+  position: relative;
+
+  &::before {
+    width: 25.125em;
+    height: 25.125em;
+    left: 2.063em;
+    top: 50%;
+    transform: translateY(-50%);
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-image: url("data:image/svg+xml,%0A%3Csvg width='402' height='402' viewBox='0 0 402 402' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M301.77 175.644L244.135 233.279L163.445 152.59L82.7565 233.279L25.1215 175.644L144.234 56.5312L182.657 56.5312L301.77 175.644Z' fill='%23202020'/%3E%3Cpath d='M106.488 227.239L164.066 169.889L244.676 250.179L325.285 169.889L382.863 227.239L263.868 345.764L225.483 345.764L106.488 227.239Z' stroke='%23202020' stroke-width='7.68467'/%3E%3C/svg%3E%0A");
+  }
+}
+
+.error__content {
+  max-width: 30.625em;
+  padding: 5.875em 0;
+  width: 100%;
+}
+
+.error__title {
+  font-size: 3.8em;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+
+  span {
+    color: $cb;
+  }
+}
+
+.error__text {
+  margin-top: 1.5em;
+  color: $ct;
+
+  p {
+    font-size: 1.125em;
+  }
+}
+
+.error__button {
+  margin-top: 3em;
+}
+
+
+@media screen and (max-width: 960px) {
+  .error__container {
+    font-size: 1.143em;
+    min-height: calc(100vh - 12.375em);
+    padding-right: 0;
+    &::before {
+      width: 21.5em;
+      height: 21.5em;
+      left: 0;
+    }
+  }
+  .error__content {
+    max-width: 21.500em;
+    padding: 4em 0;
+  }
+  .error__title {
+    font-size: 2em;
+  }
+  .error__text {
+    margin-top: 1em;
+    p {
+      font-size: 0.87em;
+    }
+  }
+  .error__button {
+    margin-top: 2em;
+    width: 100%;
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .error__container {
+    min-height: calc(100vh - 13.375em);
+    display: block;
+    &::before {
+      top: 1.5em;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .error__content {
+    max-width: 100%;
+    padding-top: 24.5em;
+    padding-bottom: 0;
+  }
+}

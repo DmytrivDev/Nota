@@ -1,0 +1,281 @@
+.section__main {
+  padding-top: 8em;
+  min-height: 42.500em;
+
+  //&.bg {
+  //  background-position: right 30.625em;
+  //  -webkit-background-size: 13.750em;
+  //  background-size: 13.750em;
+  //  background-repeat: no-repeat;
+  //  background-image: url("data:image/svg+xml,%0A%3Csvg width='258' height='220' viewBox='0 0 258 220' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cg opacity='0.16'%3E%3Cg opacity='0.32'%3E%3Cpath d='M269.934 219.582L328.766 160.774L328.766 109.816L219 219.582L269.934 219.582Z' fill='%23D2D9F0'/%3E%3Cpath d='M169.068 219.582L110.236 160.774L110.236 109.816L220.002 219.582L169.068 219.582Z' fill='%23D2D9F0'/%3E%3Cpath d='M68.5976 219.582L9.76563 160.774L9.76562 109.816L119.532 219.582L68.5976 219.582Z' fill='%23D2D9F0'/%3E%3C/g%3E%3Cg opacity='0.32'%3E%3Cpath d='M168.543 -0.000424058L109.711 58.8078L109.711 109.766L219.477 -0.000427904L168.543 -0.000424058Z' fill='%23D2D9F0'/%3E%3Cpath d='M269.408 -0.000413772L328.24 58.8078L328.24 109.766L218.474 -0.000408712L269.408 -0.000413772Z' fill='%23D2D9F0'/%3E%3C/g%3E%3Cg opacity='0.32'%3E%3Cpath d='M50.9337 50.9293L109.766 109.737L109.766 160.695L-0.00044578 50.9293L50.9337 50.9293Z' fill='%23D2D9F0'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  //}
+}
+
+.main__content {
+  max-width: 51.625em;
+  position: relative;
+
+  &.revers {
+    margin-left: 38.250em;
+
+    .main__text {
+      max-width: inherit;
+    }
+
+    .main__buttons {
+      margin-top: 4em;
+    }
+
+    .main__phonecont {
+      left: -18em;
+      transform: translateX(-100%);
+    }
+
+    &::after {
+      left: -23.625em;
+      transform: rotate(-90deg);
+    }
+
+    .main__phonecont {
+      &::after {
+        left: -4.688em;
+      }
+    }
+  }
+
+  &.biggestMar {
+    .main__text, .main__buttons {
+      margin-top: 2.5em;
+    }
+
+    .main__arrow {
+      margin-top: 6.875em;
+    }
+  }
+
+  &::after {
+    width: 45.750em;
+    height: 45.750em;
+    top: -3.5em;
+    left: 14.625em;
+    filter: blur(2.750em);
+    opacity: 0.16;
+    background: linear-gradient(45deg, #111 16.47%, #FD532E 16.48%, #111 41.97%, #111 63.27%, #FD532E 82.83%);
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+  }
+}
+
+.main__title {
+  font-size: 4em;
+  line-height: 1;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+
+.main__text {
+  font-size: 1.125em;
+  margin-top: 1.333em;
+  max-width: 38.889em;
+  color: $ct;
+  position: relative;
+  z-index: 2;
+}
+
+.main__buttons {
+  margin-top: 1.5em;
+  position: relative;
+  z-index: 2;
+
+  a {
+    margin-right: 1em;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.main__arrow {
+  margin-top: 3.875em;
+  width: 2.5em;
+  height: 2.5em;
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-background-size: contain;
+  background-size: contain;
+  position: relative;
+  z-index: 2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'%3E%3Cpath d='M6.66699 9.00032L9.00032 6.66699L28.3337 26.0003L28.3337 15.0003L31.667 15.0003L31.667 31.667L15.0003 31.667L15.0003 28.3337L26.0003 28.3337L6.66699 9.00032Z' fill='%23FD532E'/%3E%3C/svg%3E");
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    opacity: .5;
+  }
+}
+
+.main__phonecont {
+  width: 18.750em;
+  height: 38.250em;
+  top: -4em;
+  right: -4.375em;
+  transform: translateX(100%);
+  position: absolute;
+
+  &::after {
+    width: 36.500em;
+    height: 36.500em;
+    top: 15.250em;
+    right: -2.688em;
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-image: url(../../assets/img/decor/main_bg.png);
+  }
+
+  img {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  .section__main {
+    padding-top: 3.429em;
+    min-height: 31em;
+    &.bg {
+      background-image: none;
+    }
+  }
+  .main__content {
+    max-width: calc(100% - 15.286em);
+    &.revers {
+      margin-left: 50%;
+      .main__buttons {
+        margin-top: 3.429em;
+      }
+      .main__text {
+        max-width: 100%;
+        width: 100%;
+      }
+      .main__phonecont {
+        left: -100%;
+        transform: none;
+      }
+      .main__phonecont {
+        &::after {
+          left: 0;
+          bottom: -3.214em;
+        }
+      }
+      &::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    &.biggestMar {
+      .main__text {
+        margin-top: 2.286em;
+      }
+      .main__buttons {
+        margin-top: 3.429em;
+      }
+    }
+    &::after {
+      width: 26.286em;
+      height: 26.286em;
+      filter: barn(2.286em);
+    }
+  }
+  .main__title {
+    font-size: 2.286em;
+  }
+  .main__text {
+    font-size: 1em;
+    margin-top: 1.714em;
+    max-width: 24.571em;
+    br {
+      display: none;
+    }
+  }
+  .main__buttons {
+    margin-top: 3.429em;
+  }
+  .main__arrow {
+    display: none;
+  }
+  .main__phonecont {
+    width: 13.571em;
+    height: 27.143em;
+    top: 0;
+    right: -1.714em;
+    &::after {
+      width: 19.429em;
+      height: 19.429em;
+      right: -1.129em;
+      bottom: -3.571em;
+    }
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .main__content {
+    max-width: 100%;
+    max-height: inherit;
+    &.revers {
+      margin-left: 0;
+      .main__phonecont {
+        position: relative;
+        left: 0;
+        top: 0;
+      }
+    }
+    &.biggestMar {
+      .main__text {
+        margin-top: 3.429em;
+      }
+    }
+    &::after {
+      top: 9.714em;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .main__text {
+    margin-top: 3.857em;
+    max-width: 100%;
+  }
+  .main__phonecont {
+    margin: 0 auto;
+    margin-top: 2.286em;
+    position: relative;
+    transform: none;
+    left: 0;
+    top: 0;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .main__buttons {
+    display: block;
+    a {
+      width: 100%;
+      margin: 0;
+      margin-bottom: 1.143em;
+      &:last-child {
+        margin: 0;
+      }
+    }
+  }
+}

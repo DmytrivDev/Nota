@@ -1,0 +1,56 @@
+.infogr__list {
+  margin: 0 -0.750em;
+  margin-bottom: -2em;
+}
+
+.infogr__item {
+  margin: 0 0.750em;
+  margin-bottom: 2em;
+  width: calc(25% - 1.5em);
+  text-align: center;
+}
+
+.infogr__num {
+  font-size: 3em;
+  line-height: 1.167;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  span {
+    color: $cb;
+  }
+}
+
+.infogr__text {
+  margin-top: .5em;
+  color: $ct;
+
+  p {
+    font-size: 0.750em;
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  .infogr__list {
+    font-size: 1.143em;
+  }
+  .infogr__item {
+    width: calc(50% - 1.5em);
+  }
+  .infogr__num {
+    font-size: 2em;
+    line-height: 1;
+  }
+  .infogr__text {
+
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .infogr__item {
+    width: calc(100% - 1.5em);
+    text-align: left;
+  }
+}

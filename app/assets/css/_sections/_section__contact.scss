@@ -1,0 +1,232 @@
+.contact__container {
+  justify-content: space-between;
+  position: relative;
+
+  &::before {
+    width: 37.250em;
+    height: 37.250em;
+    top: -6.813em;
+    right: -20.563em;
+    filter: blur(8em);
+    background: radial-gradient(78.34% 78.34% at 50% 50%, #000 0%, #FD532E 54.17%);
+    opacity: .3;
+    border-radius: 50%;
+    content: '';
+    position: absolute;
+  }
+
+  &::after {
+    width: 70.188em;
+    height: 14.063em;
+    bottom: -11.063em;
+    left: -34.250em;
+    content: '';
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    background-size: contain;
+    background-image: url(../../assets/img/decor/contact_dec.png);
+  }
+}
+
+.contact__left {
+  max-width: 26.375em;
+  position: relative;
+  z-index: 2;
+}
+
+.contact__text {
+  margin-top: 1em;
+  line-height: 1.5;
+  color: $ct;
+}
+
+.contact__list {
+  margin-top: 3em;
+
+  li {
+    margin-bottom: 1.5em;
+
+    a {
+      display: flex;
+      align-items: center;
+      align-content: center;
+      color: #fff;
+
+      span {
+        width: 3em;
+        height: 3em;
+        margin-right: 1em;
+        border-radius: 50%;
+        background-color: $cg;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        justify-content: center;
+
+        img {
+          width: 1.5em;
+          height: auto;
+          display: block;
+        }
+      }
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}
+
+.contact__right {
+  max-width: 36.750em;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+
+.contact__form {
+  padding: 3em;
+  padding-top: 2em;
+  background-color: $cg;
+  display: block;
+  width: 100%;
+
+  .button {
+    margin-top: 1.5em;
+    width: 100%;
+  }
+}
+
+.contact__label {
+  margin-bottom: 1.5em;
+  display: block;
+  width: 100%;
+}
+
+.contact__input {
+  font-size: 1.125em;
+  height: 3.111em;
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  display: block;
+  width: 100%;
+  color: #fff;
+  transition: .3s;
+
+  &.txt {
+    padding-top: 0.889em;
+    resize: none;
+  }
+
+  &.error {
+    border-color: red;
+  }
+}
+
+
+@media screen and (max-width: 960px) {
+  .contact__container {
+    &::before {
+      width: 20.571em;
+      height: 20.571em;
+      top: -1.714em;
+      right: -10.857em;
+      filter: blur(9.143em);
+    }
+    &::after {
+      width: 80.214em;
+      height: 16.071em;
+      bottom: -18em;
+      left: 50%;
+      transform: translateX(-58%);
+    }
+  }
+  .section__contact {
+    .container {
+      &::before {
+        display: none;
+      }
+    }
+  }
+  .contact__left {
+    max-width: calc(50% - 1.714em);
+    .section__title {
+      max-width: 9em;
+    }
+  }
+  .contact__text {
+    margin-top: 0;
+
+  }
+  .contact__list {
+    font-size: 1em;
+    li {
+      margin-bottom: 1em;
+      a {
+        span {
+          width: 2em;
+          height: 2em;
+          margin-right: .5em;
+          img {
+            width: 1em;
+          }
+        }
+      }
+    }
+  }
+  .contact__right {
+    max-width: calc(50% - 1.714em);
+  }
+  .contact__form {
+    font-size: 1em;
+    padding: 1em;
+    padding-bottom: 1.5em;
+    .button {
+      margin-top: 1em;
+    }
+  }
+  .contact__label {
+    margin-bottom: 2em;
+  }
+  .contact__input {
+    font-size: 1em;
+    height: 2.5em;
+    &.txt {
+      padding-top: 0.5em;
+    }
+  }
+}
+
+
+@media screen and (max-width: 620px) {
+  .contact__left {
+    max-width: 100%;
+    .section__title {
+      text-align: left;
+      margin: 0;
+    }
+    .contact__text {
+      margin-top: 1.2em;
+      text-align: left;
+    }
+    .contact__list {
+      display: none;
+    }
+  }
+  .contact__right {
+    margin-top: 1.714em;
+    max-width: 100%;
+  }
+  .contact__list {
+    margin-bottom: -1em;
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+}
