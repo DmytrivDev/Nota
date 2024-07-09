@@ -43,6 +43,7 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
+    "graceful-fs": "^4.2.11",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
