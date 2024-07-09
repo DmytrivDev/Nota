@@ -4,13 +4,22 @@
 
 .work {
 	&__wrapp {
+		position: relative;
+		overflow: hidden;
+		z-index: 5;
 		padding: 4rem 0;
 		background-color: #ce4628;
 	}
 	&__body {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+	&__decor {
+		position: absolute;
+		top: -4.06rem;
+		left: -111rem;
 	}
 	&__title {
 		text-align: center;
