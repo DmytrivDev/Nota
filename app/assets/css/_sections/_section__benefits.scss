@@ -85,3 +85,31 @@
 		}
 	}
 }
+
+@media screen and (max-width: 960px) {
+	.section__benefits {
+		padding-top: 5.5rem;
+	}
+
+	.benefits {
+		&__wrapp {
+			padding: 2rem 0;
+		}
+		&__decor {
+			position: absolute;
+			top: -9.75rem;
+			left: -17.37rem;
+			width: 66.875rem;
+		}
+		&__tilte {
+			font-size: 1.5rem;
+			line-height: 2rem;
+		}
+		&__btn {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+		}
+	}
+}

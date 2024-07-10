@@ -77,3 +77,44 @@
 		line-height: 1.5rem;
 	}
 }
+
+@media screen and (max-width: 960px) {
+	.section__cycle {
+		padding-top: 8rem;
+	}
+
+	.cycle {
+		&__body {
+			grid-template-columns: repeat(1, 1fr);
+			gap: 2rem;
+		}
+		&__filter {
+			top: -6rem;
+			left: -4.25rem;
+			width: 14.29906rem;
+			height: 14.29906rem;
+		}
+		&__title {
+			font-size: 1.5rem;
+			line-height: 2rem;
+			margin-bottom: 1rem;
+		}
+		&__text {
+			max-width: none;
+			font-size: 0.875rem;
+			line-height: 1.25rem;
+		}
+		&__list {
+			padding: 1.5rem 1rem;
+		}
+		&__subtitle {
+			font-size: 1.25rem;
+			line-height: 1.5rem;
+			margin-bottom: 0.75rem;
+		}
+		&__desc {
+			font-size: 0.875rem;
+			line-height: 1.25rem;
+		}
+	}
+}

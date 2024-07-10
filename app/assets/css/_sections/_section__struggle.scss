@@ -63,3 +63,31 @@
 		filter: blur(87px);
 	}
 }
+
+@media screen and (max-width: 960px) {
+	.section__struggle {
+		padding-top: 8rem;
+	}
+
+	.struggle {
+		&__content {
+			max-width: 35rem;
+		}
+		&__title {
+			font-size: 1.5rem;
+			line-height: 2rem;
+			margin-bottom: 1.5rem;
+		}
+		&__item {
+			padding: 0.75rem;
+			p {
+				gap: 0.25rem;
+				font-size: 0.875rem;
+				line-height: 1.25rem;
+			}
+		}
+		&__filter {
+			display: none;
+		}
+	}
+}
