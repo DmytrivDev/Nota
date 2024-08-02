@@ -1,0 +1,162 @@
+{% set title = "Form Page" %} {% set bodyClass = "form-page" %} {% set
+hideHeader = true %} {% set hideFooter = true %} {% extends
+"_html/_base/_layouts/_default.html" %} {% block content %}
+
+<div class="wrapper">
+  <section class="form-sec">
+    <div class="container">
+      <div class="progress-bar">
+        <ul class="progress-step">
+          <li class="progress-step__item item-part" data-step="particulars">
+            <p>Customer’s Particulars</p>
+            <span></span>
+          </li>
+          <li class="progress-step__line line-part"></li>
+
+          <li class="progress-step__item" data-step="beneficial-individ">
+            <p>Beneficial Owner Info</p>
+            <span></span>
+          </li>
+          <li class="progress-step__line"></li>
+
+          <li class="progress-step__item" data-step="information-pep">
+            <p>Information of PEP</p>
+            <span></span>
+          </li>
+          <li class="progress-step__line"></li>
+
+          <li class="progress-step__item" data-step="documents-individ">
+            <p>Documents Required</p>
+            <span></span>
+          </li>
+          <li class="progress-step__line"></li>
+
+          <li class="progress-step__item" data-step="declaration-individ">
+            <p>Declaration</p>
+            <span></span>
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="form-title">Customer <span>Onboarding</span></h2>
+      <p class="form-desc">(Individual)</p>
+
+      <form id="formEndividual">
+        <div id="particulars" class="form-part-hidden form-part-visible">
+          <fieldset>
+            <legend class="form-subtitle">
+              <span>1.</span> Customer’s Particulars
+            </legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button
+              type="button"
+              data-id="beneficial-individ"
+              class="btn-wrapp__next"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div id="beneficial-individ" class="form-part-hidden">
+          <fieldset>
+            <legend class="form-subtitle">
+              <span>2.</span> Information of Beneficial Owner
+            </legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button type="button" data-id="particulars" class="btn-wrapp__back">
+              Back
+            </button>
+            <button
+              type="button"
+              data-id="information-pep"
+              class="btn-wrapp__next"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div id="information-pep" class="form-part-hidden">
+          <fieldset>
+            <legend class="form-subtitle">
+              <span>3.</span> Information of Politically Exposed Person ("PEP")
+            </legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button
+              type="button"
+              data-id="beneficial-individ"
+              class="btn-wrapp__back"
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              data-id="documents-individ"
+              class="btn-wrapp__next"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div id="documents-individ" class="form-part-hidden">
+          <fieldset>
+            <legend class="form-subtitle">
+              <span>4.</span> Documents Required
+            </legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button
+              type="button"
+              data-id="information-pep"
+              class="btn-wrapp__back"
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              data-id="declaration-individ"
+              class="btn-wrapp__next"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div id="declaration-individ" class="form-part-hidden">
+          <fieldset>
+            <legend class="form-subtitle"><span>5.</span> Declaration</legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button
+              type="button"
+              data-id="documents-individ"
+              class="btn-wrapp__back"
+            >
+              Back
+            </button>
+            <button type="submit" data-id="some" class="btn-wrapp__next">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+{% endblock %}

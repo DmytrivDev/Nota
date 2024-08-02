@@ -1,0 +1,295 @@
+{% set title = "Form Page" %} {% set bodyClass = "form-page" %} {% set
+hideHeader = true %} {% set hideFooter = true %} {% extends
+"_html/_base/_layouts/_default.html" %} {% block content %}
+
+<div class="wrapper">
+  <section class="form-sec">
+    <div class="container">
+      <div class="progress-bar">
+        <ul class="progress-step">
+          <li class="progress-step__item item-part" data-step="information">
+            <p>Company Information</p>
+            <span></span>
+          </li>
+          <li class="progress-step__line line-part"></li>
+
+          <li class="progress-step__item" data-step="beneficial-entity">
+            <p>Beneficial Owners</p>
+            <span></span>
+          </li>
+          <li class="progress-step__line"></li>
+
+          <li class="progress-step__item" data-step="documents-entity">
+            <p>Documents Required</p>
+            <span></span>
+          </li>
+          <li class="progress-step__line"></li>
+
+          <li class="progress-step__item" data-step="declaration-entity">
+            <p>Declaration</p>
+            <span></span>
+          </li>
+        </ul>
+      </div>
+
+      <h2 class="form-title">Customer <span>Onboarding</span></h2>
+      <p class="form-desc">(Entity)</p>
+
+      <form id="formEntity">
+        <div id="information" class="form-part-hidden form-part-visible">
+          <fieldset>
+            <legend class="form-subtitle">
+              <span>1.</span> Company Information
+            </legend>
+            <div class="form-container">
+              <label class="label-def">
+                <p class="label-def__name">
+                  Principal address of business
+                  <span>(if different from registered office address)</span>
+                </p>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="input-def"
+                  placeholder="Type here"
+                />
+              </label>
+
+              <div class="block-grid3">
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+              </div>
+
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+              </div>
+
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <div class="block-number">
+                  <label class="label-def">
+                    <p class="label-def__name">Contact Number</p>
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      class="input-def"
+                      placeholder="Country Code"
+                    />
+                  </label>
+                  <label class="label-def">
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      class="input-def"
+                      placeholder="Phone Number"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+
+                <div class="label-def">
+                  <p class="label-def__name">
+                    Principal address of business
+                    <span>(if different from registered office address)</span>
+                  </p>
+                  <div class="block-choose">
+                    <label class="block-choose__label">
+                      <input
+                        type="radio"
+                        name="radio-choose"
+                        placeholder="Identity card"
+                        checked
+                      />
+                      <div class="block-choose__box">Identity card</div>
+                    </label>
+
+                    <label class="block-choose__label">
+                      <input
+                        type="radio"
+                        name="radio-choose"
+                        placeholder="Passport"
+                      />
+                      <div class="block-choose__box">Passport</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button
+              type="button"
+              data-id="beneficial-entity"
+              class="btn-wrapp__next"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div id="beneficial-entity" class="form-part-hidden">
+          <fieldset>
+            <legend class="form-subtitle">
+              <span>2.</span> Beneficial owners of the Company
+            </legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button type="button" data-id="information" class="btn-wrapp__back">
+              Back
+            </button>
+            <button
+              type="button"
+              data-id="documents-entity"
+              class="btn-wrapp__next"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div id="documents-entity" class="form-part-hidden">
+          <fieldset>
+            <legend class="form-subtitle">
+              <span>3.</span> Documents Required
+            </legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button
+              type="button"
+              data-id="beneficial-entity"
+              class="btn-wrapp__back"
+            >
+              Back
+            </button>
+            <button
+              type="button"
+              data-id="declaration-entity"
+              class="btn-wrapp__next"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div id="declaration-entity" class="form-part-hidden">
+          <fieldset>
+            <legend class="form-subtitle"><span>4.</span> Declaration</legend>
+            <div class="form-container"></div>
+          </fieldset>
+
+          <div class="btn-wrapp">
+            <button
+              type="button"
+              data-id="documents-entity"
+              class="btn-wrapp__back"
+            >
+              Back
+            </button>
+            <button type="submit" data-id="some" class="btn-wrapp__next">
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+</div>
+
+{% endblock %}
