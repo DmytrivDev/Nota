@@ -1,0 +1,25 @@
+.individual-subtitle {
+	margin-bottom: 0.25rem;
+	text-align: start;
+}
+.individual-desc {
+	color: #fff;
+	text-align: center;
+	font-size: 1.5rem;
+	font-weight: 700;
+	line-height: 1.33;
+	text-transform: uppercase;
+	margin-bottom: 2.5rem;
+}
+
+@media screen and (max-width: 960px) {
+	.individual-subtitle {
+		margin-bottom: 0.75rem;
+	}
+	.individual-desc {
+		text-align: start;
+		font-size: 1rem;
+		line-height: 1.25rem;
+		margin-bottom: 3rem;
+	}
+}

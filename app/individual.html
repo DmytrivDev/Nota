@@ -42,12 +42,189 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
       <p class="form-desc">(Individual)</p>
 
       <form id="formEndividual">
-        <div id="particulars" class="form-part-hidden form-part-visible">
+        <div id="particulars" class="form-part-hidden">
           <fieldset>
             <legend class="form-subtitle">
               <span>1.</span> Customer’s Particulars
             </legend>
-            <div class="form-container"></div>
+
+            <div class="form-container">
+              <div class="block-grid3">
+                <label class="label-def">
+                  <p class="label-def__name">Prefix</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Mr."
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">First Name</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">Last Name</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+              </div>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Occupation <span>(optional)</span>
+                </p>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="input-def"
+                  placeholder="Type here"
+                />
+              </label>
+
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">Date of Birth</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="DD/MM/YYYY"
+                  />
+                </label>
+
+                <div class="label-def">
+                  <p class="label-def__name">Identification Type</p>
+                  <div class="block-choose">
+                    <label class="block-choose__label">
+                      <input
+                        type="radio"
+                        name="radio-choose"
+                        placeholder="Identity card"
+                        checked
+                      />
+                      <div class="block-choose__box">Identity card</div>
+                    </label>
+
+                    <label class="block-choose__label">
+                      <input
+                        type="radio"
+                        name="radio-choose"
+                        placeholder="Passport"
+                      />
+                      <div class="block-choose__box">Passport</div>
+                    </label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">Identification Document No.</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Expiry date of identification document
+                    <span>(if applicable)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="DD/MM/YYYY"
+                  />
+                </label>
+              </div>
+
+              <label class="label-def">
+                <p class="label-def__name">Home Address</p>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="input-def"
+                  placeholder="Unit, Floor, Building, Street"
+                />
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">Postal Code, Country</p>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="input-def"
+                  placeholder="Type here"
+                />
+              </label>
+
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">Nationality</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Please select"
+                  />
+                </label>
+                <div class="block-code">
+                  <label class="label-def">
+                    <p class="label-def__name">Contact Number</p>
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      class="input-def"
+                      placeholder="Country Code"
+                    />
+                  </label>
+                  <label class="label-def">
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      class="input-def"
+                      placeholder="Phone Number"
+                    />
+                  </label>
+                </div>
+              </div>
+
+              <label class="label-def">
+                <p class="label-def__name">Email</p>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="input-def"
+                  placeholder="example@companymail.com"
+                />
+              </label>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">
@@ -66,7 +243,27 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
             <legend class="form-subtitle">
               <span>2.</span> Information of Beneficial Owner
             </legend>
-            <div class="form-container"></div>
+
+            <div class="form-container">
+              <div class="label-def">
+                <p class="label-def__name">
+                  Is the above person acting for himself/herself? (If NO, then
+                  fill in this Form for each person/persons<br />
+                  whom the above person is acting on behalf of)
+                </p>
+                <div class="block-choose">
+                  <label class="block-choose__label">
+                    <input type="radio" name="radio-choose" placeholder="Yes" />
+                    <div class="block-choose__box">Yes</div>
+                  </label>
+
+                  <label class="block-choose__label">
+                    <input type="radio" name="radio-choose" placeholder="No" />
+                    <div class="block-choose__box">No</div>
+                  </label>
+                </div>
+              </div>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">
@@ -85,10 +282,86 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
 
         <div id="information-pep" class="form-part-hidden">
           <fieldset>
-            <legend class="form-subtitle">
+            <legend class="form-subtitle individual-subtitle">
               <span>3.</span> Information of Politically Exposed Person ("PEP")
             </legend>
-            <div class="form-container"></div>
+            <p class="individual-desc">
+              their Immediate Family Members and Close Associates(For
+              Individuals Only)
+            </p>
+            <div class="form-container">
+              <div class="label-def">
+                <p class="label-def__name">
+                  Is the above person an immediate family member or a close
+                  associate<br />
+                  of a PEP or a PEP who has stepped down?
+                </p>
+                <div class="block-choose">
+                  <label class="block-choose__label">
+                    <input
+                      type="radio"
+                      name="stepped-down1"
+                      placeholder="Yes"
+                    />
+                    <div class="block-choose__box">Yes</div>
+                  </label>
+
+                  <label class="block-choose__label">
+                    <input type="radio" name="stepped-down1" placeholder="No" />
+                    <div class="block-choose__box">No</div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="label-def">
+                <p class="label-def__name">
+                  Is the above person a PEP who has stepped down from his<br />
+                  or her prominent public function?
+                </p>
+                <div class="block-choose">
+                  <label class="block-choose__label">
+                    <input
+                      type="radio"
+                      name="public-function"
+                      placeholder="Yes"
+                    />
+                    <div class="block-choose__box">Yes</div>
+                  </label>
+
+                  <label class="block-choose__label">
+                    <input
+                      type="radio"
+                      name="public-function"
+                      placeholder="No"
+                    />
+                    <div class="block-choose__box">No</div>
+                  </label>
+                </div>
+              </div>
+
+              <div class="label-def">
+                <p class="label-def__name">
+                  Is the above person an immediate family member or a close
+                  associate<br />
+                  of a PEP or a PEP who has stepped down?
+                </p>
+                <div class="block-choose">
+                  <label class="block-choose__label">
+                    <input
+                      type="radio"
+                      name="stepped-down2"
+                      placeholder="Yes"
+                    />
+                    <div class="block-choose__box">Yes</div>
+                  </label>
+
+                  <label class="block-choose__label">
+                    <input type="radio" name="stepped-down2" placeholder="No" />
+                    <div class="block-choose__box">No</div>
+                  </label>
+                </div>
+              </div>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">
@@ -114,7 +387,83 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
             <legend class="form-subtitle">
               <span>4.</span> Documents Required
             </legend>
-            <div class="form-container"></div>
+
+            <div class="form-container">
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload a copy of the identification document (e.g.
+                  Identity Card, Passport, etc.)
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name=""
+                      id=""
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload a copy of the back side of Identity Card
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name=""
+                      id=""
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload a copy of the address proof (e.g. bank
+                  statement, utility bills), not older than 3 months
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name=""
+                      id=""
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload a copy of Bank Statement,, not older than 3
+                  months
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name=""
+                      id=""
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">
@@ -135,10 +484,71 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
 
-        <div id="declaration-individ" class="form-part-hidden">
+        <div
+          id="declaration-individ"
+          class="form-part-hidden form-part-visible"
+        >
           <fieldset>
             <legend class="form-subtitle"><span>5.</span> Declaration</legend>
-            <div class="form-container"></div>
+            <div class="form-container">
+              <div class="block-grid3">
+                <label class="label-def">
+                  <p class="label-def__name">Prefix</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Mr."
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">First Name</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">Last Name</p>
+                  <input
+                    type="text"
+                    name=""
+                    id=""
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+              </div>
+
+              <div class="label-def">
+                <p class="label-def__name">Signature</p>
+                <div class="block-signature">
+                  <canvas class="block-signature__pad"></canvas>
+                  <div class="block-signature__content">
+                    <span class="block-signature__img"></span>
+                    <p class="block-signature__text">Sign here</p>
+                  </div>
+                  <button class="block-signature__clear" type="button">
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <label class="label-def">
+                <p class="label-def__name">Date Signed</p>
+                <input
+                  type="text"
+                  name=""
+                  id=""
+                  class="input-def"
+                  placeholder="DD/MM/YYYY"
+                />
+              </label>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">

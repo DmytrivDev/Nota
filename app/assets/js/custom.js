@@ -321,4 +321,107 @@ buttonsBack.forEach((button) => {
   button.addEventListener("click", handleStepChange);
 });
 
-console.log("object");
+// ======================================
+
+const fileInputs = document.querySelectorAll(".block-file__input");
+
+fileInputs.forEach((fileInput) => {
+  fileInput.addEventListener("change", function () {
+    const blockFileContent = fileInput.closest(".block-file__content");
+    const fileText = blockFileContent.querySelector(".block-file__text");
+    const fileImg = blockFileContent.querySelector(".block-file__img");
+
+    if (fileInput.files.length > 0) {
+      fileText.classList.add("file-uploaded");
+      fileImg.classList.add("file-uploaded");
+      fileText.textContent = `Uploaded file name ${fileInput.files[0].name}`;
+    } else {
+      fileText.classList.remove("file-uploaded");
+      fileImg.classList.remove("file-uploaded");
+      fileText.textContent = "Drag and drop files here";
+    }
+  });
+});
+
+// =====================================
+
+function initializeSignaturePad() {
+  const signatureBlocks = document.querySelectorAll(".block-signature");
+
+  signatureBlocks.forEach((block) => {
+    const canvas = block.querySelector(".block-signature__pad");
+    const clearButton = block.querySelector(".block-signature__clear");
+    const ctx = canvas.getContext("2d");
+    let isDrawing = false;
+    let lastX = 0;
+    let lastY = 0;
+
+    // Устанавливаем размеры канваса
+    canvas.width = block.offsetWidth;
+    canvas.height = block.offsetHeight;
+
+    // Функция для рисования
+    function draw(e) {
+      if (!isDrawing) return;
+
+      ctx.strokeStyle = "#ffffff"; // Цвет линии
+      ctx.lineJoin = "round";
+      ctx.lineCap = "round";
+      ctx.lineWidth = 2;
+
+      ctx.beginPath();
+      ctx.moveTo(lastX, lastY);
+
+      const x =
+        e.offsetX || (e.touches ? e.touches[0].clientX - canvas.offsetLeft : 0);
+      const y =
+        e.offsetY || (e.touches ? e.touches[0].clientY - canvas.offsetTop : 0);
+
+      ctx.lineTo(x, y);
+      ctx.stroke();
+
+      [lastX, lastY] = [x, y];
+    }
+
+    // Обработчики событий для мыши
+    canvas.addEventListener("mousedown", (e) => {
+      isDrawing = true;
+      [lastX, lastY] = [e.offsetX, e.offsetY];
+    });
+
+    canvas.addEventListener("mousemove", draw);
+
+    canvas.addEventListener("mouseup", () => {
+      isDrawing = false;
+    });
+
+    canvas.addEventListener("mouseout", () => {
+      isDrawing = false;
+    });
+
+    // Обработчики событий для сенсорных экранов
+    canvas.addEventListener("touchstart", (e) => {
+      isDrawing = true;
+      const touch = e.touches[0];
+      [lastX, lastY] = [
+        touch.clientX - canvas.offsetLeft,
+        touch.clientY - canvas.offsetTop,
+      ];
+      e.preventDefault(); // Останавливаем прокрутку
+    });
+
+    canvas.addEventListener("touchmove", (e) => {
+      draw(e);
+      e.preventDefault(); // Останавливаем прокрутку
+    });
+
+    canvas.addEventListener("touchend", () => {
+      isDrawing = false;
+    });
+
+    clearButton.addEventListener("click", () => {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    });
+  });
+}
+initializeSignaturePad();
