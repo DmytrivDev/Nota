@@ -307,6 +307,29 @@
 	}
 }
 
+.list-def {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 0 0.625rem;
+	&__item {
+		display: flex;
+		gap: 0.719rem;
+		color: #adadad;
+		font-size: 1.125rem;
+		line-height: 1.75rem;
+		&::before {
+			content: "";
+			margin-top: 0.75rem;
+			flex-shrink: 0;
+			width: 0.419rem;
+			height: 0.419rem;
+			border-radius: 50%;
+			background-color: #adadad;
+		}
+	}
+}
+
 .label-def {
 	display: flex;
 	flex-direction: column;
@@ -475,7 +498,8 @@
 		flex-direction: column-reverse;
 		gap: 1rem;
 		&__back,
-		&__next {
+		&__next,
+		&__submit {
 			width: 100%;
 		}
 	}

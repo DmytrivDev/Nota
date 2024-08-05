@@ -36,7 +36,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
       <p class="form-desc">(Entity)</p>
 
       <form id="formEntity">
-        <div id="information" class="form-part-hidden form-part-visible">
+        <div id="information" class="form-part-hidden">
           <fieldset>
             <legend class="form-subtitle">
               <span>1.</span> Company Information
@@ -232,7 +232,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
 
-        <div id="documents-entity" class="form-part-hidden">
+        <div id="documents-entity" class="form-part-hidden form-part-visible">
           <fieldset>
             <legend class="form-subtitle">
               <span>3.</span> Documents Required
@@ -380,7 +380,89 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
         <div id="declaration-entity" class="form-part-hidden">
           <fieldset>
             <legend class="form-subtitle"><span>4.</span> Declaration</legend>
-            <div class="form-container"></div>
+            <div class="form-container">
+              <ul class="list-def">
+                <li class="list-def__item">
+                  I hereby declare that the information provided in this form is
+                  accurate and complete.
+                </li>
+                <li class="list-def__item">
+                  I confirm that any information is found incorrect and/or
+                  incomplete that leads a violation of regulations may initiate
+                  legal actions, and I accept that I am the responsible party
+                  for any and all charges, penalties and violations.
+                </li>
+                <li class="list-def__item">
+                  I understand and agree that all documents supplied (including
+                  this form) will not be returned to me.
+                </li>
+                <li class="list-def__item">
+                  I undertake to notify Prime Shan Asia Limited of any future
+                  changes to the above information.
+                </li>
+                <li class="list-def__item">
+                  I understand that Prime Shan Asia Limited reserves the right
+                  to request for additional documentation/information.
+                </li>
+              </ul>
+
+              <div class="block-grid3">
+                <label class="label-def">
+                  <p class="label-def__name">Prefix</p>
+                  <input
+                    type="text"
+                    name="declarationEntity-prefix"
+                    class="input-def"
+                    placeholder="Mr."
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">First Name</p>
+                  <input
+                    type="text"
+                    name="declarationEntity-firstName"
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+                <label class="label-def">
+                  <p class="label-def__name">Last Name</p>
+                  <input
+                    type="text"
+                    name="declarationEntity-lastName"
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+              </div>
+
+              <div class="label-def">
+                <p class="label-def__name">Signature</p>
+                <div class="block-signature">
+                  <canvas
+                    class="block-signature__pad"
+                    style="width: 100%"
+                  ></canvas>
+                  <div class="block-signature__content">
+                    <span class="block-signature__img"></span>
+                    <p class="block-signature__text">Sign here</p>
+                  </div>
+                  <button class="block-signature__clear" type="button">
+                    Clear
+                  </button>
+                </div>
+              </div>
+
+              <label class="label-def">
+                <p class="label-def__name">Date Signed</p>
+                <input
+                  type="text"
+                  name="declarationEntity-signed"
+                  class="input-def"
+                  placeholder="DD/MM/YYYY"
+                />
+              </label>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">

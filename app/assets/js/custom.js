@@ -297,7 +297,6 @@ function handleStepChange(event) {
   const targetStep = document.getElementById(dataId);
 
   const currentStep = document.querySelector(".form-part-visible");
-  const canvas = document.querySelector(".block-signature__pad");
 
   if (currentStep && targetStep) {
     currentStep.classList.remove("form-part-visible");
@@ -312,6 +311,7 @@ function handleStepChange(event) {
       ) + 1;
     updateProgress(targetStepIndex);
 
+    const canvas = document.querySelector(".block-signature__pad");
     resizeCanvas(canvas);
   }
 }
@@ -369,21 +369,19 @@ fileInputs.forEach((fileInput) => {
 
 // =====================================
 
-function initializeSignaturePad() {
-  const signatureBlocks = document.querySelectorAll(".block-signature");
+const signatureBlocks = document.querySelectorAll(".block-signature");
 
+function initializeSignaturePad() {
   signatureBlocks.forEach((block) => {
     const canvas = block.querySelector(".block-signature__pad");
     const clearButton = block.querySelector(".block-signature__clear");
     const contentBlock = block.querySelector(".block-signature__content");
-    const ctx = canvas.getContext("2d");
+
+    const ctx = canvas.getContext("2d", { willReadFrequently: true });
+    block.appendChild(canvas); // Добавляем канвас в блок
     let isDrawing = false;
     let lastX = 0;
     let lastY = 0;
-
-    // Устанавливаем размеры канваса
-    canvas.width = block.offsetWidth;
-    canvas.height = block.offsetHeight;
 
     // Функция для проверки, заполнен ли холст
     function isCanvasFilled() {
@@ -448,16 +446,18 @@ function initializeSignaturePad() {
     canvas.addEventListener("touchstart", (e) => {
       isDrawing = true;
       const touch = e.touches[0];
-      [lastX, lastY] = [
-        touch.clientX - canvas.offsetLeft,
-        touch.clientY - canvas.offsetTop,
-      ];
-      e.preventDefault(); // Останавливаем прокрутку
+      const rect = canvas.getBoundingClientRect();
+      [lastX, lastY] = [touch.clientX - rect.left, touch.clientY - rect.top];
+      e.preventDefault();
     });
 
     canvas.addEventListener("touchmove", (e) => {
-      draw(e);
-      e.preventDefault(); // Останавливаем прокрутку
+      const touch = e.touches[0];
+      const rect = canvas.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      draw({ offsetX: x, offsetY: y });
+      e.preventDefault();
     });
 
     canvas.addEventListener("touchend", () => {
@@ -466,16 +466,24 @@ function initializeSignaturePad() {
 
     clearButton.addEventListener("click", () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      contentBlock.style.display = "flex"; // Показываем блок, когда холст очищен
+      contentBlock.style.display = "flex";
     });
   });
 }
 
 function resizeCanvas(canvas) {
-  if (!canvas) return;
-  canvas.width = canvas.parentElement.offsetWidth;
-  canvas.height = canvas.parentElement.offsetHeight;
+  if (canvas && canvas.offsetWidth !== 0) {
+    if (canvas.offsetWidth !== canvas.width) {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+    }
+  }
 }
+
+window.addEventListener("resize", () => {
+  const canvas = document.querySelectorAll(".block-signature__pad");
+  canvas.forEach(resizeCanvas);
+});
 
 initializeSignaturePad();
 
