@@ -3,6 +3,34 @@
 		margin-bottom: 0.5rem;
 	}
 }
+#beneficial-entity {
+	.form-container {
+		gap: 0;
+	}
+	.text-def {
+		margin-bottom: 1rem;
+	}
+	.list-def {
+		margin-bottom: 3rem;
+	}
+}
+#blockAdd-beneficial {
+	margin-bottom: 4rem;
+}
+#blockAdd-management {
+	.text-def {
+		margin-top: 2rem;
+		margin-bottom: 0;
+	}
+}
+
+.entity-text {
+	margin-top: 2rem;
+	color: #adadad;
+	font-size: 0.875rem;
+	line-height: 1.25rem;
+	text-transform: uppercase;
+}
 
 @media screen and (max-width: 960px) {
 	#declaration-entity {

@@ -489,6 +489,105 @@ initializeSignaturePad();
 
 // =====================================
 
+let beneficialCount = 1; // Счетчик для Beneficial owners
+let managementCount = 1; // Счетчик для Management
+
+function addItem(type) {
+  let newItem;
+  if (type === "beneficial") {
+    beneficialCount += 1;
+    newItem = `
+            <li class="block-add__item" data-index="${beneficialCount}">
+                <div class="block-add__box">
+                    <div class="block-add__top">
+                        <h3 class="block-add__title">#${beneficialCount} Beneficial owners of the company</h3>
+                        <button type="button" class="block-add__delete" onclick="removeItem(this)">
+                            <img src="assets/img/icons/trash.svg" alt="Delete" />
+                        </button>
+                    </div>
+                    <label class="label-def">
+                        <p class="label-def__name">Identification Number (Identity Card, Passport No.)</p>
+                        <input type="text" name="beneficialEntity[${beneficialCount}][benefIdentification]" class="input-def" placeholder="Type here" />
+                    </label>
+                    <label class="label-def">
+                        <p class="label-def__name">Full Name of Beneficial Owner</p>
+                        <input type="text" name="beneficialEntity[${beneficialCount}][benefFullName]" class="input-def" placeholder="Type here" />
+                    </label>
+                    <label class="label-def">
+                        <p class="label-def__name">Nature of Beneficial Ownership*</p>
+                        <input type="text" name="beneficialEntity[${beneficialCount}][benefNature]" class="input-def" placeholder="Type here" />
+                    </label>
+                </div>
+            </li>
+        `;
+    document
+      .getElementById("beneficialList")
+      .insertAdjacentHTML("beforeend", newItem);
+  } else if (type === "management") {
+    managementCount += 1;
+    newItem = `
+            <li class="block-add__item" data-index="${managementCount}">
+                <div class="block-add__box">
+                    <div class="block-add__top">
+                        <h3 class="block-add__title">#${managementCount} Senior management of the company</h3>
+                        <button type="button" class="block-add__delete" onclick="removeItem(this)">
+                            <img src="assets/img/icons/trash.svg" alt="Delete" />
+                        </button>
+                    </div>
+                    <label class="label-def">
+                        <p class="label-def__name">Identification Number (Identity Card, Passport No.)</p>
+                        <input type="text" name="managementEntity[${managementCount}][managIdentification]" class="input-def" placeholder="Type here" />
+                    </label>
+                    <label class="label-def">
+                        <p class="label-def__name">Full Name of Beneficial Owner</p>
+                        <input type="text" name="managementEntity[${managementCount}][managFullName]" class="input-def" placeholder="Type here" />
+                    </label>
+                    <label class="label-def">
+                        <p class="label-def__name">Nature of Beneficial Ownership*</p>
+                        <input type="text" name="managementEntity[${managementCount}][managNature]" class="input-def" placeholder="Type here" />
+                    </label>
+                </div>
+            </li>
+        `;
+    document
+      .getElementById("managementList")
+      .insertAdjacentHTML("beforeend", newItem);
+  }
+}
+
+function removeItem(button) {
+  const itemToRemove = button.closest(".block-add__item");
+  itemToRemove.remove();
+  updateIndices("beneficial"); // Обновление индексов для Beneficial owners
+  updateIndices("management"); // Обновление индексов для Management
+}
+
+function updateIndices(type) {
+  const list =
+    type === "beneficial"
+      ? document.getElementById("beneficialList")
+      : document.getElementById("managementList");
+  const items = list.querySelectorAll(".block-add__item");
+
+  items.forEach((item, index) => {
+    const newIndex = index + 1; // Новый индекс
+    item.setAttribute("data-index", newIndex);
+    const title = item.querySelector(".block-add__title");
+    title.textContent = `#${newIndex} ${title.textContent
+      .split(" ")
+      .slice(1)
+      .join(" ")}`; // Обновляем заголовок
+    // Обновление имен инпутов
+    const inputs = item.querySelectorAll("input");
+    inputs.forEach((input) => {
+      const nameParts = input.name.split("[");
+      input.name = `${nameParts[0]}[${index}][${nameParts[1]}`; // Обновляем имя инпута
+    });
+  });
+}
+
+// =====================================
+
 const modals = document.querySelectorAll(".modal-success");
 
 function initializeModals() {

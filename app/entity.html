@@ -210,12 +210,174 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
 
-        <div id="beneficial-entity" class="form-part-hidden">
+        <div id="beneficial-entity" class="form-part-hidden form-part-visible">
           <fieldset>
             <legend class="form-subtitle">
               <span>2.</span> Beneficial owners of the Company
             </legend>
-            <div class="form-container"></div>
+            <div class="form-container">
+              <p class="text-def">
+                The purpose of obtaining beneficial owner's information is to:
+              </p>
+              <ul class="list-def">
+                <li class="list-def__item">
+                  Identify the natural persons (whether acting alone or
+                  together) who ultimately own all the assets or undertakings of
+                  the client;
+                </li>
+                <li class="list-def__item">
+                  If there is doubt as to whether the natural persons who
+                  ultimately own all the assets or undertakings of the client
+                  are the beneficial owners or where no natural persons
+                  ultimately own all the assets or undertakings of the client,
+                  to then identify the natural persons (if any) who ultimately
+                  control the business entity or have ultimate effective control
+                  over the client;
+                </li>
+                <li class="list-def__item">
+                  Where no natural persons are identified above, to identify the
+                  natural persons having executive authority in the client, or
+                  in equivalent or similar positions.
+                </li>
+              </ul>
+
+              <div class="block-add" id="blockAdd-beneficial">
+                <ul class="block-add__list" id="beneficialList">
+                  <li class="block-add__item" data-index="1">
+                    <div class="block-add__box">
+                      <div class="block-add__top">
+                        <h3 class="block-add__title">
+                          #01 Beneficial owners of the company
+                        </h3>
+                        <button
+                          type="button"
+                          class="block-add__delete"
+                          disabled
+                          style="opacity: 0.16; cursor: not-allowed"
+                        >
+                          <img src="assets/img/icons/trash.svg" alt="Delete" />
+                        </button>
+                      </div>
+                      <label class="label-def">
+                        <p class="label-def__name">
+                          Identification Number (Identity Card, Passport No.)
+                        </p>
+                        <input
+                          type="text"
+                          name="beneficialEntity[0][benefIdentification]"
+                          class="input-def"
+                          placeholder="Type here"
+                        />
+                      </label>
+                      <label class="label-def">
+                        <p class="label-def__name">
+                          Full Name of Beneficial Owner
+                        </p>
+                        <input
+                          type="text"
+                          name="beneficialEntity[0][benefFullName]"
+                          class="input-def"
+                          placeholder="Type here"
+                        />
+                      </label>
+                      <label class="label-def">
+                        <p class="label-def__name">
+                          Nature of Beneficial Ownership*
+                        </p>
+                        <input
+                          type="text"
+                          name="beneficialEntity[0][benefNature]"
+                          class="input-def"
+                          placeholder="Type here"
+                        />
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+                <button
+                  type="button"
+                  class="block-add__btn"
+                  onclick="addItem('beneficial')"
+                >
+                  <img src="assets/img/icons/add.svg" alt="Add" />
+                  <span>Add Group</span>
+                </button>
+                <p class="entity-text">
+                  *Provide information on the nature of beneficial ownership
+                  (e.g. more than 10% ownership of the proposed company) and
+                  control structure of the proposed company.
+                </p>
+              </div>
+
+              <div class="block-add" id="blockAdd-management">
+                <ul class="block-add__list" id="managementList">
+                  <li class="block-add__item" data-index="1">
+                    <div class="block-add__box">
+                      <div class="block-add__top">
+                        <h3 class="block-add__title">
+                          #01 Senior management of the company
+                        </h3>
+                        <button
+                          type="button"
+                          class="block-add__delete"
+                          disabled
+                          style="opacity: 0.16; cursor: not-allowed"
+                        >
+                          <img src="assets/img/icons/trash.svg" alt="Delete" />
+                        </button>
+                      </div>
+                      <label class="label-def">
+                        <p class="label-def__name">
+                          Identification Number (Identity Card, Passport No.)
+                        </p>
+                        <input
+                          type="text"
+                          name="managementEntity[0][managIdentification]"
+                          class="input-def"
+                          placeholder="Type here"
+                        />
+                      </label>
+                      <label class="label-def">
+                        <p class="label-def__name">
+                          Full Name of Beneficial Owner
+                        </p>
+                        <input
+                          type="text"
+                          name="managementEntity[0][managFullName]"
+                          class="input-def"
+                          placeholder="Type here"
+                        />
+                      </label>
+                      <label class="label-def">
+                        <p class="label-def__name">
+                          Nature of Beneficial Ownership*
+                        </p>
+                        <input
+                          type="text"
+                          name="managementEntity[0][managNature]"
+                          class="input-def"
+                          placeholder="Type here"
+                        />
+                      </label>
+                    </div>
+                  </li>
+                </ul>
+                <button
+                  type="button"
+                  class="block-add__btn"
+                  onclick="addItem('management')"
+                >
+                  <img src="assets/img/icons/add.svg" alt="Add" />
+                  <span>Add Group</span>
+                </button>
+                <p class="text-def">
+                  For EACH beneficial owner and member of the senior management
+                  or person with executive authority, please provide information
+                  in Customer Onboarding (Individual). Please also provide
+                  documents of identification and authorization as required.
+                </p>
+              </div>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">
@@ -232,7 +394,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
 
-        <div id="documents-entity" class="form-part-hidden form-part-visible">
+        <div id="documents-entity" class="form-part-hidden">
           <fieldset>
             <legend class="form-subtitle">
               <span>3.</span> Documents Required
