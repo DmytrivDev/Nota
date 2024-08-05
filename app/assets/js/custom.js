@@ -511,7 +511,7 @@ function initializeModals() {
 
 function submitFormIndividual() {
   const formIndividual = document.getElementById("formIndividual");
-  const btnSubmit = document.querySelector(".individualSubmit");
+  const btnSubmit = document.getElementById("individualBtnSubmit");
 
   if (!formIndividual) return;
 

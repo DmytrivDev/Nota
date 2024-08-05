@@ -237,7 +237,126 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
             <legend class="form-subtitle">
               <span>3.</span> Documents Required
             </legend>
-            <div class="form-container"></div>
+            <div class="form-container">
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload the Certificate of Incorporation
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name="documentsEntity-certificateIncorporation"
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload the Memorandum and Articles of Association
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name="documentsEntity-memorandumAssociation"
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload the Certificate of Good Standing
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name="documentsEntity-certificateStanding"
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload the Certificate of Incumbency
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name="documentsEntity-certificateIncumbency"
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload the Register of Members
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name="documentsEntity-registerMembers"
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload the Register of Directors
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name="documentsEntity-registerDirectors"
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please upload the Organization Chart
+                </p>
+                <div class="block-file">
+                  <div class="block-file__content">
+                    <input
+                      type="file"
+                      name="documentsEntity-organizationChart"
+                      class="block-file__input"
+                    />
+                    <span class="block-file__img"></span>
+                    <p class="block-file__text">Drag and drop files here</p>
+                  </div>
+                </div>
+              </label>
+            </div>
           </fieldset>
 
           <div class="btn-wrapp">
@@ -272,12 +391,33 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
             >
               Back
             </button>
-            <button type="submit" data-id="some" class="btn-wrapp__next">
+            <button
+              type="submit"
+              data-id="information"
+              id="entityBtnSubmit"
+              class="btn-wrapp__next"
+            >
               Submit
             </button>
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="modal-success">
+      <div class="modal-success__body">
+        <button type="button" class="modal-success__close">
+          <img src="assets/img/icons/close.svg" alt="" />
+        </button>
+        <h2 class="modal-success__title">Success!</h2>
+        <div class="modal-success__img">
+          <img src="assets/img/icons/success.svg" alt="" />
+        </div>
+        <p class="modal-success__desc">
+          Your information has been successfully submitted. Thank you for
+          joining NotaPay! We’re excited to work with you.
+        </p>
+      </div>
     </div>
   </section>
 </div>
