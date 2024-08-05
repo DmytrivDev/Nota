@@ -42,112 +42,81 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               <span>1.</span> Company Information
             </legend>
             <div class="form-container">
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">Company Name:</p>
+                  <input
+                    type="text"
+                    name="information-companyName"
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+
+                <label class="label-def">
+                  <p class="label-def__name">Company Registration No.:</p>
+                  <input
+                    type="text"
+                    name="information-registration"
+                    class="input-def"
+                    placeholder="Type here"
+                  />
+                </label>
+              </div>
+
+              <div class="block-grid2">
+                <label class="label-def">
+                  <p class="label-def__name">Date of Incorporation</p>
+                  <input
+                    type="text"
+                    name="information-incorporation"
+                    class="input-def"
+                    placeholder="DD/MM/YYYY"
+                  />
+                </label>
+
+                <label class="label-def">
+                  <p class="label-def__name">
+                    Date of expiry <span>(if applicable)</span>
+                  </p>
+                  <input
+                    type="text"
+                    name="information-dateExpiry"
+                    class="input-def"
+                    placeholder="DD/MM/YYYY"
+                  />
+                </label>
+              </div>
+
               <label class="label-def">
                 <p class="label-def__name">
-                  Principal address of business
-                  <span>(if different from registered office address)</span>
+                  Country of Incorporation / Registration:
                 </p>
                 <input
                   type="text"
-                  name=""
-                  id=""
+                  name="information-incorpRegist"
                   class="input-def"
                   placeholder="Type here"
                 />
               </label>
 
-              <div class="block-grid3">
-                <label class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    class="input-def"
-                    placeholder="Type here"
-                  />
-                </label>
-                <label class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    class="input-def"
-                    placeholder="Type here"
-                  />
-                </label>
-                <label class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    class="input-def"
-                    placeholder="Type here"
-                  />
-                </label>
-              </div>
-
               <div class="block-grid2">
                 <label class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
+                  <p class="label-def__name">Email address</p>
                   <input
-                    type="text"
-                    name=""
-                    id=""
+                    type="email"
+                    name="information-email"
                     class="input-def"
                     placeholder="Type here"
                   />
                 </label>
-                <label class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    class="input-def"
-                    placeholder="Type here"
-                  />
-                </label>
-              </div>
 
-              <div class="block-grid2">
-                <label class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    class="input-def"
-                    placeholder="Type here"
-                  />
-                </label>
                 <div class="block-code">
                   <label class="label-def">
                     <p class="label-def__name">Contact Number</p>
                     <input
                       type="text"
-                      name=""
-                      id=""
+                      name="information-countryCode"
                       class="input-def"
                       placeholder="Country Code"
                     />
@@ -155,8 +124,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="label-def">
                     <input
                       type="text"
-                      name=""
-                      id=""
+                      name="information-phoneNumber"
                       class="input-def"
                       placeholder="Phone Number"
                     />
@@ -164,48 +132,70 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 </div>
               </div>
 
-              <div class="block-grid2">
-                <label class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
-                  <input
-                    type="text"
-                    name=""
-                    id=""
-                    class="input-def"
-                    placeholder="Type here"
-                  />
-                </label>
+              <label class="label-def">
+                <p class="label-def__name">
+                  Entity Type <span>(optional)</span>
+                </p>
+                <input
+                  type="text"
+                  name="information-entityType"
+                  class="input-def"
+                  placeholder="Please select"
+                />
+              </label>
 
-                <div class="label-def">
-                  <p class="label-def__name">
-                    Principal address of business
-                    <span>(if different from registered office address)</span>
-                  </p>
-                  <div class="block-choose">
-                    <label class="block-choose__label">
-                      <input
-                        type="radio"
-                        name="radio-choose"
-                        placeholder="Identity card"
-                        checked
-                      />
-                      <div class="block-choose__box">Identity card</div>
-                    </label>
+              <label class="label-def">
+                <p class="label-def__name">Registered Office Address</p>
+                <input
+                  type="text"
+                  name="information-officeAddress"
+                  class="input-def"
+                  placeholder="Unit, Floor, Building, Street"
+                />
+              </label>
 
-                    <label class="block-choose__label">
-                      <input
-                        type="radio"
-                        name="radio-choose"
-                        placeholder="Passport"
-                      />
-                      <div class="block-choose__box">Passport</div>
-                    </label>
-                  </div>
-                </div>
-              </div>
+              <label class="label-def">
+                <p class="label-def__name">Postal Code, Country</p>
+                <input
+                  type="text"
+                  name="information-postalCode"
+                  class="input-def"
+                  placeholder="Type here"
+                />
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Principal business activity <span>(optional)</span>
+                </p>
+                <textarea
+                  name="information-businessActivity"
+                  class="input-textarea"
+                  placeholder="Type here"
+                ></textarea>
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">Website <span>(optional)</span></p>
+                <input
+                  type="text"
+                  name="information-website"
+                  class="input-def"
+                  placeholder="Type here"
+                />
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">
+                  Please list the main (top 5) jurisdictions of your customers,
+                  i.e that your customers are located in <span>(optional)</span>
+                </p>
+                <textarea
+                  name="information-jurisdictionsCustomers"
+                  class="input-textarea"
+                  placeholder="Type here"
+                ></textarea>
+              </label>
             </div>
           </fieldset>
 

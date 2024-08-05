@@ -6,7 +6,9 @@
 }
 
 .form-sec {
-	padding: 5.5rem 0;
+	position: relative;
+	// padding: 5.5rem 0;
+	padding: 1.5rem 0;
 }
 
 .progress-bar {
@@ -137,11 +139,13 @@
 	display: grid;
 	grid-template-columns: repeat(2, 1fr);
 	gap: 1.5rem;
+	align-items: end;
 }
 .block-grid3 {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1.5rem;
+	align-items: end;
 }
 .block-code {
 	display: grid;
@@ -312,7 +316,8 @@
 		}
 	}
 }
-.input-def {
+.input-def,
+.input-textarea {
 	color: #fff;
 	font-family: Nunito;
 	background-color: transparent;
@@ -320,8 +325,23 @@
 	border: 0.0625rem solid #cfcfcf;
 	font-size: 1rem;
 	line-height: 1.5;
+	transition: box-shadow 150ms ease-in;
 	&::placeholder {
 		color: #adadad;
+	}
+	&:hover,
+	&:focus {
+		box-shadow: 0px 3px 6px 0px rgba(255, 255, 255, 0.4);
+	}
+}
+.input-textarea {
+	height: 7.5rem;
+	&::-webkit-scrollbar {
+		-webkit-appearance: none;
+		width: 0.25rem;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: #868688;
 	}
 }
 
@@ -331,7 +351,8 @@
 	justify-content: center;
 	gap: 1.5rem;
 	&__back,
-	&__next {
+	&__next,
+	&__submit {
 		text-align: center;
 		width: 11.25rem;
 		color: #fff;
@@ -340,23 +361,32 @@
 		font-weight: 700;
 		line-height: 1.5;
 		padding: 1rem 0;
+		transition: all 150ms ease-in;
 	}
-	&__next {
+	&__next,
+	&__submit {
 		background: linear-gradient(
 			90deg,
 			#fd532e 0%,
 			rgba(253, 83, 46, 0.32) 100%
 		);
+		&:hover {
+			background-color: #fd532e;
+		}
 	}
 	&__back {
 		background-color: transparent;
 		border: 0.0625rem solid #fff;
+		&:hover {
+			background-color: #2c2c2c;
+		}
 	}
 }
 
 @media screen and (max-width: 960px) {
 	.form-sec {
-		padding: 4.25rem 0;
+		// padding: 4.25rem 0;
+		padding: 1.25rem 0;
 	}
 
 	.progress-bar {
@@ -419,9 +449,6 @@
 		margin-bottom: 1.5rem;
 	}
 
-	.form-sec {
-		padding: 3rem 0;
-	}
 	.form-container {
 		max-width: 100%;
 		gap: 1.5rem;

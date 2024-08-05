@@ -41,8 +41,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
       <h2 class="form-title">Customer <span>Onboarding</span></h2>
       <p class="form-desc">(Individual)</p>
 
-      <form id="formEndividual">
-        <div id="particulars" class="form-part-hidden">
+      <form id="formIndividual">
+        <div id="particulars" class="form-part-hidden form-part-visible">
           <fieldset>
             <legend class="form-subtitle">
               <span>1.</span> Customer’s Particulars
@@ -54,8 +54,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">Prefix</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="particulars-prefix"
                     class="input-def"
                     placeholder="Mr."
                   />
@@ -64,8 +63,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">First Name</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="particulars-firstName"
                     class="input-def"
                     placeholder="Type here"
                   />
@@ -74,8 +72,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">Last Name</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="particulars-lastName"
                     class="input-def"
                     placeholder="Type here"
                   />
@@ -88,8 +85,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 </p>
                 <input
                   type="text"
-                  name=""
-                  id=""
+                  name="particulars-occupation"
                   class="input-def"
                   placeholder="Type here"
                 />
@@ -100,8 +96,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">Date of Birth</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="particulars-birth"
                     class="input-def"
                     placeholder="DD/MM/YYYY"
                   />
@@ -113,9 +108,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     <label class="block-choose__label">
                       <input
                         type="radio"
-                        name="radio-choose"
-                        placeholder="Identity card"
-                        checked
+                        name="particulars-identification"
+                        value="Identity card"
                       />
                       <div class="block-choose__box">Identity card</div>
                     </label>
@@ -123,8 +117,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     <label class="block-choose__label">
                       <input
                         type="radio"
-                        name="radio-choose"
-                        placeholder="Passport"
+                        name="particulars-identification"
+                        value="Passport"
                       />
                       <div class="block-choose__box">Passport</div>
                     </label>
@@ -137,8 +131,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">Identification Document No.</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="particulars-identification"
                     class="input-def"
                     placeholder="Type here"
                   />
@@ -150,9 +143,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   </p>
                   <input
                     type="text"
-                    name=""
-                    id=""
-                    class="input-def"
+                    name="particulars-expiry"
+                    class="input-def dateInput"
                     placeholder="DD/MM/YYYY"
                   />
                 </label>
@@ -162,8 +154,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <p class="label-def__name">Home Address</p>
                 <input
                   type="text"
-                  name=""
-                  id=""
+                  name="particulars-address"
                   class="input-def"
                   placeholder="Unit, Floor, Building, Street"
                 />
@@ -173,8 +164,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <p class="label-def__name">Postal Code, Country</p>
                 <input
                   type="text"
-                  name=""
-                  id=""
+                  name="particulars-postalCode"
                   class="input-def"
                   placeholder="Type here"
                 />
@@ -185,8 +175,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">Nationality</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="particulars-nationality"
                     class="input-def"
                     placeholder="Please select"
                   />
@@ -196,8 +185,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     <p class="label-def__name">Contact Number</p>
                     <input
                       type="text"
-                      name=""
-                      id=""
+                      name="particulars-countryCode"
                       class="input-def"
                       placeholder="Country Code"
                     />
@@ -205,8 +193,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="label-def">
                     <input
                       type="text"
-                      name=""
-                      id=""
+                      name="particulars-phoneNumber"
                       class="input-def"
                       placeholder="Phone Number"
                     />
@@ -217,9 +204,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               <label class="label-def">
                 <p class="label-def__name">Email</p>
                 <input
-                  type="text"
-                  name=""
-                  id=""
+                  type="email"
+                  name="particulars-email"
                   class="input-def"
                   placeholder="example@companymail.com"
                 />
@@ -253,12 +239,20 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 </p>
                 <div class="block-choose">
                   <label class="block-choose__label">
-                    <input type="radio" name="radio-choose" placeholder="Yes" />
+                    <input
+                      type="radio"
+                      name="beneficialIndivid-owner"
+                      value="Yes"
+                    />
                     <div class="block-choose__box">Yes</div>
                   </label>
 
                   <label class="block-choose__label">
-                    <input type="radio" name="radio-choose" placeholder="No" />
+                    <input
+                      type="radio"
+                      name="beneficialIndivid-owner"
+                      value="No"
+                    />
                     <div class="block-choose__box">No</div>
                   </label>
                 </div>
@@ -300,14 +294,18 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="block-choose__label">
                     <input
                       type="radio"
-                      name="stepped-down1"
-                      placeholder="Yes"
+                      name="informationPep-steppedDown1"
+                      value="Yes"
                     />
                     <div class="block-choose__box">Yes</div>
                   </label>
 
                   <label class="block-choose__label">
-                    <input type="radio" name="stepped-down1" placeholder="No" />
+                    <input
+                      type="radio"
+                      name="informationPep-steppedDown1"
+                      value="No"
+                    />
                     <div class="block-choose__box">No</div>
                   </label>
                 </div>
@@ -322,8 +320,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="block-choose__label">
                     <input
                       type="radio"
-                      name="public-function"
-                      placeholder="Yes"
+                      name="informationPep-publicFunction"
+                      value="Yes"
                     />
                     <div class="block-choose__box">Yes</div>
                   </label>
@@ -331,8 +329,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="block-choose__label">
                     <input
                       type="radio"
-                      name="public-function"
-                      placeholder="No"
+                      name="informationPep-publicFunction"
+                      value="No"
                     />
                     <div class="block-choose__box">No</div>
                   </label>
@@ -349,14 +347,18 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="block-choose__label">
                     <input
                       type="radio"
-                      name="stepped-down2"
-                      placeholder="Yes"
+                      name="informationPep-steppedDown2"
+                      value="Yes"
                     />
                     <div class="block-choose__box">Yes</div>
                   </label>
 
                   <label class="block-choose__label">
-                    <input type="radio" name="stepped-down2" placeholder="No" />
+                    <input
+                      type="radio"
+                      name="informationPep-steppedDown2"
+                      value="No"
+                    />
                     <div class="block-choose__box">No</div>
                   </label>
                 </div>
@@ -398,8 +400,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <div class="block-file__content">
                     <input
                       type="file"
-                      name=""
-                      id=""
+                      name="documentsIndivid-identificationDocument"
                       class="block-file__input"
                     />
                     <span class="block-file__img"></span>
@@ -416,8 +417,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <div class="block-file__content">
                     <input
                       type="file"
-                      name=""
-                      id=""
+                      name="documentsIndivid-backSide"
                       class="block-file__input"
                     />
                     <span class="block-file__img"></span>
@@ -435,8 +435,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <div class="block-file__content">
                     <input
                       type="file"
-                      name=""
-                      id=""
+                      name="documentsIndivid-addressProof"
                       class="block-file__input"
                     />
                     <span class="block-file__img"></span>
@@ -454,8 +453,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <div class="block-file__content">
                     <input
                       type="file"
-                      name=""
-                      id=""
+                      name="documentsIndivid-bankStatement"
                       class="block-file__input"
                     />
                     <span class="block-file__img"></span>
@@ -484,10 +482,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
 
-        <div
-          id="declaration-individ"
-          class="form-part-hidden form-part-visible"
-        >
+        <div id="declaration-individ" class="form-part-hidden">
           <fieldset>
             <legend class="form-subtitle"><span>5.</span> Declaration</legend>
             <div class="form-container">
@@ -496,8 +491,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">Prefix</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="declarationIndivid-prefix"
                     class="input-def"
                     placeholder="Mr."
                   />
@@ -506,8 +500,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">First Name</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="declarationIndivid-firstName"
                     class="input-def"
                     placeholder="Type here"
                   />
@@ -516,8 +509,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <p class="label-def__name">Last Name</p>
                   <input
                     type="text"
-                    name=""
-                    id=""
+                    name="declarationIndivid-lastName"
                     class="input-def"
                     placeholder="Type here"
                   />
@@ -542,8 +534,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <p class="label-def__name">Date Signed</p>
                 <input
                   type="text"
-                  name=""
-                  id=""
+                  name="declarationIndivid-signed"
                   class="input-def"
                   placeholder="DD/MM/YYYY"
                 />
@@ -559,12 +550,32 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
             >
               Back
             </button>
-            <button type="submit" data-id="some" class="btn-wrapp__next">
+            <button
+              type="submit"
+              data-id="particulars"
+              class="btn-wrapp__submit individualSubmit"
+            >
               Submit
             </button>
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="modal-success">
+      <div class="modal-success__body">
+        <button type="button" class="modal-success__close">
+          <img src="assets/img/icons/close.svg" alt="" />
+        </button>
+        <h2 class="modal-success__title">Success!</h2>
+        <div class="modal-success__img">
+          <img src="assets/img/icons/success.svg" alt="" />
+        </div>
+        <p class="modal-success__desc">
+          Your information has been successfully submitted. Thank you for
+          joining NotaPay! We’re excited to work with you.
+        </p>
+      </div>
     </div>
   </section>
 </div>

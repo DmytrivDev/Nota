@@ -297,6 +297,38 @@ function handleStepChange(event) {
   const targetStep = document.getElementById(dataId);
 
   const currentStep = document.querySelector(".form-part-visible");
+  const canvas = document.querySelector(".block-signature__pad");
+
+  if (currentStep && targetStep) {
+    currentStep.classList.remove("form-part-visible");
+    currentStep.classList.add("form-part-hidden");
+
+    targetStep.classList.remove("form-part-hidden");
+    targetStep.classList.add("form-part-visible");
+
+    const targetStepIndex =
+      [...progressItems].findIndex(
+        (item) => item.dataset.step === targetStep.id
+      ) + 1;
+    updateProgress(targetStepIndex);
+
+    resizeCanvas(canvas);
+  }
+}
+
+buttonsNext.forEach((button) => {
+  button.addEventListener("click", handleStepChange);
+});
+
+buttonsBack.forEach((button) => {
+  button.addEventListener("click", handleStepChange);
+});
+
+function handleStepSubmitIndividual(btnSubmit) {
+  const dataId = btnSubmit.dataset.id;
+  const targetStep = document.getElementById(dataId);
+
+  const currentStep = document.querySelector(".form-part-visible");
 
   if (currentStep && targetStep) {
     currentStep.classList.remove("form-part-visible");
@@ -312,14 +344,6 @@ function handleStepChange(event) {
     updateProgress(targetStepIndex);
   }
 }
-
-buttonsNext.forEach((button) => {
-  button.addEventListener("click", handleStepChange);
-});
-
-buttonsBack.forEach((button) => {
-  button.addEventListener("click", handleStepChange);
-});
 
 // ======================================
 
@@ -351,6 +375,7 @@ function initializeSignaturePad() {
   signatureBlocks.forEach((block) => {
     const canvas = block.querySelector(".block-signature__pad");
     const clearButton = block.querySelector(".block-signature__clear");
+    const contentBlock = block.querySelector(".block-signature__content");
     const ctx = canvas.getContext("2d");
     let isDrawing = false;
     let lastX = 0;
@@ -359,6 +384,19 @@ function initializeSignaturePad() {
     // Устанавливаем размеры канваса
     canvas.width = block.offsetWidth;
     canvas.height = block.offsetHeight;
+
+    // Функция для проверки, заполнен ли холст
+    function isCanvasFilled() {
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+      for (let i = 0; i < data.length; i += 4) {
+        if (data[i + 3] > 0) {
+          // Проверяем альфа-канал (прозрачность)
+          return true; // Если есть пиксель с непрозрачностью
+        }
+      }
+      return false; // Если все пиксели прозрачны
+    }
 
     // Функция для рисования
     function draw(e) {
@@ -381,6 +419,13 @@ function initializeSignaturePad() {
       ctx.stroke();
 
       [lastX, lastY] = [x, y];
+
+      // Проверка заполненности холста
+      if (isCanvasFilled()) {
+        contentBlock.style.display = "none"; // Скрываем блок с текстом и изображением
+      } else {
+        contentBlock.style.display = "flex"; // Показываем блок, если холст пуст
+      }
     }
 
     // Обработчики событий для мыши
@@ -421,7 +466,74 @@ function initializeSignaturePad() {
 
     clearButton.addEventListener("click", () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      contentBlock.style.display = "flex"; // Показываем блок, когда холст очищен
     });
   });
 }
+
+function resizeCanvas(canvas) {
+  if (!canvas) return;
+  canvas.width = canvas.parentElement.offsetWidth;
+  canvas.height = canvas.parentElement.offsetHeight;
+}
+
 initializeSignaturePad();
+
+// =====================================
+
+const modals = document.querySelectorAll(".modal-success");
+
+function initializeModals() {
+  modals.forEach((modal) => {
+    const closeButton = modal.querySelector(".modal-success__close");
+
+    function openModal() {
+      modal.classList.add("modal-open");
+      document.body.classList.add("modal-open");
+    }
+
+    function closeModal() {
+      modal.classList.remove("modal-open");
+      document.body.classList.remove("modal-open");
+    }
+
+    closeButton.addEventListener("click", closeModal);
+
+    modal.addEventListener("click", function (event) {
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+
+    openModal();
+  });
+}
+
+function submitFormIndividual() {
+  const formIndividual = document.getElementById("formIndividual");
+  const btnSubmit = document.querySelector(".individualSubmit");
+
+  if (!formIndividual) return;
+
+  formIndividual.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const formData = new FormData(formIndividual);
+    const formValues = {};
+
+    formData.forEach((value, key) => {
+      const blockId = key.split("-")[0];
+      if (!formValues[blockId]) {
+        formValues[blockId] = {};
+      }
+      formValues[blockId][key] = value;
+    });
+
+    console.log("Form Data:", formValues);
+
+    formIndividual.reset();
+    handleStepSubmitIndividual(btnSubmit);
+    initializeModals();
+  });
+}
+submitFormIndividual();
