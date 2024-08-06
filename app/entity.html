@@ -136,12 +136,12 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <p class="label-def__name">
                   Entity Type <span>(optional)</span>
                 </p>
-                <input
-                  type="text"
-                  name="information-entityType"
-                  class="input-def"
-                  placeholder="Please select"
-                />
+
+                <select class="select-def" name="information-nationality">
+                  <option disabled selected>Please select</option>
+                  <option value="Ua" selected>Ua</option>
+                  <option value="USA.">USA</option>
+                </select>
               </label>
 
               <label class="label-def">
@@ -581,12 +581,11 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               <div class="block-grid3">
                 <label class="label-def">
                   <p class="label-def__name">Prefix</p>
-                  <input
-                    type="text"
-                    name="declarationEntity-prefix"
-                    class="input-def"
-                    placeholder="Mr."
-                  />
+
+                  <select class="select-def" name="declarationEntity-prefix">
+                    <option value="Mr." selected>Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                  </select>
                 </label>
                 <label class="label-def">
                   <p class="label-def__name">First Name</p>

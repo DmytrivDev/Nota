@@ -52,12 +52,11 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               <div class="block-grid3">
                 <label class="label-def">
                   <p class="label-def__name">Prefix</p>
-                  <input
-                    type="text"
-                    name="particulars-prefix"
-                    class="input-def"
-                    placeholder="Mr."
-                  />
+
+                  <select class="select-def" name="particulars-prefix">
+                    <option value="Mr." selected>Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                  </select>
                 </label>
                 <label class="label-def">
                   <p class="label-def__name">First Name</p>
@@ -174,10 +173,10 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <div class="label-def">
                   <p class="label-def__name">Nationality</p>
 
-                  <select class="select-def">
-                    <option value="1">AT Austria</option>
-                    <option value="2">AT Austria</option>
-                    <option value="3">AT Austria</option>
+                  <select class="select-def" name="particulars-nationality">
+                    <option disabled selected>Please select</option>
+                    <option value="Ua" selected>Ua</option>
+                    <option value="USA.">USA</option>
                   </select>
                 </div>
                 <div class="block-code">
@@ -489,12 +488,11 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               <div class="block-grid3">
                 <label class="label-def">
                   <p class="label-def__name">Prefix</p>
-                  <input
-                    type="text"
-                    name="declarationIndivid-prefix"
-                    class="input-def"
-                    placeholder="Mr."
-                  />
+
+                  <select class="select-def" name="declarationIndivid-prefix">
+                    <option value="Mr." selected>Mr.</option>
+                    <option value="Ms.">Ms.</option>
+                  </select>
                 </label>
                 <label class="label-def">
                   <p class="label-def__name">First Name</p>
@@ -516,7 +514,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 </label>
               </div>
 
-              <div class="label-def required-field">
+              <div class="label-def">
                 <p class="label-def__name">Signature</p>
                 <div class="block-signature">
                   <canvas class="block-signature__pad"></canvas>
