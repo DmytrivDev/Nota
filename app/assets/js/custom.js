@@ -367,6 +367,19 @@ fileInputs.forEach((fileInput) => {
   });
 });
 
+function clearInputFile(classForm) {
+  const fileInputs = classForm.querySelectorAll('input[type="file"]');
+  fileInputs.forEach((fileInput) => {
+    const blockFileContent = fileInput.closest(".block-file__content");
+    const fileText = blockFileContent.querySelector(".block-file__text");
+    const fileImg = blockFileContent.querySelector(".block-file__img");
+
+    fileText.classList.remove("file-uploaded");
+    fileImg.classList.remove("file-uploaded");
+    fileText.textContent = "Drag and drop files here";
+  });
+}
+
 //=============================================
 
 const signatureBlocks = document.querySelectorAll(".block-signature");
@@ -478,6 +491,31 @@ function resizeCanvas(canvas) {
       canvas.height = canvas.offsetHeight;
     }
   }
+}
+
+function clearContentCanvas(classForm) {
+  const signatureBlocks = classForm.querySelectorAll(".block-signature__pad");
+  const contentBlock = classForm.querySelector(".block-signature__content");
+  signatureBlocks.forEach((canvas) => {
+    const context = canvas.getContext("2d", { willReadFrequently: true });
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    contentBlock.style.display = "flex";
+  });
+}
+
+function saveSignatureCanvas(classForm, formValues) {
+  const signatureBlocks = classForm.querySelectorAll(".block-signature__pad");
+  signatureBlocks.forEach((canvas) => {
+    const signatureData = canvas.toDataURL("image/png");
+    const declarationKey = Object.keys(formValues).find(
+      (key) =>
+        key.includes("declarationEntity") || key.includes("declarationIndivid")
+    );
+
+    if (declarationKey) {
+      formValues[declarationKey][`${declarationKey}-signed`] = signatureData;
+    }
+  });
 }
 
 window.addEventListener("resize", () => {
@@ -609,23 +647,18 @@ function submitForms(nameForm) {
     });
 
     // Збереження підписів
-    const signatureBlocks = form.querySelectorAll(".block-signature__pad");
-    signatureBlocks.forEach((canvas) => {
-      const signatureData = canvas.toDataURL("image/png");
-      const declarationKey = Object.keys(formValues).find(
-        (key) =>
-          key.includes("declarationEntity") ||
-          key.includes("declarationIndivid")
-      );
-
-      if (declarationKey) {
-        formValues[declarationKey][`${declarationKey}-signed`] = signatureData;
-      }
-    });
+    saveSignatureCanvas(form, formValues);
 
     console.log("Form Data:", formValues);
 
     form.reset();
+
+    // Очищення полів типу file та їх тексту
+    clearInputFile(form);
+
+    // Очищення canvas
+    clearContentCanvas(form);
+
     handleStepSubmitIndividual(btnSubmit);
     initializeModals();
   });
