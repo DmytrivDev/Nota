@@ -36,7 +36,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
       <p class="form-desc">(Entity)</p>
 
       <form id="formEntity">
-        <div id="information" class="form-part-hidden">
+        <div id="information" class="form-part-hidden form-part-visible">
           <fieldset>
             <legend class="form-subtitle">
               <span>1.</span> Company Information
@@ -210,7 +210,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
 
-        <div id="beneficial-entity" class="form-part-hidden form-part-visible">
+        <div id="beneficial-entity" class="form-part-hidden">
           <fieldset>
             <legend class="form-subtitle">
               <span>2.</span> Beneficial owners of the Company
@@ -251,11 +251,14 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                         </h3>
                         <button
                           type="button"
-                          class="block-add__delete"
+                          class="block-add__delete disabled"
                           disabled
-                          style="opacity: 0.16; cursor: not-allowed"
                         >
-                          <img src="assets/img/icons/trash.svg" alt="Delete" />
+                          <svg width="24" height="24">
+                            <use
+                              href="assets/img/icons/icons.svg#icon-trash"
+                            ></use>
+                          </svg>
                         </button>
                       </div>
                       <label class="label-def">
@@ -299,7 +302,9 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   class="block-add__btn"
                   onclick="addItem('beneficial')"
                 >
-                  <img src="assets/img/icons/add.svg" alt="Add" />
+                  <svg width="20" height="20">
+                    <use href="assets/img/icons/icons.svg#icon-plus"></use>
+                  </svg>
                   <span>Add Group</span>
                 </button>
                 <p class="entity-text">
@@ -319,11 +324,14 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                         </h3>
                         <button
                           type="button"
-                          class="block-add__delete"
+                          class="block-add__delete disabled"
                           disabled
-                          style="opacity: 0.16; cursor: not-allowed"
                         >
-                          <img src="assets/img/icons/trash.svg" alt="Delete" />
+                          <svg width="24" height="24" class="scroll-up-icon">
+                            <use
+                              href="assets/img/icons/icons.svg#icon-trash"
+                            ></use>
+                          </svg>
                         </button>
                       </div>
                       <label class="label-def">
@@ -367,7 +375,9 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   class="block-add__btn"
                   onclick="addItem('management')"
                 >
-                  <img src="assets/img/icons/add.svg" alt="Add" />
+                  <svg width="20" height="20">
+                    <use href="assets/img/icons/icons.svg#icon-plus"></use>
+                  </svg>
                   <span>Add Group</span>
                 </button>
                 <p class="text-def">
@@ -639,7 +649,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               type="submit"
               data-id="information"
               id="entityBtnSubmit"
-              class="btn-wrapp__next"
+              class="btn-wrapp__submit"
             >
               Submit
             </button>

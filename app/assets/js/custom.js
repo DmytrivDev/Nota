@@ -345,7 +345,7 @@ function handleStepSubmitIndividual(btnSubmit) {
   }
 }
 
-// ======================================
+//=============================================
 
 const fileInputs = document.querySelectorAll(".block-file__input");
 
@@ -367,7 +367,7 @@ fileInputs.forEach((fileInput) => {
   });
 });
 
-// =====================================
+//=============================================
 
 const signatureBlocks = document.querySelectorAll(".block-signature");
 
@@ -487,106 +487,75 @@ window.addEventListener("resize", () => {
 
 initializeSignaturePad();
 
-// =====================================
-
-let beneficialCount = 1; // Счетчик для Beneficial owners
-let managementCount = 1; // Счетчик для Management
+//=============================================
 
 function addItem(type) {
-  let newItem;
-  if (type === "beneficial") {
-    beneficialCount += 1;
-    newItem = `
-            <li class="block-add__item" data-index="${beneficialCount}">
-                <div class="block-add__box">
-                    <div class="block-add__top">
-                        <h3 class="block-add__title">#${beneficialCount} Beneficial owners of the company</h3>
-                        <button type="button" class="block-add__delete" onclick="removeItem(this)">
-                            <img src="assets/img/icons/trash.svg" alt="Delete" />
-                        </button>
-                    </div>
-                    <label class="label-def">
-                        <p class="label-def__name">Identification Number (Identity Card, Passport No.)</p>
-                        <input type="text" name="beneficialEntity[${beneficialCount}][benefIdentification]" class="input-def" placeholder="Type here" />
-                    </label>
-                    <label class="label-def">
-                        <p class="label-def__name">Full Name of Beneficial Owner</p>
-                        <input type="text" name="beneficialEntity[${beneficialCount}][benefFullName]" class="input-def" placeholder="Type here" />
-                    </label>
-                    <label class="label-def">
-                        <p class="label-def__name">Nature of Beneficial Ownership*</p>
-                        <input type="text" name="beneficialEntity[${beneficialCount}][benefNature]" class="input-def" placeholder="Type here" />
-                    </label>
-                </div>
-            </li>
-        `;
-    document
-      .getElementById("beneficialList")
-      .insertAdjacentHTML("beforeend", newItem);
-  } else if (type === "management") {
-    managementCount += 1;
-    newItem = `
-            <li class="block-add__item" data-index="${managementCount}">
-                <div class="block-add__box">
-                    <div class="block-add__top">
-                        <h3 class="block-add__title">#${managementCount} Senior management of the company</h3>
-                        <button type="button" class="block-add__delete" onclick="removeItem(this)">
-                            <img src="assets/img/icons/trash.svg" alt="Delete" />
-                        </button>
-                    </div>
-                    <label class="label-def">
-                        <p class="label-def__name">Identification Number (Identity Card, Passport No.)</p>
-                        <input type="text" name="managementEntity[${managementCount}][managIdentification]" class="input-def" placeholder="Type here" />
-                    </label>
-                    <label class="label-def">
-                        <p class="label-def__name">Full Name of Beneficial Owner</p>
-                        <input type="text" name="managementEntity[${managementCount}][managFullName]" class="input-def" placeholder="Type here" />
-                    </label>
-                    <label class="label-def">
-                        <p class="label-def__name">Nature of Beneficial Ownership*</p>
-                        <input type="text" name="managementEntity[${managementCount}][managNature]" class="input-def" placeholder="Type here" />
-                    </label>
-                </div>
-            </li>
-        `;
-    document
-      .getElementById("managementList")
-      .insertAdjacentHTML("beforeend", newItem);
-  }
+  const list = document.getElementById(`${type}List`);
+  const newItem = document.createElement("li");
+  newItem.className = "block-add__item";
+
+  const index = list.children.length;
+  newItem.dataset.index = index + 1;
+
+  newItem.innerHTML = `
+      <div class="block-add__box">
+        <div class="block-add__top">
+          <h3 class="block-add__title">#0${index + 1} ${
+    type.charAt(0).toUpperCase() + type.slice(1)
+  } of the company</h3>
+          <button type="button" class="block-add__delete" onclick="deleteItem(this, '${type}')">
+            <svg width="24" height="24">
+              <use href="assets/img/icons/icons.svg#icon-trash"></use>
+            </svg>
+          </button>
+        </div>
+        <label class="label-def">
+          <p class="label-def__name">Identification Number (Identity Card, Passport No.)</p>
+          <input type="text" name="${type}Entity[${index}][${type}Identification]" class="input-def" placeholder="Type here"/>
+        </label>
+        <label class="label-def">
+          <p class="label-def__name">Full Name of Beneficial Owner</p>
+          <input type="text" name="${type}Entity[${index}][${type}FullName]" class="input-def" placeholder="Type here"/>
+        </label>
+        <label class="label-def">
+          <p class="label-def__name">Nature of Beneficial Ownership*</p>
+          <input type="text" name="${type}Entity[${index}][${type}Nature]" class="input-def" placeholder="Type here"/>
+        </label>
+      </div>
+    `;
+
+  list.appendChild(newItem);
+  updateList(type);
 }
 
-function removeItem(button) {
-  const itemToRemove = button.closest(".block-add__item");
-  itemToRemove.remove();
-  updateIndices("beneficial"); // Обновление индексов для Beneficial owners
-  updateIndices("management"); // Обновление индексов для Management
+function deleteItem(button, type) {
+  const list = document.getElementById(`${type}List`);
+  const item = button.closest(".block-add__item");
+  list.removeChild(item);
+  updateList(type);
 }
 
-function updateIndices(type) {
-  const list =
-    type === "beneficial"
-      ? document.getElementById("beneficialList")
-      : document.getElementById("managementList");
-  const items = list.querySelectorAll(".block-add__item");
+function updateList(type) {
+  const list = document.getElementById(`${type}List`);
+  Array.from(list.children).forEach((item, index) => {
+    item.dataset.index = index + 1;
 
-  items.forEach((item, index) => {
-    const newIndex = index + 1; // Новый индекс
-    item.setAttribute("data-index", newIndex);
     const title = item.querySelector(".block-add__title");
-    title.textContent = `#${newIndex} ${title.textContent
-      .split(" ")
-      .slice(1)
-      .join(" ")}`; // Обновляем заголовок
-    // Обновление имен инпутов
+
+    if (type === "beneficial") {
+      title.textContent = `#0${index + 1} Beneficial owners of the company`;
+    } else {
+      title.textContent = `#0${index + 1} Senior management of the company`;
+    }
+
     const inputs = item.querySelectorAll("input");
-    inputs.forEach((input) => {
-      const nameParts = input.name.split("[");
-      input.name = `${nameParts[0]}[${index}][${nameParts[1]}`; // Обновляем имя инпута
-    });
+    inputs[0].name = `${type}Entity[${index}][${type}Identification]`;
+    inputs[1].name = `${type}Entity[${index}][${type}FullName]`;
+    inputs[2].name = `${type}Entity[${index}][${type}Nature]`;
   });
 }
 
-// =====================================
+//=============================================
 
 const modals = document.querySelectorAll(".modal-success");
 
@@ -616,16 +585,19 @@ function initializeModals() {
   });
 }
 
-function submitFormIndividual() {
-  const formIndividual = document.getElementById("formIndividual");
-  const btnSubmit = document.getElementById("individualBtnSubmit");
+//=============================================
 
-  if (!formIndividual) return;
+function submitForms(nameForm) {
+  const form = document.getElementById(nameForm);
 
-  formIndividual.addEventListener("submit", (event) => {
+  if (!form) return;
+
+  const btnSubmit = form.querySelector(".btn-wrapp__submit");
+
+  form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    const formData = new FormData(formIndividual);
+    const formData = new FormData(form);
     const formValues = {};
 
     formData.forEach((value, key) => {
@@ -636,11 +608,28 @@ function submitFormIndividual() {
       formValues[blockId][key] = value;
     });
 
+    // Збереження підписів
+    const signatureBlocks = form.querySelectorAll(".block-signature__pad");
+    signatureBlocks.forEach((canvas) => {
+      const signatureData = canvas.toDataURL("image/png");
+      const declarationKey = Object.keys(formValues).find(
+        (key) =>
+          key.includes("declarationEntity") ||
+          key.includes("declarationIndivid")
+      );
+
+      if (declarationKey) {
+        formValues[declarationKey][`${declarationKey}-signed`] = signatureData;
+      }
+    });
+
     console.log("Form Data:", formValues);
 
-    formIndividual.reset();
+    form.reset();
     handleStepSubmitIndividual(btnSubmit);
     initializeModals();
   });
 }
-submitFormIndividual();
+
+submitForms("formEntity");
+submitForms("formIndividual");
