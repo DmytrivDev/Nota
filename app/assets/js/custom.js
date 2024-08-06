@@ -1,3 +1,9 @@
+//=============================================
+
+// import NiceSelect from "nice-select2";
+
+//=============================================
+
 $(function () {
   $(".lang__nav > li > a").click(function (e) {
     e.preventDefault();
@@ -265,10 +271,6 @@ function isValidEmailAddress(emailAddress) {
 
 //=============================================
 
-// import NiceSelect from "nice-select2";
-
-//=============================================
-
 const buttonsNext = document.querySelectorAll(".btn-wrapp__next");
 const buttonsBack = document.querySelectorAll(".btn-wrapp__back");
 const progressItems = document.querySelectorAll(".progress-step__item");
@@ -386,13 +388,13 @@ function clearInputFile(classForm) {
 
 //=============================================
 
-const defSelects = document.querySelectorAll(".select-def");
+// const defSelects = document.querySelectorAll(".select-def");
 
-defSelects?.forEach((el) => {
-  new NiceSelect(el, {
-    searchable: false,
-  });
-});
+// defSelects?.forEach((el) => {
+//   new NiceSelect(el, {
+//     searchable: false,
+//   });
+// });
 
 //=============================================
 
