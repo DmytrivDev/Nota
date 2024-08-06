@@ -43,6 +43,7 @@
     "yargs": "^17.7.2"
   },
   "dependencies": {
+    "2": "^3.0.0",
     "graceful-fs": "^4.2.11",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -54,6 +55,7 @@
     "gulp-sass": "^5.1.0",
     "gulp-sourcemaps": "^3.0.0",
     "imagemin-jpegtran": "^7.0.0",
+    "nice-select2": "^2.2.0",
     "rimraf-promise": "^2.0.0",
     "through2": "^4.0.2",
     "vinyl-buffer": "^1.0.1"

@@ -649,13 +649,23 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               type="submit"
               data-id="information"
               id="entityBtnSubmit"
-              class="btn-wrapp__submit"
+              class="btn-wrapp__submit disabled"
             >
               Submit
             </button>
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="block-mistake">
+      <h3 class="block-mistake__title">
+        Oops! There seems to have been a mistake.
+      </h3>
+      <p class="block-mistake__text">
+        Please double-check your data and fill in all required fields to
+        continue.
+      </p>
     </div>
 
     <div class="modal-success">

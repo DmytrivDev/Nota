@@ -41,11 +41,13 @@ path.watch = {};
 const libFilesJs = [
   "./app/libs/jquery/dist/jquery.min.js",
   "./app/libs/OwlCarousel2-2.2.0/dist/owl.carousel.min.js",
+  "node_modules/nice-select2/dist/js/nice-select2.js",
 ];
 
 const libFilesCSS = [
   "./app/libs/normalize-css/normalize.css",
   "./app/libs/OwlCarousel2-2.2.0/dist/assets/owl.carousel.min.css",
+  "node_modules/nice-select2/dist/css/nice-select2.css",
 ];
 
 /**
@@ -171,6 +173,7 @@ exports.njk = njk;
 function scss() {
   return gulp
     .src(path.src.style)
+    .pipe(plumber())
     .pipe(gulpif(isDev(), sourcemaps.init()))
     .pipe(sass())
     .pipe(gulpif(isProd(), autoprefixer({ grid: true })))
@@ -187,6 +190,7 @@ function scss() {
 function vendorStyles() {
   return gulp
     .src(libFilesCSS)
+    .pipe(plumber())
     .pipe(concat("vendor.min.css"))
     .pipe(gulp.dest("./dist/assets/css"));
 }

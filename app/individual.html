@@ -171,15 +171,15 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               </label>
 
               <div class="block-grid2">
-                <label class="label-def">
+                <div class="label-def">
                   <p class="label-def__name">Nationality</p>
-                  <input
-                    type="text"
-                    name="particulars-nationality"
-                    class="input-def"
-                    placeholder="Please select"
-                  />
-                </label>
+
+                  <select class="select-def">
+                    <option value="1">AT Austria</option>
+                    <option value="2">AT Austria</option>
+                    <option value="3">AT Austria</option>
+                  </select>
+                </div>
                 <div class="block-code">
                   <label class="label-def">
                     <p class="label-def__name">Contact Number</p>
@@ -516,7 +516,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 </label>
               </div>
 
-              <div class="label-def">
+              <div class="label-def required-field">
                 <p class="label-def__name">Signature</p>
                 <div class="block-signature">
                   <canvas class="block-signature__pad"></canvas>

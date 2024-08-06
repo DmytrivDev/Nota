@@ -265,6 +265,10 @@ function isValidEmailAddress(emailAddress) {
 
 //=============================================
 
+// import NiceSelect from "nice-select2";
+
+//=============================================
+
 const buttonsNext = document.querySelectorAll(".btn-wrapp__next");
 const buttonsBack = document.querySelectorAll(".btn-wrapp__back");
 const progressItems = document.querySelectorAll(".progress-step__item");
@@ -379,6 +383,16 @@ function clearInputFile(classForm) {
     fileText.textContent = "Drag and drop files here";
   });
 }
+
+//=============================================
+
+const defSelects = document.querySelectorAll(".select-def");
+
+defSelects?.forEach((el) => {
+  new NiceSelect(el, {
+    searchable: false,
+  });
+});
 
 //=============================================
 
