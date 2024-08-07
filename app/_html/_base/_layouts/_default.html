@@ -21,7 +21,21 @@
       include "_html/_base/_includes/_footer.html" %} {% endif %}
     </div>
 
-    <script src="assets/js/vendor.min.js"></script>
-    <script src="assets/js/custom.min.js"></script>
+    <script type="module" src="assets/js/vendor.min.js"></script>
+    <script type="module" src="assets/js/custom.min.js"></script>
+
+    <script type="module">
+      import NiceSelect from "./assets/js/vendor.min.js";
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const defSelects = document.querySelectorAll(".select-def");
+
+        defSelects?.forEach((el) => {
+          new NiceSelect(el, {
+            searchable: false,
+          });
+        });
+      });
+    </script>
   </body>
 </html>
