@@ -1,9 +1,3 @@
-//=============================================
-
-// import NiceSelect from "nice-select2";
-
-//=============================================
-
 $(function () {
   $(".lang__nav > li > a").click(function (e) {
     e.preventDefault();
@@ -388,16 +382,6 @@ function clearInputFile(classForm) {
 
 //=============================================
 
-// const defSelects = document.querySelectorAll(".select-def");
-
-// defSelects?.forEach((el) => {
-//   new NiceSelect(el, {
-//     searchable: false,
-//   });
-// });
-
-//=============================================
-
 const signatureBlocks = document.querySelectorAll(".block-signature");
 
 function initializeSignaturePad() {
@@ -543,21 +527,30 @@ initializeSignaturePad();
 
 //=============================================
 
+const addBeneficialItem = document
+  .getElementById("blockAdd-beneficial")
+  ?.querySelector(".block-add__btn");
+
+const addManagementItem = document
+  .getElementById("blockAdd-management")
+  ?.querySelector(".block-add__btn");
+
 function addItem(type) {
-  const list = document.getElementById(`${type}List`);
-  const newItem = document.createElement("li");
-  newItem.className = "block-add__item";
+  return function () {
+    const list = document.getElementById(`${type}List`);
+    const newItem = document.createElement("li");
+    newItem.className = "block-add__item";
 
-  const index = list.children.length;
-  newItem.dataset.index = index + 1;
+    const index = list.children.length;
+    newItem.dataset.index = index + 1;
 
-  newItem.innerHTML = `
+    newItem.innerHTML = `
       <div class="block-add__box">
         <div class="block-add__top">
           <h3 class="block-add__title">#0${index + 1} ${
-    type.charAt(0).toUpperCase() + type.slice(1)
-  } of the company</h3>
-          <button type="button" class="block-add__delete" onclick="deleteItem(this, '${type}')">
+      type.charAt(0).toUpperCase() + type.slice(1)
+    } of the company</h3>
+          <button type="button" class="block-add__delete">
             <svg width="24" height="24">
               <use href="assets/img/icons/icons.svg#icon-trash"></use>
             </svg>
@@ -578,8 +571,15 @@ function addItem(type) {
       </div>
     `;
 
-  list.appendChild(newItem);
-  updateList(type);
+    newItem
+      .querySelector(".block-add__delete")
+      .addEventListener("click", function () {
+        deleteItem(this, type);
+      });
+
+    list.appendChild(newItem);
+    updateList(type);
+  };
 }
 
 function deleteItem(button, type) {
@@ -608,6 +608,9 @@ function updateList(type) {
     inputs[2].name = `${type}Entity[${index}][${type}Nature]`;
   });
 }
+
+addBeneficialItem?.addEventListener("click", addItem("beneficial"));
+addManagementItem?.addEventListener("click", addItem("management"));
 
 //=============================================
 

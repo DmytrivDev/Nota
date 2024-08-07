@@ -73,7 +73,7 @@
 	&__line {
 		position: relative;
 		z-index: -1;
-		height: 0.0625rem;
+		height: 0.063rem;
 		width: 100%;
 		background-color: #282828;
 	}
@@ -160,7 +160,7 @@
 	&__label {
 		cursor: pointer;
 		padding: 0.25rem;
-		border: 0.0625rem solid #cfcfcf;
+		border: 0.063rem solid #cfcfcf;
 		input {
 			display: none;
 			&:checked + .block-choose__box {
@@ -467,7 +467,7 @@
 	font-family: Nunito;
 	background-color: transparent;
 	padding: 0.75rem 1rem;
-	border: 0.0625rem solid #cfcfcf;
+	border: 0.063rem solid #cfcfcf;
 	font-size: 1rem;
 	line-height: 1.5;
 	transition: box-shadow 150ms ease-in;
@@ -489,8 +489,61 @@
 		background-color: #868688;
 	}
 }
-.select-def {
-	cursor: pointer;
+
+.nice-select {
+	width: 100% !important;
+	color: #fff !important;
+	font-family: Nunito !important;
+	background-color: transparent !important;
+	border: 0.063rem solid #cfcfcf !important;
+	padding: 0.75rem 1rem !important;
+	font-size: 1rem !important;
+	line-height: 1.5 !important;
+	height: auto !important;
+	flex-shrink: 0 !important;
+	border-radius: 0 !important;
+	font-weight: 400 !important;
+
+	&:after {
+		width: 0.5rem !important;
+		height: 0.5rem !important;
+		border-bottom: 0.125rem solid #fff;
+		border-right: 0.125rem solid #fff;
+		right: 1.25rem !important;
+	}
+
+	.list {
+		border-radius: 0 !important;
+		max-height: 100% !important;
+		height: 100% !important;
+	}
+	.option {
+		padding: 0.75rem 1rem !important;
+		font-size: 1rem !important;
+		line-height: 1.5 !important;
+		border: none !important;
+		&:hover {
+			background-color: #fd532e !important;
+			border: none !important;
+		}
+	}
+	.option.selected.focus {
+		background-color: #fd532e !important;
+	}
+
+	.nice-select-dropdown {
+		margin-top: 0 !important;
+		right: 0 !important;
+		background-color: #111 !important;
+		border-radius: 0 !important;
+		box-shadow: none !important;
+		width: calc(100% + 0.1rem) !important;
+		transform: scale(0.75) translateX(-0.05rem) !important;
+		border: 0.063rem solid #cfcfcf !important;
+	}
+}
+.nice-select.open .nice-select-dropdown {
+	transform: scale(1) translateX(-0.05rem) !important;
 }
 
 .required-field {
@@ -557,7 +610,7 @@
 	}
 	&__back {
 		background-color: transparent;
-		border: 0.0625rem solid #fff;
+		border: 0.063rem solid #fff;
 		&:hover {
 			color: #111;
 			background-color: #fff;
