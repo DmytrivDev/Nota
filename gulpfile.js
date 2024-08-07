@@ -41,7 +41,7 @@ path.watch = {};
 const libFilesJs = [
   "./app/libs/jquery/dist/jquery.min.js",
   "./app/libs/OwlCarousel2-2.2.0/dist/owl.carousel.min.js",
-  "./node_modules/nice-select2/dist/js/nice-select2.js"
+  "./node_modules/nice-select2/src/js/nice-select2.js"
 ];
 
 const libFilesCSS = [
