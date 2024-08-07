@@ -75,7 +75,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   />
                 </label>
 
-                <label class="label-def">
+                <label class="label-def is-optional">
                   <p class="label-def__name">
                     Date of expiry <span>(if applicable)</span>
                   </p>
@@ -122,6 +122,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     />
                   </label>
                   <label class="label-def">
+                    <p class="label-def__name name-hidden">Contact Number</p>
                     <input
                       type="text"
                       name="information-phoneNumber"
@@ -132,7 +133,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 </div>
               </div>
 
-              <label class="label-def">
+              <label class="label-def is-optional">
                 <p class="label-def__name">
                   Entity Type <span>(optional)</span>
                 </p>
@@ -158,13 +159,39 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <p class="label-def__name">Postal Code, Country</p>
                 <input
                   type="text"
-                  name="information-postalCode"
+                  name="information-postalCode[0]"
                   class="input-def"
                   placeholder="Type here"
                 />
               </label>
 
               <label class="label-def">
+                <p class="label-def__name">
+                  Principal address of business
+                  <span>
+                    Principal address of business (if different from registered
+                    office address) Principal address of business
+                  </span>
+                </p>
+                <input
+                  type="text"
+                  name="information-principalAddress"
+                  class="input-def"
+                  placeholder="Unit, Floor, Building, Street"
+                />
+              </label>
+
+              <label class="label-def">
+                <p class="label-def__name">Postal Code, Country</p>
+                <input
+                  type="text"
+                  name="information-postalCode[1]"
+                  class="input-def"
+                  placeholder="Type here"
+                />
+              </label>
+
+              <label class="label-def is-optional">
                 <p class="label-def__name">
                   Principal business activity <span>(optional)</span>
                 </p>
@@ -185,7 +212,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 />
               </label>
 
-              <label class="label-def">
+              <label class="label-def is-optional">
                 <p class="label-def__name">
                   Please list the main (top 5) jurisdictions of your customers,
                   i.e that your customers are located in <span>(optional)</span>
@@ -647,16 +674,6 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
       </form>
-    </div>
-
-    <div class="block-mistake">
-      <h3 class="block-mistake__title">
-        Oops! There seems to have been a mistake.
-      </h3>
-      <p class="block-mistake__text">
-        Please double-check your data and fill in all required fields to
-        continue.
-      </p>
     </div>
 
     <div class="modal-success">

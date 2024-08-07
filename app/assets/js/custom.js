@@ -265,10 +265,22 @@ function isValidEmailAddress(emailAddress) {
 
 //=============================================
 
-const buttonsNext = document.querySelectorAll(".btn-wrapp__next");
-const buttonsBack = document.querySelectorAll(".btn-wrapp__back");
 const progressItems = document.querySelectorAll(".progress-step__item");
 const progressLines = document.querySelectorAll(".progress-step__line");
+
+function createblockMistake(part) {
+  const errorBlock = document.createElement("div");
+  errorBlock.classList.add("block-mistake");
+  errorBlock.innerHTML = `
+        <h3 class="block-mistake__title">
+          Oops! There seems to have been a mistake.
+        </h3>
+        <p class="block-mistake__text">
+          Please double-check your data and fill in all required fields to continue.
+        </p>
+      `;
+  part.appendChild(errorBlock);
+}
 
 function updateProgress(currentStepIndex) {
   progressItems.forEach((item, index) => {
@@ -290,6 +302,68 @@ function updateProgress(currentStepIndex) {
   });
 }
 
+function checkRequiredInputs(part) {
+  const labelDefs = part.querySelectorAll(".label-def");
+  let allFilled = true;
+
+  labelDefs.forEach((label) => {
+    const input = label.querySelector("input, select, textarea");
+    const inputRadio = label.querySelectorAll('input[type="radio"]');
+    // const inputFile = label.querySelector('input[type="file"]');
+
+    if (input && !label.classList.contains("is-optional")) {
+      if (input.type === "radio") {
+        const allUnchecked = Array.from(inputRadio).every(
+          (radio) => !radio.checked
+        );
+        if (allUnchecked) {
+          label.classList.add("required-field");
+          allFilled = false;
+        } else {
+          label.classList.remove("required-field");
+        }
+      } else if (input.type === "file") {
+        if (!input.files || input.files.length === 0) {
+          label.classList.add("required-field");
+          allFilled = false;
+        } else {
+          label.classList.remove("required-field");
+        }
+      } else if (!input.value.trim()) {
+        label.classList.add("required-field");
+        allFilled = false;
+      } else {
+        label.classList.remove("required-field");
+      }
+    }
+  });
+
+  return allFilled;
+}
+
+function updateNextButtonState(part) {
+  const btnNext = part.querySelector(".btn-wrapp__next");
+  const blockMistake = part.querySelector(".block-mistake");
+
+  if (checkRequiredInputs(part)) {
+    btnNext?.classList.remove("disabled");
+    btnNext?.removeAttribute("disabled");
+
+    // Удалить блок ошибки, если он существует
+    if (blockMistake) {
+      blockMistake.remove();
+    }
+  } else {
+    btnNext?.classList.add("disabled");
+    btnNext?.setAttribute("disabled", "true");
+
+    // Добавить блок ошибки, если его нет
+    if (!blockMistake) {
+      createblockMistake(part);
+    }
+  }
+}
+
 function handleStepChange(event) {
   event.preventDefault();
   const button = event.currentTarget;
@@ -297,6 +371,16 @@ function handleStepChange(event) {
   const targetStep = document.getElementById(dataId);
 
   const currentStep = document.querySelector(".form-part-visible");
+
+  const buttonStepNow = button.classList.contains("btn-wrapp__next");
+
+  // Проверка обязательных полей перед переходом
+  if (buttonStepNow) {
+    initializeFormValidation(currentStep);
+    if (!checkRequiredInputs(currentStep)) {
+      return;
+    }
+  }
 
   if (currentStep && targetStep) {
     currentStep.classList.remove("form-part-visible");
@@ -313,18 +397,42 @@ function handleStepChange(event) {
 
     const canvas = document.querySelector(".block-signature__pad");
     resizeCanvas(canvas);
+
+    if (buttonStepNow) {
+      initializeFormValidation(currentStep);
+    }
   }
 }
 
-buttonsNext.forEach((button) => {
-  button.addEventListener("click", handleStepChange);
-});
+function initializeFormValidation(part) {
+  const inputs = part.querySelectorAll("input, select, textarea");
 
-buttonsBack.forEach((button) => {
-  button.addEventListener("click", handleStepChange);
-});
+  inputs.forEach((input) => {
+    if (
+      input.tagName.toLowerCase() === "select" ||
+      input.type === "radio" ||
+      input.type === "file"
+    ) {
+      input.addEventListener("change", () => {
+        updateNextButtonState(part);
+      });
+    } else {
+      input.addEventListener("input", () => {
+        updateNextButtonState(part);
+      });
+    }
+  });
 
-function handleStepSubmitIndividual(btnSubmit) {
+  updateNextButtonState(part);
+}
+
+document
+  .querySelectorAll(".btn-wrapp__next, .btn-wrapp__back")
+  .forEach((button) => {
+    button.addEventListener("click", handleStepChange);
+  });
+
+function handleStepSubmit(btnSubmit) {
   const dataId = btnSubmit.dataset.id;
   const targetStep = document.getElementById(dataId);
 
@@ -678,7 +786,7 @@ function submitForms(nameForm) {
     // Очищення canvas
     clearContentCanvas(form);
 
-    handleStepSubmitIndividual(btnSubmit);
+    handleStepSubmit(btnSubmit);
     initializeModals();
   });
 }
