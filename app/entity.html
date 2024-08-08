@@ -70,6 +70,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <input
                     type="text"
                     name="information-incorporation"
+                    data-id="date-info"
                     class="input-def"
                     placeholder="DD/MM/YYYY"
                   />
@@ -82,6 +83,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <input
                     type="text"
                     name="information-dateExpiry"
+                    data-id="date-info"
                     class="input-def"
                     placeholder="DD/MM/YYYY"
                   />
@@ -117,6 +119,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     <input
                       type="text"
                       name="information-countryCode"
+                      data-id="contact-number"
                       class="input-def"
                       placeholder="Country Code"
                     />
@@ -124,7 +127,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="label-def">
                     <p class="label-def__name name-hidden">Contact Number</p>
                     <input
-                      type="text"
+                      type="tel"
                       name="information-phoneNumber"
                       class="input-def"
                       placeholder="Phone Number"
@@ -648,6 +651,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <input
                   type="text"
                   name="declarationEntity-signed"
+                  data-id="date-info"
                   class="input-def"
                   placeholder="DD/MM/YYYY"
                 />
@@ -667,7 +671,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
               type="submit"
               data-id="information"
               id="entityBtnSubmit"
-              class="btn-wrapp__submit disabled"
+              class="btn-wrapp__submit"
             >
               Submit
             </button>

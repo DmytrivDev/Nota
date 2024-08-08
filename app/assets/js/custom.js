@@ -309,7 +309,7 @@ function checkRequiredInputs(part) {
   labelDefs.forEach((label) => {
     const input = label.querySelector("input, select, textarea");
     const inputRadio = label.querySelectorAll('input[type="radio"]');
-    // const inputFile = label.querySelector('input[type="file"]');
+    const canvas = label.querySelector(".block-signature__pad");
 
     if (input && !label.classList.contains("is-optional")) {
       if (input.type === "radio") {
@@ -332,6 +332,40 @@ function checkRequiredInputs(part) {
       } else if (!input.value.trim()) {
         label.classList.add("required-field");
         allFilled = false;
+      } else if (input.dataset.id === "date-info") {
+        const datePattern =
+          /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+        if (!datePattern.test(input.value)) {
+          label.classList.add("required-field");
+          allFilled = false;
+        } else {
+          label.classList.remove("required-field");
+        }
+      } else if (input.type === "email") {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(input.value)) {
+          label.classList.add("required-field");
+          allFilled = false;
+        } else {
+          label.classList.remove("required-field");
+        }
+      } else {
+        label.classList.remove("required-field");
+      }
+    }
+
+    // Проверяем заполненность канваса
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+      const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      const data = imageData.data;
+      const isCanvasFilled = Array.from(data).some(
+        (value, index) => index % 4 === 3 && value > 0
+      );
+
+      if (!isCanvasFilled) {
+        label.classList.add("required-field");
+        allFilled = false;
       } else {
         label.classList.remove("required-field");
       }
@@ -343,11 +377,15 @@ function checkRequiredInputs(part) {
 
 function updateNextButtonState(part) {
   const btnNext = part.querySelector(".btn-wrapp__next");
+  const btnSubmit = part.querySelector(".btn-wrapp__submit");
   const blockMistake = part.querySelector(".block-mistake");
 
   if (checkRequiredInputs(part)) {
     btnNext?.classList.remove("disabled");
     btnNext?.removeAttribute("disabled");
+
+    btnSubmit?.classList.remove("disabled");
+    btnSubmit?.removeAttribute("disabled");
 
     // Удалить блок ошибки, если он существует
     if (blockMistake) {
@@ -356,6 +394,9 @@ function updateNextButtonState(part) {
   } else {
     btnNext?.classList.add("disabled");
     btnNext?.setAttribute("disabled", "true");
+
+    btnSubmit?.classList.add("disabled");
+    btnSubmit?.setAttribute("disabled", "true");
 
     // Добавить блок ошибки, если его нет
     if (!blockMistake) {
@@ -422,6 +463,39 @@ function initializeFormValidation(part) {
       });
     }
   });
+  // Добавляем проверку для канваса
+  signatureBlocks.forEach((block) => {
+    const canvas = block.querySelector(".block-signature__pad");
+    if (canvas) {
+      const ctx = canvas.getContext("2d");
+
+      // Проверка заполненности канваса
+      // const isCanvasFilled = () => {
+      //   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+      //   const data = imageData.data;
+      //   return Array.from(data).some(
+      //     (value, index) => index % 4 === 3 && value > 0
+      //   );
+      // };
+
+      // Добавляем событие для обновления состояния кнопки
+      canvas.addEventListener("mouseup", () => {
+        updateNextButtonState(part);
+      });
+
+      canvas.addEventListener("mouseup", () => {
+        updateNextButtonState(part);
+      });
+
+      canvas.addEventListener("mouseout", () => {
+        updateNextButtonState(part);
+      });
+
+      canvas.addEventListener("touchend", () => {
+        updateNextButtonState(part);
+      });
+    }
+  });
 
   updateNextButtonState(part);
 }
@@ -438,6 +512,11 @@ function handleStepSubmit(btnSubmit) {
 
   const currentStep = document.querySelector(".form-part-visible");
 
+  initializeFormValidation(currentStep);
+  if (!checkRequiredInputs(currentStep)) {
+    return false;
+  }
+
   if (currentStep && targetStep) {
     currentStep.classList.remove("form-part-visible");
     currentStep.classList.add("form-part-hidden");
@@ -450,8 +529,130 @@ function handleStepSubmit(btnSubmit) {
         (item) => item.dataset.step === targetStep.id
       ) + 1;
     updateProgress(targetStepIndex);
+
+    return true;
   }
 }
+
+//=============================================
+
+function validateInputNumbers() {
+  const inputs = document.querySelectorAll('input[data-id="contact-number"]');
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", (event) => {
+      // Разрешаем цифры и пробелы
+      event.target.value = event.target.value.replace(/[^0-9\s]/g, "");
+
+      // Убираем лишние пробелы, если есть несколько подряд
+      event.target.value = event.target.value.replace(/\s+/g, " ");
+    });
+
+    input.addEventListener("keypress", (event) => {
+      // Разрешаем ввод только цифр и пробелов
+      const isNumber = /[0-9]/.test(event.key);
+      const isSpace = event.key === " ";
+
+      if (!isNumber && !isSpace) {
+        event.preventDefault();
+      }
+    });
+
+    input.addEventListener("change", (event) => {
+      // Дополнительно проверяем и корректируем значение при изменении
+      event.target.value = event.target.value.replace(/[^0-9\s]/g, "");
+
+      // Убираем лишние пробелы, если есть несколько подряд
+      event.target.value = event.target.value.replace(/\s+/g, " ");
+    });
+  });
+}
+
+validateInputNumbers();
+
+function validateInputDate() {
+  const inputs = document.querySelectorAll('input[data-id="date-info"]');
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", (event) => {
+      const cursorPosition = event.target.selectionStart; // Сохраняем позицию курсора
+      let value = event.target.value.replace(/\D/g, ""); // Удаляем все нецифровые символы
+
+      // Форматирование даты в "DD/MM/YYYY"
+      if (value.length > 2 && value.length <= 4) {
+        value = `${value.slice(0, 2)}/${value.slice(2)}`;
+      } else if (value.length > 4) {
+        value = `${value.slice(0, 2)}/${value.slice(2, 4)}/${value.slice(
+          4,
+          8
+        )}`;
+      }
+
+      event.target.value = value; // Обновляем значение в input
+
+      // Восстанавливаем позицию курсора
+      if (value.length <= 2) {
+        event.target.setSelectionRange(cursorPosition, cursorPosition);
+      } else if (value.length <= 5) {
+        event.target.setSelectionRange(cursorPosition + 1, cursorPosition + 1); // После ввода второго слеша
+      } else {
+        event.target.setSelectionRange(cursorPosition + 2, cursorPosition + 2); // После ввода третьего слеша
+      }
+
+      // Проверка на соответствие формату "DD/MM/YYYY"
+      const datePattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+      if (!datePattern.test(value)) {
+        input.setCustomValidity(
+          "Please enter a valid date in DD/MM/YYYY format."
+        );
+      } else {
+        // Дополнительная проверка на правильность даты
+        const [day, month, year] = value.split("/").map(Number);
+        const date = new Date(year, month - 1, day);
+
+        if (
+          date.getDate() !== day ||
+          date.getMonth() !== month - 1 ||
+          date.getFullYear() !== year
+        ) {
+          input.setCustomValidity("Invalid date.");
+        } else {
+          input.setCustomValidity(""); // Сброс ошибки
+        }
+      }
+    });
+
+    // Обработка события "change" для финальной валидации
+    input.addEventListener("change", (event) => {
+      const value = event.target.value;
+      const datePattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+
+      if (!datePattern.test(value)) {
+        input.setCustomValidity(
+          "Please enter a valid date in DD/MM/YYYY format."
+        );
+      } else {
+        const [day, month, year] = value.split("/").map(Number);
+        const date = new Date(year, month - 1, day);
+
+        if (
+          date.getDate() !== day ||
+          date.getMonth() !== month - 1 ||
+          date.getFullYear() !== year
+        ) {
+          input.setCustomValidity("Invalid date.");
+        } else {
+          input.setCustomValidity(""); // Сброс ошибки
+        }
+      }
+
+      // input.reportValidity();
+      // Показать сообщение об ошибке (если есть)
+    });
+  });
+}
+
+validateInputDate();
 
 //=============================================
 
@@ -508,20 +709,16 @@ function initializeSignaturePad() {
     function isCanvasFilled() {
       const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
       const data = imageData.data;
-      for (let i = 0; i < data.length; i += 4) {
-        if (data[i + 3] > 0) {
-          // Проверяем альфа-канал (прозрачность)
-          return true; // Если есть пиксель с непрозрачностью
-        }
-      }
-      return false; // Если все пиксели прозрачны
+      return Array.from(data).some(
+        (value, index) => index % 4 === 3 && value > 0
+      );
     }
 
     // Функция для рисования
     function draw(e) {
       if (!isDrawing) return;
 
-      ctx.strokeStyle = "#ffffff"; // Цвет линии
+      ctx.strokeStyle = "#ffffff";
       ctx.lineJoin = "round";
       ctx.lineCap = "round";
       ctx.lineWidth = 2;
@@ -541,9 +738,13 @@ function initializeSignaturePad() {
 
       // Проверка заполненности холста
       if (isCanvasFilled()) {
-        contentBlock.style.display = "none"; // Скрываем блок с текстом и изображением
+        contentBlock.style.display = "none";
+        const label = block.closest(".label-def");
+        if (label) {
+          label.classList.remove("required-field");
+        }
       } else {
-        contentBlock.style.display = "flex"; // Показываем блок, если холст пуст
+        contentBlock.style.display = "flex";
       }
     }
 
@@ -588,6 +789,11 @@ function initializeSignaturePad() {
     clearButton.addEventListener("click", () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       contentBlock.style.display = "flex";
+
+      const label = block.closest(".label-def");
+      if (label) {
+        label.classList.add("required-field");
+      }
     });
   });
 }
@@ -755,12 +961,22 @@ function initializeModals() {
 function submitForms(nameForm) {
   const form = document.getElementById(nameForm);
 
-  if (!form) return;
+  if (!form) {
+    return;
+  }
 
   const btnSubmit = form.querySelector(".btn-wrapp__submit");
 
+  form.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" && event.target.tagName === "INPUT") {
+      event.preventDefault();
+    }
+  });
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
+
+    if (!handleStepSubmit(btnSubmit)) return;
 
     const formData = new FormData(form);
     const formValues = {};
@@ -786,7 +1002,6 @@ function submitForms(nameForm) {
     // Очищення canvas
     clearContentCanvas(form);
 
-    handleStepSubmit(btnSubmit);
     initializeModals();
   });
 }

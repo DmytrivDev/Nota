@@ -96,6 +96,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <input
                     type="text"
                     name="particulars-birth"
+                    data-id="date-info"
                     class="input-def"
                     placeholder="DD/MM/YYYY"
                   />
@@ -143,7 +144,8 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <input
                     type="text"
                     name="particulars-expiry"
-                    class="input-def dateInput"
+                    data-id="date-info"
+                    class="input-def"
                     placeholder="DD/MM/YYYY"
                   />
                 </label>
@@ -185,6 +187,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     <input
                       type="text"
                       name="particulars-countryCode"
+                      data-id="contact-number"
                       class="input-def"
                       placeholder="Country Code"
                     />
@@ -192,7 +195,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   <label class="label-def">
                     <p class="label-def__name name-hidden">Phone Number</p>
                     <input
-                      type="text"
+                      type="tel"
                       name="particulars-phoneNumber"
                       class="input-def"
                       placeholder="Phone Number"
@@ -534,6 +537,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <input
                   type="text"
                   name="declarationIndivid-signed"
+                  data-id="date-info"
                   class="input-def"
                   placeholder="DD/MM/YYYY"
                 />
