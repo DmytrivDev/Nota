@@ -349,7 +349,7 @@ function checkRequiredInputs(part) {
         } else {
           label.classList.remove("required-field");
         }
-      } else if (input.dataset.id === "contact-number") {
+      } else if (input.dataset.id === "contact-code") {
         const numberPattern = /^\+\d{1,3}$/;
         if (!numberPattern.test(input.value)) {
           label.classList.add("required-field");
@@ -587,8 +587,8 @@ function validateInputPhone() {
 
 validateInputPhone();
 
-function validateInputNumbers() {
-  const inputs = document.querySelectorAll('input[data-id="contact-number"]');
+function validateInputCode() {
+  const inputs = document.querySelectorAll('input[data-id="contact-code"]');
 
   inputs.forEach((input) => {
     input.addEventListener("focus", (event) => {
@@ -623,10 +623,16 @@ function validateInputNumbers() {
       const digits = event.target.value.slice(1).replace(/\s+/g, "");
       event.target.value = "+" + digits.slice(0, 3);
     });
+
+    input.addEventListener("blur", (event) => {
+      if (event.target.value === "+") {
+        event.target.value = "";
+      }
+    });
   });
 }
 
-validateInputNumbers();
+validateInputCode();
 
 function validateInputDate() {
   const inputs = document.querySelectorAll('input[data-id="date-info"]');
