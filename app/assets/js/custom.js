@@ -873,18 +873,12 @@ function clearContentCanvas(classForm) {
   });
 }
 
-function saveSignatureCanvas(classForm, formValues) {
+function saveSignatureCanvas(classForm) {
   const signatureBlocks = classForm.querySelectorAll(".block-signature__pad");
   signatureBlocks.forEach((canvas) => {
     const signatureData = canvas.toDataURL("image/png");
-    const declarationKey = Object.keys(formValues).find(
-      (key) =>
-        key.includes("declarationEntity") || key.includes("declarationIndivid")
-    );
 
-    if (declarationKey) {
-      formValues[declarationKey][`${declarationKey}-signed`] = signatureData;
-    }
+    document.getElementById("signInput").value = signatureData;
   });
 }
 
@@ -1038,32 +1032,32 @@ function submitForms(nameForm) {
     event.preventDefault();
 
     if (!handleStepSubmit(btnSubmit)) return;
+    saveSignatureCanvas(form);
 
     const formData = new FormData(form);
-    const formValues = {};
 
-    formData.forEach((value, key) => {
-      const blockId = key.split("-")[0];
-      if (!formValues[blockId]) {
-        formValues[blockId] = {};
-      }
-      formValues[blockId][key] = value;
+    // Відправка даних на сервер
+    $.ajax({
+      type: "POST",
+      url: "/wp-admin/admin-ajax.php",
+      data: formData,
+      processData: false,
+      contentType: false,
+      success: function (response) {
+        form.reset();
+
+        // Очищення полів типу file та їх тексту
+        clearInputFile(form);
+
+        // Очищення canvas
+        clearContentCanvas(form);
+
+        initializeModals();
+      },
+      error: function (xhr, status, error) {
+        console.error("Error sending data:", error);
+      },
     });
-
-    // Збереження підписів
-    saveSignatureCanvas(form, formValues);
-
-    console.log("Form Data:", formValues);
-
-    form.reset();
-
-    // Очищення полів типу file та їх тексту
-    clearInputFile(form);
-
-    // Очищення canvas
-    clearContentCanvas(form);
-
-    initializeModals();
   });
 }
 
