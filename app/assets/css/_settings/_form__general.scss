@@ -3,6 +3,15 @@
 }
 .form-part-visible {
 	display: block;
+	opacity: 0;
+	visibility: hidden;
+	transition:
+		opacity 150ms ease-in,
+		transition 150ms ease-in;
+	&.is-transition {
+		opacity: 1;
+		visibility: visible;
+	}
 }
 
 .form-sec {
@@ -44,6 +53,7 @@
 			font-size: 0.75rem;
 			font-weight: 600;
 			line-height: 1.33;
+			transition: all 150ms ease-in;
 		}
 
 		span {
@@ -53,6 +63,7 @@
 			flex-shrink: 0;
 			border-radius: 50%;
 			background-color: #adadad;
+			transition: all 150ms ease-in;
 			&::before,
 			&::after {
 				content: "";
@@ -65,6 +76,7 @@
 				width: 1rem;
 				height: 1rem;
 				opacity: 0.15;
+				transition: all 150ms ease-in;
 			}
 		}
 	}
@@ -75,6 +87,16 @@
 		height: 0.063rem;
 		width: 100%;
 		background-color: #282828;
+		&::after {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 0;
+			height: 100%;
+			background-color: #fd532e;
+			transition: all 150ms ease-in;
+		}
 	}
 }
 
@@ -91,7 +113,9 @@
 	}
 }
 .line-part {
-	background-color: #fd532e;
+	&::after {
+		width: 100%;
+	}
 }
 
 .form-title {
@@ -309,6 +333,15 @@
 	&__item {
 		background-color: #1c1c1c;
 		padding: 1.5rem;
+		opacity: 0;
+		visibility: hidden;
+		transform: translateY(-1.25rem);
+		transition: all 150ms ease-in;
+		&.is-visible {
+			opacity: 1;
+			visibility: visible;
+			transform: translateY(0);
+		}
 	}
 	&__top {
 		display: flex;
@@ -665,7 +698,6 @@
 	.line-part {
 		flex-shrink: 0;
 		width: 54%;
-		background-color: #fd532e;
 	}
 
 	.form-title {

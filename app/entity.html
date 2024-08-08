@@ -36,7 +36,10 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
       <p class="form-desc">(Entity)</p>
 
       <form id="formEntity">
-        <div id="information" class="form-part-hidden form-part-visible">
+        <div
+          id="information"
+          class="form-part-hidden form-part-visible is-transition"
+        >
           <fieldset>
             <legend class="form-subtitle">
               <span>1.</span> Company Information
@@ -129,6 +132,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     <input
                       type="tel"
                       name="information-phoneNumber"
+                      data-id="contact-phone"
                       class="input-def"
                       placeholder="Phone Number"
                     />
@@ -273,7 +277,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
 
               <div class="block-add" id="blockAdd-beneficial">
                 <ul class="block-add__list" id="beneficialList">
-                  <li class="block-add__item" data-index="1">
+                  <li class="block-add__item is-visible" data-index="1">
                     <div class="block-add__box">
                       <div class="block-add__top">
                         <h3 class="block-add__title">
@@ -342,7 +346,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
 
               <div class="block-add" id="blockAdd-management">
                 <ul class="block-add__list" id="managementList">
-                  <li class="block-add__item" data-index="1">
+                  <li class="block-add__item is-visible" data-index="1">
                     <div class="block-add__box">
                       <div class="block-add__top">
                         <h3 class="block-add__title">

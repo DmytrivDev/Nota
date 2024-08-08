@@ -42,7 +42,10 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
       <p class="form-desc">(Individual)</p>
 
       <form id="formIndividual">
-        <div id="particulars" class="form-part-hidden form-part-visible">
+        <div
+          id="particulars"
+          class="form-part-hidden form-part-visible is-transition"
+        >
           <fieldset>
             <legend class="form-subtitle">
               <span>1.</span> Customer’s Particulars
@@ -197,6 +200,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                     <input
                       type="tel"
                       name="particulars-phoneNumber"
+                      data-id="contact-phone"
                       class="input-def"
                       placeholder="Phone Number"
                     />

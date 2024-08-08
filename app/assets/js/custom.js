@@ -349,6 +349,14 @@ function checkRequiredInputs(part) {
         } else {
           label.classList.remove("required-field");
         }
+      } else if (input.dataset.id === "contact-number") {
+        const numberPattern = /^\+\d{1,3}$/;
+        if (!numberPattern.test(input.value)) {
+          label.classList.add("required-field");
+          allFilled = false;
+        } else {
+          label.classList.remove("required-field");
+        }
       } else {
         label.classList.remove("required-field");
       }
@@ -429,6 +437,13 @@ function handleStepChange(event) {
 
     targetStep.classList.remove("form-part-hidden");
     targetStep.classList.add("form-part-visible");
+
+    setTimeout(() => {
+      currentStep.classList.remove("is-transition");
+      targetStep.classList.add("is-transition");
+    }, 10);
+
+    window.scrollTo(0, 0);
 
     const targetStepIndex =
       [...progressItems].findIndex(
@@ -524,6 +539,13 @@ function handleStepSubmit(btnSubmit) {
     targetStep.classList.remove("form-part-hidden");
     targetStep.classList.add("form-part-visible");
 
+    setTimeout(() => {
+      currentStep.classList.remove("is-transition");
+      targetStep.classList.add("is-transition");
+    }, 100);
+
+    window.scrollTo(0, 0);
+
     const targetStepIndex =
       [...progressItems].findIndex(
         (item) => item.dataset.step === targetStep.id
@@ -536,20 +558,17 @@ function handleStepSubmit(btnSubmit) {
 
 //=============================================
 
-function validateInputNumbers() {
-  const inputs = document.querySelectorAll('input[data-id="contact-number"]');
+function validateInputPhone() {
+  const inputs = document.querySelectorAll('input[data-id="contact-phone"]');
 
   inputs.forEach((input) => {
     input.addEventListener("input", (event) => {
-      // Разрешаем цифры и пробелы
       event.target.value = event.target.value.replace(/[^0-9\s]/g, "");
 
-      // Убираем лишние пробелы, если есть несколько подряд
       event.target.value = event.target.value.replace(/\s+/g, " ");
     });
 
     input.addEventListener("keypress", (event) => {
-      // Разрешаем ввод только цифр и пробелов
       const isNumber = /[0-9]/.test(event.key);
       const isSpace = event.key === " ";
 
@@ -559,11 +578,50 @@ function validateInputNumbers() {
     });
 
     input.addEventListener("change", (event) => {
-      // Дополнительно проверяем и корректируем значение при изменении
       event.target.value = event.target.value.replace(/[^0-9\s]/g, "");
 
-      // Убираем лишние пробелы, если есть несколько подряд
       event.target.value = event.target.value.replace(/\s+/g, " ");
+    });
+  });
+}
+
+validateInputPhone();
+
+function validateInputNumbers() {
+  const inputs = document.querySelectorAll('input[data-id="contact-number"]');
+
+  inputs.forEach((input) => {
+    input.addEventListener("focus", (event) => {
+      if (!event.target.value.startsWith("+")) {
+        event.target.value = "+";
+      }
+    });
+
+    input.addEventListener("input", (event) => {
+      event.target.value =
+        "+" + event.target.value.slice(1).replace(/[^\d\s]/g, "");
+
+      const digits = event.target.value.slice(1).replace(/\s+/g, "");
+      event.target.value = "+" + digits.slice(0, 3);
+
+      if (digits.length < 3 && event.data === " ") {
+        event.target.value += " ";
+      }
+    });
+
+    input.addEventListener("keypress", (event) => {
+      const isNumber = /[0-9]/.test(event.key);
+      const isSpace = event.key === " ";
+      const digits = event.target.value.slice(1).replace(/\s+/g, "");
+
+      if ((!isNumber && !isSpace) || (isNumber && digits.length >= 3)) {
+        event.preventDefault();
+      }
+    });
+
+    input.addEventListener("change", (event) => {
+      const digits = event.target.value.slice(1).replace(/\s+/g, "");
+      event.target.value = "+" + digits.slice(0, 3);
     });
   });
 }
@@ -575,10 +633,9 @@ function validateInputDate() {
 
   inputs.forEach((input) => {
     input.addEventListener("input", (event) => {
-      const cursorPosition = event.target.selectionStart; // Сохраняем позицию курсора
-      let value = event.target.value.replace(/\D/g, ""); // Удаляем все нецифровые символы
+      const cursorPosition = event.target.selectionStart;
+      let value = event.target.value.replace(/\D/g, "");
 
-      // Форматирование даты в "DD/MM/YYYY"
       if (value.length > 2 && value.length <= 4) {
         value = `${value.slice(0, 2)}/${value.slice(2)}`;
       } else if (value.length > 4) {
@@ -588,25 +645,22 @@ function validateInputDate() {
         )}`;
       }
 
-      event.target.value = value; // Обновляем значение в input
+      event.target.value = value;
 
-      // Восстанавливаем позицию курсора
       if (value.length <= 2) {
         event.target.setSelectionRange(cursorPosition, cursorPosition);
       } else if (value.length <= 5) {
-        event.target.setSelectionRange(cursorPosition + 1, cursorPosition + 1); // После ввода второго слеша
+        event.target.setSelectionRange(cursorPosition + 1, cursorPosition + 1);
       } else {
-        event.target.setSelectionRange(cursorPosition + 2, cursorPosition + 2); // После ввода третьего слеша
+        event.target.setSelectionRange(cursorPosition + 2, cursorPosition + 2);
       }
 
-      // Проверка на соответствие формату "DD/MM/YYYY"
       const datePattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
       if (!datePattern.test(value)) {
         input.setCustomValidity(
           "Please enter a valid date in DD/MM/YYYY format."
         );
       } else {
-        // Дополнительная проверка на правильность даты
         const [day, month, year] = value.split("/").map(Number);
         const date = new Date(year, month - 1, day);
 
@@ -617,12 +671,11 @@ function validateInputDate() {
         ) {
           input.setCustomValidity("Invalid date.");
         } else {
-          input.setCustomValidity(""); // Сброс ошибки
+          input.setCustomValidity("");
         }
       }
     });
 
-    // Обработка события "change" для финальной валидации
     input.addEventListener("change", (event) => {
       const value = event.target.value;
       const datePattern = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
@@ -642,12 +695,9 @@ function validateInputDate() {
         ) {
           input.setCustomValidity("Invalid date.");
         } else {
-          input.setCustomValidity(""); // Сброс ошибки
+          input.setCustomValidity("");
         }
       }
-
-      // input.reportValidity();
-      // Показать сообщение об ошибке (если есть)
     });
   });
 }
@@ -892,6 +942,11 @@ function addItem(type) {
       });
 
     list.appendChild(newItem);
+
+    setTimeout(() => {
+      newItem.classList.add("is-visible");
+    }, 10);
+
     updateList(type);
   };
 }
