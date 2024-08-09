@@ -548,7 +548,6 @@ function checkStepSubmitValid() {
 //       currentStep.classList.remove("is-transition");
 //       targetStep.classList.add("is-transition");
 //     }, 100);
-
 //     window.scrollTo(0, 0);
 
 //     const targetStepIndex =
