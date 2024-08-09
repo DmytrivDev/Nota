@@ -1039,7 +1039,7 @@ addManagementItem?.addEventListener("click", addItem("management"));
 
 const modals = document.querySelectorAll(".modal-success");
 
-function initializeModals() {
+function initializeModals(noerror) {
   modals.forEach((modal) => {
     const closeButton = modal.querySelector(".modal-success__close");
 
@@ -1061,7 +1061,12 @@ function initializeModals() {
       }
     });
 
-    openModal();
+    if(noerror) {
+      openModal();
+    } else {
+      document.querySelector('.modal-error').add("modal-open");
+      document.body.classList.add("overHide");
+    }
   });
 }
 
@@ -1117,19 +1122,23 @@ function submitForms(nameForm) {
       processData: false,
       contentType: false,
       success: function (response) {
-        form.reset();
+        if (resp !== "error") {
+          initializeModals(false);
+        } else {
+          form.reset();
 
-        // Очищення полів типу file та їх тексту
-        clearInputFile(form);
+          // Очищення полів типу file та їх тексту
+          clearInputFile(form);
 
-        stepStartForm(nameForm);
+          stepStartForm(nameForm);
 
-        initializePreloader(false);
+          initializePreloader(false);
 
-        // Очищення canvas
-        clearContentCanvas(form);
+          // Очищення canvas
+          clearContentCanvas(form);
 
-        initializeModals();
+          initializeModals(true);
+        }
       },
       error: function (xhr, status, error) {
         console.error("Error sending data:", error);
