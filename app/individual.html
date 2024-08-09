@@ -42,10 +42,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
       <p class="form-desc">(Individual)</p>
 
       <form id="formIndividual">
-        <div
-          id="particulars"
-          class="form-part-hidden form-part-visible is-transition"
-        >
+        <div id="particulars" class="form-part-hidden">
           <fieldset>
             <legend class="form-subtitle">
               <span>1.</span> Customer’s Particulars
@@ -395,7 +392,10 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
 
-        <div id="documents-individ" class="form-part-hidden">
+        <div
+          id="documents-individ"
+          class="form-part-hidden form-part-visible is-transition"
+        >
           <fieldset>
             <legend class="form-subtitle">
               <span>4.</span> Documents Required
@@ -413,6 +413,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                       type="file"
                       name="documentsIndivid-identificationDocument"
                       class="block-file__input"
+                      accept=".jpeg,.jpg,.png,.pdf"
                     />
                     <span class="block-file__img"></span>
                     <p class="block-file__text">Drag and drop files here</p>
@@ -430,6 +431,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                       type="file"
                       name="documentsIndivid-backSide"
                       class="block-file__input"
+                      accept=".jpeg,.jpg,.png,.pdf"
                     />
                     <span class="block-file__img"></span>
                     <p class="block-file__text">Drag and drop files here</p>
@@ -448,6 +450,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                       type="file"
                       name="documentsIndivid-addressProof"
                       class="block-file__input"
+                      accept=".jpeg,.jpg,.png,.pdf"
                     />
                     <span class="block-file__img"></span>
                     <p class="block-file__text">Drag and drop files here</p>
@@ -466,6 +469,7 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                       type="file"
                       name="documentsIndivid-bankStatement"
                       class="block-file__input"
+                      accept=".jpeg,.jpg,.png,.pdf"
                     />
                     <span class="block-file__img"></span>
                     <p class="block-file__text">Drag and drop files here</p>

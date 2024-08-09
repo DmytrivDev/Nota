@@ -749,8 +749,10 @@ fileInputs.forEach((fileInput) => {
     event.preventDefault();
     blockFile.classList.remove("is-dragover");
     const files = event.dataTransfer.files;
-    fileInput.files = files;
-    handleFileUpload(files);
+    if (validateFiles(files)) {
+      fileInput.files = files;
+      handleFileUpload(files);
+    }
   });
 
   // Функція для обробки завантаження файлів
@@ -764,6 +766,17 @@ fileInputs.forEach((fileInput) => {
       fileImg.classList.remove("file-uploaded");
       fileText.textContent = "Drag and drop files here";
     }
+  }
+
+  // Функція для перевірки типів файлів
+  function validateFiles(files) {
+    const validTypes = ["image/jpeg", "image/png", "application/pdf"];
+    for (let i = 0; i < files.length; i++) {
+      if (!validTypes.includes(files[i].type)) {
+        return false;
+      }
+    }
+    return true;
   }
 });
 
