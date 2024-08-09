@@ -30,13 +30,17 @@
       document.addEventListener("DOMContentLoaded", function () {
         const countrySelects = document.querySelectorAll(".country-select");
 
-        // Завантаження країн з API
         $.ajax({
           url: "https://restcountries.com/v3.1/all",
           method: "GET",
           success: function (data) {
+            // Сортуємо країни за алфавітом за назвою
+            const sortedCountries = data.sort((a, b) => {
+              return a.name.common.localeCompare(b.name.common);
+            });
+
             countrySelects.forEach((el) => {
-              data.forEach((country) => {
+              sortedCountries.forEach((country) => {
                 const option = document.createElement("option");
                 option.value = country.cca2; // Використовуємо код країни як значення
                 option.textContent = country.name.common; // Назва країни

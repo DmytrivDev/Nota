@@ -481,18 +481,8 @@ function initializeFormValidation(part) {
   // Добавляем проверку для канваса
   signatureBlocks.forEach((block) => {
     const canvas = block.querySelector(".block-signature__pad");
+    const clearButton = block.querySelector(".block-signature__clear");
     if (canvas) {
-      const ctx = canvas.getContext("2d");
-
-      // Проверка заполненности канваса
-      // const isCanvasFilled = () => {
-      //   const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-      //   const data = imageData.data;
-      //   return Array.from(data).some(
-      //     (value, index) => index % 4 === 3 && value > 0
-      //   );
-      // };
-
       // Добавляем событие для обновления состояния кнопки
       canvas.addEventListener("mouseup", () => {
         updateNextButtonState(part);
@@ -508,6 +498,14 @@ function initializeFormValidation(part) {
 
       canvas.addEventListener("touchend", () => {
         updateNextButtonState(part);
+      });
+
+      clearButton.addEventListener("click", () => {
+        const label = block.closest(".label-def");
+
+        if (label) {
+          label.classList.add("required-field");
+        }
       });
     }
   });
@@ -530,33 +528,6 @@ function checkStepSubmitValid() {
   }
   return true;
 }
-
-// function handleStepSubmit(btnSubmit) {
-//   const dataId = btnSubmit.dataset.id;
-//   const targetStep = document.getElementById(dataId);
-
-//   const currentStep = document.querySelector(".form-part-visible");
-
-//   if (currentStep && targetStep) {
-//     currentStep.classList.remove("form-part-visible");
-//     currentStep.classList.add("form-part-hidden");
-
-//     targetStep.classList.remove("form-part-hidden");
-//     targetStep.classList.add("form-part-visible");
-
-//     setTimeout(() => {
-//       currentStep.classList.remove("is-transition");
-//       targetStep.classList.add("is-transition");
-//     }, 100);
-//     window.scrollTo(0, 0);
-
-//     const targetStepIndex =
-//       [...progressItems].findIndex(
-//         (item) => item.dataset.step === targetStep.id
-//       ) + 1;
-//     updateProgress(targetStepIndex);
-//   }
-// }
 
 function stepStartForm(nameForm) {
   let targetStep;
@@ -750,21 +721,50 @@ validateInputDate();
 const fileInputs = document.querySelectorAll(".block-file__input");
 
 fileInputs.forEach((fileInput) => {
-  fileInput.addEventListener("change", function () {
-    const blockFileContent = fileInput.closest(".block-file__content");
-    const fileText = blockFileContent.querySelector(".block-file__text");
-    const fileImg = blockFileContent.querySelector(".block-file__img");
+  const blockFile = fileInput.closest(".block-file");
+  const blockFileContent = fileInput.closest(".block-file__content");
+  const fileText = blockFileContent.querySelector(".block-file__text");
+  const fileImg = blockFileContent.querySelector(".block-file__img");
 
-    if (fileInput.files.length > 0) {
+  // Обробка події зміни файлу через інпут
+  fileInput.addEventListener("change", function () {
+    handleFileUpload(fileInput.files);
+  });
+
+  // Обробка подій Drag and Drop
+  blockFileContent.addEventListener("dragenter", function () {
+    blockFile.classList.add("is-dragover");
+  });
+
+  blockFileContent.addEventListener("dragover", function (event) {
+    event.preventDefault();
+    blockFile.classList.add("is-dragover");
+  });
+
+  blockFileContent.addEventListener("dragleave", function () {
+    blockFile.classList.remove("is-dragover");
+  });
+
+  blockFileContent.addEventListener("drop", function (event) {
+    event.preventDefault();
+    blockFile.classList.remove("is-dragover");
+    const files = event.dataTransfer.files;
+    fileInput.files = files;
+    handleFileUpload(files);
+  });
+
+  // Функція для обробки завантаження файлів
+  function handleFileUpload(files) {
+    if (files.length > 0) {
       fileText.classList.add("file-uploaded");
       fileImg.classList.add("file-uploaded");
-      fileText.textContent = `Uploaded file name ${fileInput.files[0].name}`;
+      fileText.textContent = `Uploaded file name: ${files[0].name}`;
     } else {
       fileText.classList.remove("file-uploaded");
       fileImg.classList.remove("file-uploaded");
       fileText.textContent = "Drag and drop files here";
     }
-  });
+  }
 });
 
 function clearInputFile(classForm) {
@@ -880,11 +880,6 @@ function initializeSignaturePad() {
     clearButton.addEventListener("click", () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       contentBlock.style.display = "flex";
-
-      const label = block.closest(".label-def");
-      if (label) {
-        label.classList.add("required-field");
-      }
     });
   });
 }
@@ -918,6 +913,10 @@ function saveSignatureCanvas(classForm) {
 }
 
 window.addEventListener("resize", () => {
+  const canvas = document.querySelectorAll(".block-signature__pad");
+  canvas.forEach(resizeCanvas);
+});
+document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.querySelectorAll(".block-signature__pad");
   canvas.forEach(resizeCanvas);
 });
@@ -1081,7 +1080,6 @@ function initializePreloader(state) {
     }
   });
 }
-// initializePreloader(true);
 
 //=============================================
 
@@ -1091,8 +1089,6 @@ function submitForms(nameForm) {
   if (!form) {
     return;
   }
-
-  const btnSubmit = form.querySelector(".btn-wrapp__submit");
 
   form.addEventListener("keydown", (event) => {
     if (event.key === "Enter" && event.target.tagName === "INPUT") {
@@ -1132,7 +1128,6 @@ function submitForms(nameForm) {
       processData: false,
       contentType: false,
       success: function (response) {
-
         form.reset();
 
         clearInputFile(form);

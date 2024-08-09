@@ -250,6 +250,7 @@
 		}
 	}
 	&__text {
+		user-select: none;
 		color: #868688;
 		text-align: center;
 		font-family: Nunito;
@@ -257,6 +258,7 @@
 		line-height: 1.5rem;
 	}
 	&__clear {
+		user-select: none;
 		z-index: 3;
 		position: absolute;
 		bottom: 0.75rem;
@@ -268,10 +270,11 @@
 		line-height: 1.5rem;
 		border: 1px solid #fff;
 		padding: 0.25rem 0.5rem;
+		background-color: #1f1f22;
 		transition: all 150ms ease-in;
 		&:hover {
 			background-color: #fff;
-			color: #2c2c2c;
+			color: #1f1f22;
 		}
 	}
 }
@@ -280,6 +283,11 @@
 	height: 8rem;
 	background-color: #1f1f22;
 	border: 0.063rem solid transparent;
+	transition: all 150ms ease-in;
+
+	&.is-dragover {
+		box-shadow: inset 0px 0px 30px -10px rgba(119, 119, 130, 1);
+	}
 	&__input {
 		display: none;
 	}
@@ -297,6 +305,7 @@
 		height: 2rem;
 		&::after {
 			content: "";
+			transition: all 150ms ease-in;
 			display: block;
 			width: 2rem;
 			height: 2rem;
@@ -312,12 +321,14 @@
 		}
 	}
 	&__text {
+		user-select: none;
 		color: #868688;
 		text-align: center;
 		font-size: 1rem;
 		line-height: 1.5rem;
+		transition: all 150ms ease-in;
 
-		width: 15rem;
+		width: 30rem;
 		white-space: nowrap;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -785,6 +796,11 @@
 		}
 		&__btn {
 			padding: 0.625rem 0;
+		}
+	}
+	.block-file {
+		&__text {
+			width: 15rem;
 		}
 	}
 	.block-mistake {
