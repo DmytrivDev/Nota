@@ -521,16 +521,21 @@ document
     button.addEventListener("click", handleStepChange);
   });
 
-function handleStepSubmit(btnSubmit) {
-  const dataId = btnSubmit.dataset.id;
-  const targetStep = document.getElementById(dataId);
-
+function checkStepSubmitValid() {
   const currentStep = document.querySelector(".form-part-visible");
 
   initializeFormValidation(currentStep);
   if (!checkRequiredInputs(currentStep)) {
     return false;
   }
+  return true;
+}
+
+function handleStepSubmit(btnSubmit) {
+  const dataId = btnSubmit.dataset.id;
+  const targetStep = document.getElementById(dataId);
+
+  const currentStep = document.querySelector(".form-part-visible");
 
   if (currentStep && targetStep) {
     currentStep.classList.remove("form-part-visible");
@@ -551,8 +556,6 @@ function handleStepSubmit(btnSubmit) {
         (item) => item.dataset.step === targetStep.id
       ) + 1;
     updateProgress(targetStepIndex);
-
-    return true;
   }
 }
 
@@ -1064,11 +1067,10 @@ function submitForms(nameForm) {
     }
   });
 
-
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
-    if (!handleStepSubmit(btnSubmit)) return;
+    if (!checkStepSubmitValid()) return;
     saveSignatureCanvas(form);
 
     initializePreloader(true);
@@ -1087,6 +1089,8 @@ function submitForms(nameForm) {
 
         // Очищення полів типу file та їх тексту
         clearInputFile(form);
+
+        handleStepSubmit(btnSubmit);
 
         initializePreloader(false);
 
