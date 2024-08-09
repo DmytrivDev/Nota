@@ -1064,13 +1064,14 @@ function submitForms(nameForm) {
     }
   });
 
-  initializePreloader(true);
 
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
     if (!handleStepSubmit(btnSubmit)) return;
     saveSignatureCanvas(form);
+
+    initializePreloader(true);
 
     const formData = new FormData(form);
 
@@ -1086,6 +1087,8 @@ function submitForms(nameForm) {
 
         // Очищення полів типу file та їх тексту
         clearInputFile(form);
+
+        initializePreloader(false);
 
         // Очищення canvas
         clearContentCanvas(form);
