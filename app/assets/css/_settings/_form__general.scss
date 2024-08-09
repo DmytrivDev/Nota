@@ -576,6 +576,9 @@
 	}
 	.option.focus {
 		background-color: transparent !important;
+		&:hover {
+			background-color: #fd532e !important;
+		}
 	}
 	.option.selected.focus {
 		background-color: #fd532e !important;
