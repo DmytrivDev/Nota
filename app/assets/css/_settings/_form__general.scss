@@ -414,6 +414,20 @@
 				fill: #fff;
 			}
 		}
+		&.disabled {
+			cursor: not-allowed;
+			background-color: #2c2c2c;
+			span {
+				color: #7d7d7d;
+			}
+			svg {
+				fill: #7d7d7d;
+			}
+			&:hover {
+				background-color: #2c2c2c;
+				border: 0.063rem solid transparent;
+			}
+		}
 	}
 }
 
@@ -546,8 +560,9 @@
 
 	.list {
 		border-radius: 0 !important;
-		max-height: 100% !important;
+		max-height: 9rem !important;
 		height: 100% !important;
+		overflow-y: auto !important;
 	}
 	.option {
 		padding: 0.75rem 1rem !important;
@@ -559,8 +574,27 @@
 			border: none !important;
 		}
 	}
+	.option.focus {
+		background-color: transparent !important;
+	}
 	.option.selected.focus {
 		background-color: #fd532e !important;
+	}
+
+	.nice-select-search-box {
+		padding: 0 !important;
+		border-radius: 0 !important;
+	}
+	.nice-select-search {
+		border-radius: 0 !important;
+		padding: 0.75rem 1rem !important;
+		font-size: 1rem !important;
+		line-height: 1.5 !important;
+		border: none !important;
+		margin: 0 !important;
+		min-height: 100% !important;
+		background-color: #4f4f4f66 !important;
+		color: #fff !important;
 	}
 
 	.nice-select-dropdown {

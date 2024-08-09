@@ -28,9 +28,34 @@
       import NiceSelect from "./assets/js/vendor.min.js";
 
       document.addEventListener("DOMContentLoaded", function () {
-        const defSelects = document.querySelectorAll(".select-def");
+        const countrySelects = document.querySelectorAll(".country-select");
 
-        defSelects?.forEach((el) => {
+        // Завантаження країн з API
+        $.ajax({
+          url: "https://restcountries.com/v3.1/all",
+          method: "GET",
+          success: function (data) {
+            countrySelects.forEach((el) => {
+              data.forEach((country) => {
+                const option = document.createElement("option");
+                option.value = country.cca2; // Використовуємо код країни як значення
+                option.textContent = country.name.common; // Назва країни
+                el.appendChild(option);
+              });
+
+              new NiceSelect(el, {
+                searchable: true,
+              });
+            });
+          },
+          error: function (error) {
+            console.error("Помилка при завантаженні країн:", error);
+          },
+        });
+
+        const allSelects = document.querySelectorAll(".select-all");
+
+        allSelects.forEach((el) => {
           new NiceSelect(el, {
             searchable: false,
           });

@@ -899,6 +899,22 @@ const addManagementItem = document
   .getElementById("blockAdd-management")
   ?.querySelector(".block-add__btn");
 
+function addBtnItemDisabled(type) {
+  const addBtnItem = document
+    .getElementById(`blockAdd-${type}`)
+    ?.querySelector(".block-add__btn");
+
+  const list = document.getElementById(`${type}List`);
+
+  if (list.children.length === 6) {
+    addBtnItem.classList.add("disabled");
+    addBtnItem.setAttribute("disabled", "true");
+  } else {
+    addBtnItem.classList.remove("disabled");
+    addBtnItem.removeAttribute("disabled");
+  }
+}
+
 function addItem(type) {
   return function () {
     const list = document.getElementById(`${type}List`);
@@ -906,6 +922,7 @@ function addItem(type) {
     newItem.className = "block-add__item";
 
     const index = list.children.length;
+
     newItem.dataset.index = index + 1;
 
     newItem.innerHTML = `
@@ -975,6 +992,8 @@ function updateList(type) {
     inputs[0].name = `${type}Entity[${index}][${type}Identification]`;
     inputs[1].name = `${type}Entity[${index}][${type}FullName]`;
     inputs[2].name = `${type}Entity[${index}][${type}Nature]`;
+
+    addBtnItemDisabled(type);
   });
 }
 
@@ -991,12 +1010,12 @@ function initializeModals() {
 
     function openModal() {
       modal.classList.add("modal-open");
-      document.body.classList.add("modal-open");
+      document.body.classList.add("overHide");
     }
 
     function closeModal() {
       modal.classList.remove("modal-open");
-      document.body.classList.remove("modal-open");
+      document.body.classList.remove("overHide");
     }
 
     closeButton.addEventListener("click", closeModal);
@@ -1010,6 +1029,23 @@ function initializeModals() {
     openModal();
   });
 }
+
+//=============================================
+
+const preloaders = document.querySelectorAll(".preloader");
+
+function initializePreloader(state) {
+  preloaders.forEach((preloader) => {
+    if (state) {
+      preloader.classList.add("is-visible");
+      document.body.classList.add("overHide");
+    } else {
+      preloader.classList.remove("is-visible");
+      document.body.classList.remove("overHide");
+    }
+  });
+}
+// initializePreloader(true);
 
 //=============================================
 

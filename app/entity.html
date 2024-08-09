@@ -97,12 +97,13 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <p class="label-def__name">
                   Country of Incorporation / Registration:
                 </p>
-                <input
-                  type="text"
+
+                <select
+                  class="select-def country-select"
                   name="information-incorpRegist"
-                  class="input-def"
-                  placeholder="Type here"
-                />
+                >
+                  <option value="" selected>Type here</option>
+                </select>
               </label>
 
               <div class="block-grid2">
@@ -145,7 +146,10 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                   Entity Type <span>(optional)</span>
                 </p>
 
-                <select class="select-def" name="information-nationality">
+                <select
+                  class="select-def select-all"
+                  name="information-nationality"
+                >
                   <option value="" selected>Please select</option>
                   <option value="select1">select1</option>
                   <option value="select2">select2</option>
@@ -608,7 +612,10 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
                 <label class="label-def">
                   <p class="label-def__name">Prefix</p>
 
-                  <select class="select-def" name="declarationEntity-prefix">
+                  <select
+                    class="select-def select-all"
+                    name="declarationEntity-prefix"
+                  >
                     <option value="Mr." selected>Mr.</option>
                     <option value="Ms.">Ms.</option>
                   </select>
@@ -682,6 +689,20 @@ hideHeader = true %} {% set hideFooter = true %} {% extends
           </div>
         </div>
       </form>
+    </div>
+
+    <div class="preloader">
+      <div class="preloader-body">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+        <div class="bar4"></div>
+        <div class="bar5"></div>
+        <div class="bar6"></div>
+        <div class="bar7"></div>
+        <div class="bar8"></div>
+        <div class="bar9"></div>
+      </div>
     </div>
 
     <div class="modal-success">
