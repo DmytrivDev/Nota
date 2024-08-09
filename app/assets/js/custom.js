@@ -43,7 +43,7 @@ $(function () {
   });
 
   //Form submit
-  $("form").submit(function () {
+  $(".contact__form").submit(function () {
     var th = $(this);
 
     $.ajax({
@@ -916,7 +916,7 @@ function addItem(type) {
     } of the company</h3>
           <button type="button" class="block-add__delete">
             <svg width="24" height="24">
-              <use href="assets/img/icons/icons.svg#icon-trash"></use>
+              <use href="https://notapay.co/wp-content/themes/notapay/assets/img/icons/icons.svg#icon-trash"></use>
             </svg>
           </button>
         </div>
