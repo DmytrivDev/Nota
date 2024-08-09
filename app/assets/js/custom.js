@@ -1043,11 +1043,6 @@ function initializeModals(noerror) {
   modals.forEach((modal) => {
     const closeButton = modal.querySelector(".modal-success__close");
 
-    function openModal() {
-      modal.classList.add("modal-open");
-      document.body.classList.add("overHide");
-    }
-
     function closeModal() {
       modal.classList.remove("modal-open");
       document.body.classList.remove("overHide");
@@ -1061,10 +1056,11 @@ function initializeModals(noerror) {
       }
     });
 
-    if(noerror) {
-      openModal();
+    if (noerror) {
+      document.querySelector(".modal-suc").classList.add("modal-open");
+      document.body.classList.add("overHide");
     } else {
-      document.querySelector('.modal-error').add("modal-open");
+      document.querySelector(".modal-error").classList.add("modal-open");
       document.body.classList.add("overHide");
     }
   });
@@ -1114,6 +1110,20 @@ function submitForms(nameForm) {
 
     const formData = new FormData(form);
 
+    function ensureArrayFormat(fieldName) {
+      const fields = form.querySelectorAll(`input[name^="${fieldName}"]`);
+      if (fields.length === 1) {
+        const field = fields[0];
+        const fieldValue = field.value;
+        const fieldNameFormatted = field.name.replace(/\[\d+\]/, "[0]");
+        formData.delete(field.name); // Видаляємо старе значення
+        formData.append(fieldNameFormatted, fieldValue); // Додаємо нове значення у вигляді масиву
+      }
+    }
+
+    ensureArrayFormat("beneficialEntity");
+    ensureArrayFormat("managementEntity");
+
     // Відправка даних на сервер
     $.ajax({
       type: "POST",
@@ -1122,22 +1132,21 @@ function submitForms(nameForm) {
       processData: false,
       contentType: false,
       success: function (response) {
-        if (resp !== "error") {
-          initializeModals(false);
-        } else {
-          form.reset();
 
-          // Очищення полів типу file та їх тексту
-          clearInputFile(form);
+        form.reset();
 
-          stepStartForm(nameForm);
+        clearInputFile(form);
 
-          initializePreloader(false);
+        stepStartForm(nameForm);
 
-          // Очищення canvas
-          clearContentCanvas(form);
+        initializePreloader(false);
 
+        clearContentCanvas(form);
+
+        if (response !== "error") {
           initializeModals(true);
+        } else {
+          initializeModals(false);
         }
       },
       error: function (xhr, status, error) {
