@@ -531,9 +531,42 @@ function checkStepSubmitValid() {
   return true;
 }
 
-function handleStepSubmit(btnSubmit) {
-  const dataId = btnSubmit.dataset.id;
-  const targetStep = document.getElementById(dataId);
+// function handleStepSubmit(btnSubmit) {
+//   const dataId = btnSubmit.dataset.id;
+//   const targetStep = document.getElementById(dataId);
+
+//   const currentStep = document.querySelector(".form-part-visible");
+
+//   if (currentStep && targetStep) {
+//     currentStep.classList.remove("form-part-visible");
+//     currentStep.classList.add("form-part-hidden");
+
+//     targetStep.classList.remove("form-part-hidden");
+//     targetStep.classList.add("form-part-visible");
+
+//     setTimeout(() => {
+//       currentStep.classList.remove("is-transition");
+//       targetStep.classList.add("is-transition");
+//     }, 100);
+
+//     window.scrollTo(0, 0);
+
+//     const targetStepIndex =
+//       [...progressItems].findIndex(
+//         (item) => item.dataset.step === targetStep.id
+//       ) + 1;
+//     updateProgress(targetStepIndex);
+//   }
+// }
+
+function stepStartForm(nameForm) {
+  let targetStep;
+
+  if (nameForm === "formEntity") {
+    targetStep = document.getElementById("information");
+  } else {
+    targetStep = document.getElementById("particulars");
+  }
 
   const currentStep = document.querySelector(".form-part-visible");
 
@@ -1090,7 +1123,7 @@ function submitForms(nameForm) {
         // Очищення полів типу file та їх тексту
         clearInputFile(form);
 
-        handleStepSubmit(btnSubmit);
+        stepStartForm(nameForm);
 
         initializePreloader(false);
 
