@@ -1064,6 +1064,8 @@ function submitForms(nameForm) {
     }
   });
 
+  initializePreloader(true);
+
   form.addEventListener("submit", (event) => {
     event.preventDefault();
 
