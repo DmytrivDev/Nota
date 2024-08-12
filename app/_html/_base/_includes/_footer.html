@@ -1,56 +1,77 @@
-
 <div class="popup" id="request">
   <a href="#request" onclick="openPopup($(this))" class="overlay"></a>
   <div class="popup__container">
     <a href="#request" onclick="openPopup($(this))" class="popup__close"></a>
-    <div class="popup__title">
-      Request a Demo
-    </div>
+    <div class="popup__title">Request a Demo</div>
     <div class="popup__inner">
       <form class="popup__form">
-        <input type="hidden" name="admin_email" value="dmitriw@i.ua">
-        <input type="hidden" name="form_subject" value="Request a Demo">
+        <input type="hidden" name="admin_email" value="dmitriw@i.ua" />
+        <input type="hidden" name="form_subject" value="Request a Demo" />
         <div class="popup__fields flex">
           <label class="popup__label">
             <span>Your Name</span>
-            <input type="text" name="Name" class="popup__input required" placeholder="Type here">
+            <input
+              type="text"
+              name="Name"
+              class="popup__input required"
+              placeholder="Type here"
+            />
           </label>
           <label class="popup__label">
             <span>Email</span>
-            <input type="email" name="Email" class="popup__input required" placeholder="Type here">
+            <input
+              type="email"
+              name="Email"
+              class="popup__input required"
+              placeholder="Type here"
+            />
           </label>
           <label class="popup__label">
             <span>Phone Nubmer</span>
-            <input type="tel" name="Tel" class="popup__input required" placeholder="Type here">
+            <input
+              type="tel"
+              name="Tel"
+              class="popup__input required"
+              placeholder="Type here"
+            />
           </label>
           <label class="popup__label">
             <span>Message (optional)</span>
-            <textarea name="Message" class="popup__input txt scroll" placeholder="Type here"></textarea>
+            <textarea
+              name="Message"
+              class="popup__input txt scroll"
+              placeholder="Type here"
+            ></textarea>
           </label>
         </div>
         <div class="popup__polyci">
-          By clicking Submit, you agree to our <a href="page.html">Privacy Policy</a> and <a href="page.html">Terms and Conditions</a>.
+          By clicking Submit, you agree to our
+          <a href="page.html">Privacy Policy</a> and
+          <a href="page.html">Terms and Conditions</a>.
         </div>
         <div class="popup__buttons flex">
-          <a href="#request" onclick="openPopup($(this))" class="button border"><span>Cancel</span></a>
-          <a href="#" onclick="sendMail($(this))" class="button blue submit"><span>Submit</span></a>
+          <a href="#request" onclick="openPopup($(this))" class="button border"
+            ><span>Cancel</span></a
+          >
+          <a href="#" onclick="sendMail($(this))" class="button blue submit"
+            ><span>Submit</span></a
+          >
         </div>
       </form>
     </div>
   </div>
 </div>
 
-
 <div class="popup" id="thanks">
   <a href="#thanks" onclick="openPopup($(this))" class="overlay"></a>
   <div class="popup__container">
     <a href="#thanks" onclick="openPopup($(this))" class="popup__close"></a>
-    <div class="popup__title">
-      Successful request
-    </div>
+    <div class="popup__title">Successful request</div>
     <div class="popup__inner">
       <div class="popup__text">
-        Thank you for your interest! We have received your request for a demo, and our team will be in touch with you shortly to schedule a time that works best for you
+        Thank you for your interest! We have received your request for a demo,
+        and our team will be in touch with you shortly to schedule a time that
+        works best for you
       </div>
       <div class="popup__buttons flex">
         <a href="/" class="button border"><span>Back to Homepage</span></a>
@@ -59,67 +80,139 @@
   </div>
 </div>
 
-
 <footer class="footer">
   <div class="container">
     <div class="footer__top">
       <a href="/" class="custom-logo-link">
-        <img src="assets/img/icons/logo.svg"  alt="">
+        <img src="assets/img/icons/logo.svg" alt="" />
       </a>
     </div>
     <div class="footer__middle flex">
       <div class="footer__left">
-        <div class="footer__text">
+        <div class="footer__content">
+          <div class="footer__desc">
+            <h3>Registered company with license:</h3>
+            <p>NOTA PAY INC - License #M23079093, Canada</p>
+          </div>
+
+          <div class="footer__info">
+            <div class="footer__img-wrapp">
+              <img src="assets/img/icons/canada.svg" alt="" />
+            </div>
+            <p>
+              Main office: 406-1110 Finch Avenue West, North York, Ontario, M3J
+              2T2<br />
+              Office: 1400 10 avenue SW, Calgary, AB, T3C 3Y6
+            </p>
+          </div>
+        </div>
+
+        <div class="footer__tagline">
           <p>
-            OWNR WALLET OÜ (registration code - 14555701) is registered at Harju maakond, Tallinn, Kesklinna linnaosa, Väike-Ameerika tn 8-421, 10129, and holds the license FVT000406 for providing services of exchanging a virtual currency against a fiat currency and providing a virtual currency wallet service.
+            Main office: 406-1110 Finch Avenue West, North York, Ontario, M3J
+            2T2<br />
+            Office: 1400 10 avenue SW, Calgary, AB, T3C 3Y6
           </p>
         </div>
-        <ul class="footer__icons flex">
+
+        <ul class="footer__companies">
           <li>
-            <img src="assets/img/icons/foot_1.svg" alt="">
+            <div class="transform__img-wrapp">
+              <img src="assets/img/icons/transform_1.svg" alt="" />
+            </div>
           </li>
           <li>
-            <img src="assets/img/icons/foot_2.svg" alt="">
+            <div class="transform__img-wrapp">
+              <img src="assets/img/icons/transform_2.svg" alt="" />
+            </div>
           </li>
           <li>
-            <img src="assets/img/icons/foot_3.svg" alt="">
+            <div class="transform__img-wrapp">
+              <img src="assets/img/icons/transform_3.svg" alt="" />
+            </div>
           </li>
           <li>
-            <img src="assets/img/icons/foot_4.svg" alt="">
+            <div class="transform__img-wrapp">
+              <img src="assets/img/icons/transform_4.svg" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="transform__img-wrapp">
+              <img src="assets/img/icons/transform_5.svg" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="transform__img-wrapp">
+              <img src="assets/img/icons/transform_6.svg" alt="" />
+            </div>
+          </li>
+          <li>
+            <div class="transform__img-wrapp">
+              <img src="assets/img/icons/transform_7.svg" alt="" />
+            </div>
           </li>
         </ul>
+
         <ul class="footer_nav flex">
           <li>
-            <a href="#">
-              Solutions
-            </a>
+            <a href="#"> Solutions </a>
           </li>
           <li>
-            <a href="about.html">
-              About company
-            </a>
+            <a href="about.html"> About company </a>
           </li>
           <li>
-            <a href="products.html">
-              Products
-            </a>
+            <a href="products.html"> Products </a>
           </li>
           <li>
-            <a href="page.html">
-              Privacy Policy
-            </a>
+            <a href="page.html"> Privacy Policy </a>
           </li>
           <li>
-            <a href="developers.html">
-              Developers
-            </a>
+            <a href="developers.html"> Developers </a>
           </li>
           <li>
-            <a href="page.html">
-              Terms and Conditions
-            </a>
+            <a href="page.html"> Terms and Conditions </a>
           </li>
         </ul>
+
+        <div class="footer__content-mob">
+          <div class="footer__desc">
+            <h3>Registered companies with licenses:</h3>
+          </div>
+
+          <div class="footer__info">
+            <div class="footer__img-wrapp">
+              <img src="assets/img/icons/canada.svg" alt="" />
+            </div>
+            <p>NOTA PAY INC - License #M23079093, Canada</p>
+          </div>
+        </div>
+
+        <!--
+        <div class="footer__text">
+          <p>
+            OWNR WALLET OÜ (registration code - 14555701) is registered at Harju
+            maakond, Tallinn, Kesklinna linnaosa, Väike-Ameerika tn 8-421,
+            10129, and holds the license FVT000406 for providing services of
+            exchanging a virtual currency against a fiat currency and providing
+            a virtual currency wallet service.
+          </p>
+        </div> -->
+        <!-- 
+        <ul class="footer__icons flex">
+          <li>
+            <img src="assets/img/icons/foot_1.svg" alt="" />
+          </li>
+          <li>
+            <img src="assets/img/icons/foot_2.svg" alt="" />
+          </li>
+          <li>
+            <img src="assets/img/icons/foot_3.svg" alt="" />
+          </li>
+          <li>
+            <img src="assets/img/icons/foot_4.svg" alt="" />
+          </li>
+        </ul> -->
+        <!--
         <div class="footer__parts">
           <div class="footer__part">
             <h3>Registered companies with licenses:</h3>
@@ -139,50 +232,34 @@
               <br>OWNR WALLET UK LTD - 12924828, United Kingdom
             </p>
           </div>
-        </div>
+        </div> -->
       </div>
       <div class="footer__right">
         <ul class="footer_nav flex">
           <li>
-            <a href="#">
-              Solutions
-            </a>
+            <a href="#"> Solutions </a>
           </li>
           <li>
-            <a href="about.html">
-              About company
-            </a>
+            <a href="about.html"> About company </a>
           </li>
           <li>
-            <a href="products.html">
-              Products
-            </a>
+            <a href="products.html"> Products </a>
           </li>
           <li>
-            <a href="page.html">
-              Privacy Policy
-            </a>
+            <a href="page.html"> Privacy Policy </a>
           </li>
           <li>
-            <a href="developers.html">
-              Developers
-            </a>
+            <a href="developers.html"> Developers </a>
           </li>
           <li>
-            <a href="page.html">
-              Terms and Conditions
-            </a>
+            <a href="page.html"> Terms and Conditions </a>
           </li>
         </ul>
       </div>
     </div>
     <div class="footer__bottom flex">
-      <div class="copyright">
-        Notapay 2023
-      </div>
-      <div class="copyright">
-        All rights reserved
-      </div>
+      <div class="copyright">Notapay 2023</div>
+      <div class="copyright">All rights reserved</div>
     </div>
   </div>
 </footer>
